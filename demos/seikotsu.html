@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>みどり通り整骨院｜デモサイト</title>
+<meta name="description" content="肩こり・腰痛・骨盤矯正の整骨院（デモサイト）。2院の住所・電話・営業時間とWeb予約。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f8f5;--panel:#fff;--ink:#1f2d27;--mute:#5f6f68;--accent:#2f8f6b;--accent2:#e8f3ee;--warm:#f2a541;--line:#dbe7e1}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.85;font-size:15px;padding-bottom:64px}
+h1,h2,h3,.brand{font-family:"Zen Maru Gothic",sans-serif}
+a{color:inherit}
+.ribbon{background:var(--ink);color:#cfdcd5;font-size:12px;text-align:center;padding:6px 12px}
+.ribbon a{color:#9fe0c4}
+header{display:flex;justify-content:space-between;align-items:center;padding:14px 24px;position:sticky;top:0;background:rgba(244,248,245,.95);backdrop-filter:blur(6px);z-index:5;border-bottom:1px solid var(--line)}
+.brand{font-weight:700;font-size:20px;color:var(--accent)}
+.brand small{display:block;font-size:11px;color:var(--mute);font-family:"Noto Sans JP",sans-serif;font-weight:400;line-height:1.2}
+nav a{margin-left:18px;text-decoration:none;font-size:13px;color:var(--mute)}
+nav a.cta{background:var(--accent);color:#fff;padding:9px 18px;border-radius:99px}
+.hero{max-width:1040px;margin:0 auto;padding:56px 24px 64px;display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:center}
+.hero .tag{display:inline-block;background:var(--accent2);color:var(--accent);font-size:12px;font-weight:700;padding:4px 12px;border-radius:99px}
+.hero h1{font-size:clamp(30px,4.6vw,48px);line-height:1.35;margin:14px 0 16px}
+.hero h1 em{font-style:normal;color:var(--accent);background:linear-gradient(transparent 65%,#ffe2b3 65%)}
+.hero p{color:var(--mute);max-width:470px}
+.points{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 26px}
+.points span{background:var(--panel);border:1px solid var(--line);font-size:13px;padding:6px 12px;border-radius:8px}
+.btn{display:inline-block;background:var(--warm);color:#fff;text-decoration:none;font-weight:700;padding:15px 30px;border-radius:99px;border:0;font-size:16px;font-family:inherit;cursor:pointer;box-shadow:0 6px 16px rgba(242,165,65,.35)}
+.btn.line{background:#06c755;box-shadow:none;margin-left:8px}
+.visual{aspect-ratio:4/3.4;border-radius:28px;background:radial-gradient(circle at 70% 25%,#fff9,transparent 40%),linear-gradient(150deg,#bfe3d2,#7cc3a3 55%,#2f8f6b);position:relative;overflow:hidden}
+.visual::after{content:"";position:absolute;left:10%;right:10%;bottom:12%;height:30%;border-radius:20px;background:rgba(255,255,255,.55)}
+.visual b{position:absolute;left:14%;bottom:18%;z-index:1;font-family:"Zen Maru Gothic";color:var(--ink);font-size:15px}
+section{padding:72px 24px;border-top:1px solid var(--line)}
+.in{max-width:1040px;margin:0 auto}
+.label{color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.18em}
+h2{font-size:28px;margin:4px 0 30px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:18px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px}
+.card .num{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--accent2);color:var(--accent);font-weight:700;margin-bottom:8px}
+.card h3{font-size:17px;margin-bottom:6px}
+.card p{font-size:14px;color:var(--mute)}
+.worry{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:12px}
+.worry div{background:var(--panel);border-radius:12px;padding:14px 16px;font-size:14px;border-left:4px solid var(--warm)}
+.menu{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:6px 26px}
+.row{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.row:last-child{border:0}
+.row small{display:block;color:var(--mute);font-size:12px}
+.row b{white-space:nowrap}
+.row .ins{color:var(--accent);font-size:12px;font-weight:700}
+.note{font-size:12px;color:var(--mute);margin-top:12px}
+.shops{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:22px}
+.shop{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.map{height:180px;background:repeating-linear-gradient(0deg,#e3ece7 0 1px,transparent 1px 34px),repeating-linear-gradient(90deg,#e3ece7 0 1px,transparent 1px 34px),#f1f6f3;position:relative}
+.map::before{content:"";position:absolute;left:0;right:0;top:46%;height:14px;background:#fff;border-top:1px solid #d5e2db;border-bottom:1px solid #d5e2db}
+.map i{position:absolute;left:58%;top:30%;width:22px;height:22px;background:#e5484d;border-radius:50% 50% 50% 0;transform:rotate(-45deg)}
+.map span{position:absolute;right:10px;bottom:8px;font-size:11px;color:var(--mute);background:#fffc;padding:2px 8px;border-radius:6px}
+.shop .b{padding:22px 24px}
+.shop h3{font-size:19px}
+.nap{font-size:14px;margin:10px 0 14px}
+.nap dt{color:var(--mute);font-size:12px;margin-top:8px}
+table{width:100%;border-collapse:collapse;font-size:13px;text-align:center}
+th,td{border:1px solid var(--line);padding:6px 2px}
+th{background:var(--accent2);font-weight:500}
+.x{color:#c0c7c3}
+.shop .acts{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.shop .acts a{flex:1;min-width:120px;text-align:center;text-decoration:none;border:1px solid var(--accent);color:var(--accent);border-radius:99px;padding:9px;font-size:14px;font-weight:700}
+.shop .acts a.p{background:var(--accent);color:#fff}
+.book{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:30px}
+.step{font-size:13px;color:var(--accent);font-weight:700;margin:20px 0 10px}
+.step:first-child{margin-top:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--bg);padding:9px 16px;border-radius:99px;font-size:14px;cursor:pointer;font-family:inherit;color:var(--ink)}
+.chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.chip:disabled{opacity:.35;cursor:not-allowed;text-decoration:line-through}
+input{width:100%;border:1px solid var(--line);background:var(--bg);padding:12px 14px;border-radius:10px;font-size:15px;font-family:inherit}
+.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px}
+.summary{margin:20px 0 14px;font-size:14px;color:var(--mute)}
+.done{display:none;margin-top:14px;background:var(--accent2);padding:14px 18px;border-radius:10px;font-size:14px;color:var(--accent)}
+.faq details{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:10px}
+.faq summary{cursor:pointer;font-weight:500}
+.faq p{color:var(--mute);font-size:14px;margin-top:8px}
+footer{text-align:center;color:var(--mute);font-size:12px;padding:30px}
+.fixbar{position:fixed;left:0;right:0;bottom:0;display:none;z-index:9;background:#fff;border-top:1px solid var(--line);padding:8px;gap:8px}
+.fixbar a{flex:1;text-align:center;text-decoration:none;font-weight:700;border-radius:10px;padding:11px 4px;font-size:14px}
+.fixbar .tel{border:1px solid var(--accent);color:var(--accent)}
+.fixbar .web{background:var(--warm);color:#fff}
+@media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:36px}.visual{order:-1;aspect-ratio:16/10}nav a:not(.cta){display:none}.btn.line{margin:10px 0 0}.fixbar{display:flex}.book{padding:22px 18px}.menu{padding:4px 16px}}
+@media(min-width:761px){body{padding-bottom:0}}
+</style>
+</head>
+<body>
+<div class="ribbon">これは架空の院を題材にしたデモサイトです｜<a href="../works.html">制作者のページへ</a></div>
+<header>
+  <div class="brand">みどり通り整骨院<small>中央院・駅前院</small></div>
+  <nav><a href="#menu">料金</a><a href="#shops">2院のご案内</a><a href="#faq">よくある質問</a><a class="cta" href="#book">Web予約</a></nav>
+</header>
+
+<div class="hero">
+  <div>
+    <span class="tag">肩こり・腰痛・骨盤矯正</span>
+    <h1>その痛み、<br><em>「いつものこと」</em>に<br>しないでください。</h1>
+    <p>原因を探るカウンセリングから始めて、痛みが戻りにくい体づくりまでお手伝いします。仕事帰りの20時まで、土日も受付しています。</p>
+    <div class="points"><span>平日20時まで</span><span>土日祝も営業</span><span>各種保険取扱い</span><span>駐車場あり（中央院）</span></div>
+    <a class="btn" href="#book">空き時間を見て予約</a><a class="btn line" href="#book">LINEで相談</a>
+  </div>
+  <div class="visual"><b>施術風景の写真が入ります</b></div>
+</div>
+
+<section>
+  <div class="in">
+    <div class="label">WORRIES</div>
+    <h2>こんなお悩みはありませんか？</h2>
+    <div class="worry">
+      <div>デスクワークで夕方になると肩が重い</div>
+      <div>朝起きたときに腰が痛む</div>
+      <div>産後から骨盤のゆがみが気になる</div>
+      <div>マッサージに行っても数日で戻る</div>
+      <div>寝違え・ぎっくり腰で動けない</div>
+      <div>スポーツのケガを早く治したい</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="in">
+    <div class="label">REASONS</div>
+    <h2>みどり通り整骨院が選ばれる理由</h2>
+    <div class="grid">
+      <div class="card"><span class="num">1</span><h3>国家資格者が担当</h3><p>柔道整復師が、問診から施術まで同じ担当者で対応します。</p></div>
+      <div class="card"><span class="num">2</span><h3>原因から説明</h3><p>姿勢や動きを確認し、なぜ痛むのかを図で説明してから施術します。</p></div>
+      <div class="card"><span class="num">3</span><h3>通いやすい時間</h3><p>平日は20時まで受付。土日祝も開いているので、お仕事帰りでも通えます。</p></div>
+      <div class="card"><span class="num">4</span><h3>自宅でのケア指導</h3><p>家でできるストレッチをお伝えし、通院回数をなるべく減らします。</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="in">
+    <div class="label">PRICE</div>
+    <h2>メニュー・料金</h2>
+    <div class="menu">
+      <div class="row"><div>保険施術<small>捻挫・打撲・ぎっくり腰など／初診料込み</small></div><b><span class="ins">保険適用</span> 1,500円〜</b></div>
+      <div class="row"><div>肩こり・腰痛ケア<small>手技＋ストレッチ／約30分</small></div><b>3,300円</b></div>
+      <div class="row"><div>骨盤矯正<small>産後の方にもおすすめ／約30分</small></div><b>4,400円</b></div>
+      <div class="row"><div>はじめての方 体験コース<small>カウンセリング＋骨盤矯正／約45分</small></div><b>2,980円</b></div>
+    </div>
+    <p class="note">※ 料金は税込です。保険施術の負担額は症状・負担割合によって変わります。</p>
+  </div>
+</section>
+
+<section id="shops">
+  <div class="in">
+    <div class="label">ACCESS</div>
+    <h2>2院のご案内</h2>
+    <div class="shops">
+      <div class="shop">
+        <div class="map"><i></i><span>Googleマップを埋め込みます</span></div>
+        <div class="b">
+          <h3>みどり通り整骨院 中央院</h3>
+          <dl class="nap">
+            <dt>住所</dt><dd>〒000-0000 架空県みどり市中央1-2-3 みどりビル1F</dd>
+            <dt>電話</dt><dd>000-000-0001</dd>
+            <dt>アクセス</dt><dd>みどり中央駅 徒歩5分／駐車場3台</dd>
+          </dl>
+          <table>
+            <tr><th></th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th><th>日祝</th></tr>
+            <tr><td>9:00-12:30</td><td>●</td><td>●</td><td>●</td><td class="x">−</td><td>●</td><td>●</td><td>●</td></tr>
+            <tr><td>15:00-20:00</td><td>●</td><td>●</td><td>●</td><td class="x">−</td><td>●</td><td>▲</td><td class="x">−</td></tr>
+          </table>
+          <p class="note">▲ 土曜午後は17:00まで／休診：木曜・日祝午後</p>
+          <div class="acts"><a class="p" href="#book">中央院を予約</a><a href="#shops">ルートを見る</a></div>
+        </div>
+      </div>
+      <div class="shop">
+        <div class="map"><i style="left:34%;top:52%"></i><span>Googleマップを埋め込みます</span></div>
+        <div class="b">
+          <h3>みどり通り整骨院 駅前院</h3>
+          <dl class="nap">
+            <dt>住所</dt><dd>〒000-0000 架空県みどり市駅前4-5-6 2F</dd>
+            <dt>電話</dt><dd>000-000-0002</dd>
+            <dt>アクセス</dt><dd>みどり駅 北口すぐ</dd>
+          </dl>
+          <table>
+            <tr><th></th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th><th>日祝</th></tr>
+            <tr><td>10:00-13:00</td><td>●</td><td>●</td><td class="x">−</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+            <tr><td>15:00-20:00</td><td>●</td><td>●</td><td class="x">−</td><td>●</td><td>●</td><td>●</td><td>▲</td></tr>
+          </table>
+          <p class="note">▲ 日祝午後は18:00まで／休診：水曜</p>
+          <div class="acts"><a class="p" href="#book">駅前院を予約</a><a href="#shops">ルートを見る</a></div>
+        </div>
+      </div>
+    </div>
+    <p class="note">※ 院名・住所・電話番号は、Googleビジネスプロフィールの登録内容と1文字も違わないように合わせて掲載します（地図検索での表示に効きます）。</p>
+  </div>
+</section>
+
+<section id="book">
+  <div class="in">
+    <div class="label">RESERVE</div>
+    <h2>Web予約</h2>
+    <div class="book">
+      <div class="step">1. 院を選ぶ</div>
+      <div class="chips" id="shop"><button class="chip" data-v="中央院">中央院</button><button class="chip" data-v="駅前院">駅前院</button></div>
+      <div class="step">2. メニューを選ぶ</div>
+      <div class="chips" id="menuSel"><button class="chip" data-v="体験コース">はじめての方 体験コース</button><button class="chip" data-v="肩こり・腰痛ケア">肩こり・腰痛ケア</button><button class="chip" data-v="骨盤矯正">骨盤矯正</button><button class="chip" data-v="保険施術">ケガ・急な痛み（保険）</button></div>
+      <div class="step">3. 日にち</div>
+      <div class="chips" id="day"></div>
+      <div class="step">4. 時間（埋まっている枠は選べません）</div>
+      <div class="chips" id="time"></div>
+      <div class="step">5. お名前・電話番号</div>
+      <div class="fields"><input id="nm" placeholder="お名前"><input id="tel" placeholder="電話番号" inputmode="tel"></div>
+      <p class="summary" id="sum">院・メニュー・日時を選んでください。</p>
+      <button class="btn" id="go">この内容で予約する</button>
+      <div class="done" id="done"></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="in faq">
+    <div class="label">FAQ</div>
+    <h2>よくある質問</h2>
+    <details><summary>予約なしでも行けますか？</summary><p>はい、受付できます。ただし予約の方が優先になるため、Web予約がおすすめです。</p></details>
+    <details><summary>保険は使えますか？</summary><p>捻挫・打撲・挫傷など、原因がはっきりしたケガは健康保険が使えます。慢性的な肩こりは自費になります。</p></details>
+    <details><summary>どんな服装で行けばいいですか？</summary><p>動きやすい服装でお越しください。着替えもご用意しています。</p></details>
+  </div>
+</section>
+
+<footer>© みどり通り整骨院（架空）｜デモサイト</footer>
+<div class="fixbar"><a class="tel" href="#shops">電話する</a><a class="web" href="#book">Web予約</a></div>
+
+<script>
+const st={shop:null,menu:null,day:null,time:null};
+const wd=['日','月','火','水','木','金','土'];
+const dayBox=document.getElementById('day'),timeBox=document.getElementById('time');
+const slots=['10:00','11:00','12:00','15:00','16:00','17:00','18:00','19:00'];
+function pick(box,key){box.addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b||b.disabled)return;box.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));b.classList.add('on');st[key]=b.dataset.v;if(key==='day'||key==='shop')renderTimes();update()})}
+function renderDays(){const t=new Date();dayBox.innerHTML='';for(let i=0;i<7;i++){const d=new Date(t);d.setDate(t.getDate()+i);const b=document.createElement('button');b.className='chip';b.dataset.v=(d.getMonth()+1)+'/'+d.getDate()+'（'+wd[d.getDay()]+'）';b.textContent=b.dataset.v;dayBox.appendChild(b)}}
+function renderTimes(){timeBox.innerHTML='';st.time=null;const seed=(st.day||'').length+(st.shop==='駅前院'?3:0);slots.forEach((s,i)=>{const b=document.createElement('button');b.className='chip';b.dataset.v=s;b.textContent=s;if(!st.day||(i*7+seed)%3===0)b.disabled=true;timeBox.appendChild(b)})}
+function update(){const s=document.getElementById('sum');s.textContent=(st.shop&&st.menu&&st.day&&st.time)?`${st.shop}／${st.menu}／${st.day} ${st.time}`:'院・メニュー・日時を選んでください。'}
+pick(document.getElementById('shop'),'shop');pick(document.getElementById('menuSel'),'menu');pick(dayBox,'day');pick(timeBox,'time');
+renderDays();renderTimes();
+document.getElementById('go').addEventListener('click',()=>{const d=document.getElementById('done');d.style.display='block';d.textContent=(st.shop&&st.menu&&st.day&&st.time&&document.getElementById('nm').value)?'予約を受け付けました（デモのため送信はされません）。確認のSMSが届きます。':'院・メニュー・日時・お名前を入力してください。'});
+</script>
+</body>
+</html>
