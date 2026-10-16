@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ja" class="notranslate" translate="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google" content="notranslate">
+<title>町家の宿 澄 SUMI｜デモサイト</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f1ea;--ink:#22302e;--mute:#6f7a76;--accent:#2f5d58;--line:#d9d3c5;--panel:#fbf9f4}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.95;font-size:15px}
+h1,h2,h3,.brand{font-family:"Shippori Mincho",serif;font-weight:600;letter-spacing:.1em}
+[data-en]{display:none}
+html.en [data-en]{display:revert}
+html.en [data-ja]{display:none}
+.ribbon{background:var(--ink);color:#cfd6d2;font-size:12px;text-align:center;padding:6px 12px}
+.ribbon a{color:#a9d1c9}
+header{display:flex;justify-content:space-between;align-items:center;padding:18px 28px;position:sticky;top:0;background:rgba(244,241,234,.95);backdrop-filter:blur(6px);z-index:5;border-bottom:1px solid var(--line)}
+.brand{font-size:22px}
+.brand small{font-size:11px;color:var(--mute);margin-left:8px;letter-spacing:.3em}
+.right{display:flex;align-items:center;gap:18px}
+nav a{margin-left:20px;text-decoration:none;color:var(--mute);font-size:13px}
+.lang{display:flex;border:1px solid var(--accent);border-radius:99px;overflow:hidden}
+.lang button{border:0;background:none;padding:5px 14px;font-size:12px;cursor:pointer;color:var(--accent);font-family:inherit}
+.lang button.on{background:var(--accent);color:#fff}
+.hero{min-height:min(76vh,700px);display:flex;align-items:flex-end;padding:56px 40px;color:#fff;
+background:linear-gradient(to top,rgba(20,32,30,.8),rgba(20,32,30,.1) 60%),repeating-linear-gradient(90deg,transparent 0 58px,rgba(0,0,0,.28) 58px 62px),linear-gradient(170deg,#c9b98f,#8d7c57 40%,#3f4f46)}
+.hero h1{font-size:clamp(30px,5.6vw,58px);line-height:1.5}
+.hero p{max-width:480px;opacity:.9;margin:14px 0 26px}
+.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:14px 34px;border:0;font-size:15px;font-family:inherit;cursor:pointer}
+.hero .btn{background:#fff;color:var(--ink)}
+section{max-width:1020px;margin:0 auto;padding:88px 24px}
+.label{font-size:12px;letter-spacing:.3em;color:var(--accent)}
+h2{font-size:30px;margin:6px 0 36px}
+.rooms{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:26px}
+.room{background:var(--panel);border:1px solid var(--line)}
+.room .ph{height:190px;background:linear-gradient(135deg,#d8ccae,#9aa58f 60%,#52655c)}
+.room:nth-child(2) .ph{background:linear-gradient(135deg,#e2d5c3,#b79a7a 60%,#5f4a39)}
+.room:nth-child(3) .ph{background:linear-gradient(135deg,#cfd8d6,#7f9a98 60%,#2f4b4c)}
+.room div.b{padding:24px}
+.room h3{font-size:20px}
+.room p{font-size:14px;color:var(--mute);margin:8px 0 14px}
+.room .price{font-family:"Shippori Mincho",serif;font-size:19px}
+.room .price small{font-size:12px;color:var(--mute)}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.feat div{background:var(--panel);padding:26px;font-size:14px}
+.feat b{display:block;font-family:"Shippori Mincho",serif;font-size:17px;margin-bottom:6px}
+.check{background:var(--panel);border:1px solid var(--line);padding:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;align-items:end}
+label{display:block;font-size:12px;color:var(--mute);margin-bottom:6px}
+input,select{width:100%;border:1px solid var(--line);background:#fff;padding:12px;font-size:15px;font-family:inherit}
+.result{display:none;grid-column:1/-1;border-top:1px solid var(--line);padding-top:20px;font-size:14px}
+.result b{font-family:"Shippori Mincho",serif;font-size:22px}
+.note{color:var(--mute);font-size:13px;margin-top:8px}
+dl{display:grid;grid-template-columns:120px 1fr;gap:10px 16px;font-size:14px;max-width:640px}
+dt{color:var(--mute)}
+footer{text-align:center;font-size:12px;color:var(--mute);padding:32px;border-top:1px solid var(--line)}
+@media(max-width:680px){nav{display:none}.hero{padding:40px 24px}.check{padding:22px}}
+</style>
+</head>
+<body>
+<div class="ribbon"><span data-ja>これは架空の宿を題材にしたデモサイトです｜<a href="../index.html">制作者のページへ</a></span><span data-en>This is a demo site for a fictional inn | <a href="../index.html">About the creator</a></span></div>
+<header>
+  <div class="brand">澄<small>SUMI</small></div>
+  <div class="right">
+    <nav><a href="#rooms"><span data-ja>お部屋</span><span data-en>Rooms</span></a><a href="#stay"><span data-ja>過ごし方</span><span data-en>Your stay</span></a><a href="#book"><span data-ja>空室検索</span><span data-en>Availability</span></a></nav>
+    <div class="lang"><button id="ja" class="on">日本語</button><button id="en">English</button></div>
+  </div>
+</header>
+
+<div class="hero">
+  <div>
+    <h1><span data-ja>築百年の町家に、<br>一日一組だけ。</span><span data-en>A century-old townhouse,<br>one party per night.</span></h1>
+    <p><span data-ja>格子戸の向こうに坪庭。檜の湯船と、静かな朝。暮らすように泊まる一棟貸しの宿です。</span><span data-en>A courtyard garden behind lattice doors, a cypress bath, and quiet mornings. A whole house, all to yourselves.</span></p>
+    <a class="btn" href="#book"><span data-ja>空室を確認する</span><span data-en>Check availability</span></a>
+  </div>
+</div>
+
+<section id="rooms">
+  <div class="label">ROOMS</div>
+  <h2><span data-ja>三つの棟</span><span data-en>Three houses</span></h2>
+  <div class="rooms">
+    <div class="room"><div class="ph"></div><div class="b"><h3><span data-ja>庭の棟</span><span data-en>Garden House</span></h3><p><span data-ja>坪庭に面した和室と檜風呂。2〜4名様。</span><span data-en>Tatami room facing the courtyard, cypress bath. 2–4 guests.</span></p><div class="price">¥38,000〜 <small><span data-ja>／1棟1泊</span><span data-en>/ night</span></small></div></div></div>
+    <div class="room"><div class="ph"></div><div class="b"><h3><span data-ja>蔵の棟</span><span data-en>Storehouse</span></h3><p><span data-ja>土蔵を改装した吹き抜けの寝室。2名様。</span><span data-en>A converted storehouse with a double-height bedroom. 2 guests.</span></p><div class="price">¥32,000〜 <small><span data-ja>／1棟1泊</span><span data-en>/ night</span></small></div></div></div>
+    <div class="room"><div class="ph"></div><div class="b"><h3><span data-ja>離れ</span><span data-en>Annex</span></h3><p><span data-ja>台所つきで長期滞在向け。2〜6名様。</span><span data-en>Full kitchen, ideal for longer stays. 2–6 guests.</span></p><div class="price">¥45,000〜 <small><span data-ja>／1棟1泊</span><span data-en>/ night</span></small></div></div></div>
+  </div>
+</section>
+
+<section id="stay">
+  <div class="label">YOUR STAY</div>
+  <h2><span data-ja>過ごし方</span><span data-en>What's included</span></h2>
+  <div class="feat">
+    <div><b><span data-ja>朝食</span><span data-en>Breakfast</span></b><span data-ja>近所の仕出し屋から、土鍋ごはんの朝食が届きます。</span><span data-en>A local caterer delivers a Japanese breakfast with clay-pot rice.</span></div>
+    <div><b><span data-ja>無人チェックイン</span><span data-en>Self check-in</span></b><span data-ja>暗証番号で入室。到着時間を気にせずお越しください。</span><span data-en>Enter with a door code. Arrive whenever suits you.</span></div>
+    <div><b><span data-ja>貸し自転車</span><span data-en>Bicycles</span></b><span data-ja>各棟に2台。近くの市場や銭湯へどうぞ。</span><span data-en>Two per house, for the nearby market and public bath.</span></div>
+    <div><b><span data-ja>荷物預かり</span><span data-en>Luggage storage</span></b><span data-ja>チェックイン前・チェックアウト後も無料です。</span><span data-en>Free before check-in and after check-out.</span></div>
+  </div>
+</section>
+
+<section id="book">
+  <div class="label">AVAILABILITY</div>
+  <h2><span data-ja>空室検索</span><span data-en>Check availability</span></h2>
+  <form class="check" id="f">
+    <div><label><span data-ja>チェックイン</span><span data-en>Check-in</span></label><input type="date" id="in" required></div>
+    <div><label><span data-ja>チェックアウト</span><span data-en>Check-out</span></label><input type="date" id="out" required></div>
+    <div><label><span data-ja>人数</span><span data-en>Guests</span></label><select id="g"><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div>
+    <div><label><span data-ja>棟</span><span data-en>House</span></label><select id="r"><option value="38000" data-j="庭の棟" data-e="Garden House">庭の棟 / Garden House</option><option value="32000" data-j="蔵の棟" data-e="Storehouse">蔵の棟 / Storehouse</option><option value="45000" data-j="離れ" data-e="Annex">離れ / Annex</option></select></div>
+    <div><button class="btn" type="submit" style="width:100%"><span data-ja>検索する</span><span data-en>Search</span></button></div>
+    <div class="result" id="res"></div>
+  </form>
+</section>
+
+<section>
+  <div class="label">ACCESS</div>
+  <h2><span data-ja>ご案内</span><span data-en>Information</span></h2>
+  <dl>
+    <dt><span data-ja>住所</span><span data-en>Address</span></dt><dd><span data-ja>〒000-0000 架空県見本市格子町7-8</span><span data-en>7-8 Koshi-machi, Mihon City (fictional)</span></dd>
+    <dt><span data-ja>チェックイン</span><span data-en>Check-in</span></dt><dd>15:00〜</dd>
+    <dt><span data-ja>チェックアウト</span><span data-en>Check-out</span></dt><dd>〜11:00</dd>
+    <dt><span data-ja>お問い合わせ</span><span data-en>Contact</span></dt><dd>stay@example.com</dd>
+  </dl>
+</section>
+
+<footer><span data-ja>© 町家の宿 澄 — 架空の宿のデモサイトです</span><span data-en>© SUMI Townhouse Stay — a demo site for a fictional inn</span></footer>
+<script>
+var h=document.documentElement,bj=document.getElementById('ja'),be=document.getElementById('en');
+function lang(en){h.classList.toggle('en',en);h.lang=en?'en':'ja';bj.classList.toggle('on',!en);be.classList.toggle('on',en)}
+bj.onclick=function(){lang(false)};be.onclick=function(){lang(true)};
+if(location.hash==='#en')lang(true);
+document.getElementById('f').addEventListener('submit',function(e){
+  e.preventDefault();
+  var i=new Date(document.getElementById('in').value),o=new Date(document.getElementById('out').value),n=Math.round((o-i)/864e5),res=document.getElementById('res'),en=h.classList.contains('en');
+  res.style.display='block';
+  if(!(n>0)){res.textContent=en?'Check-out must be after check-in.':'チェックアウトはチェックインより後の日付にしてください。';return}
+  var s=document.getElementById('r'),op=s.options[s.selectedIndex],g=+document.getElementById('g').value,total=(+op.value+Math.max(0,g-2)*6000)*n;
+  res.innerHTML=(en?op.dataset.e+' — '+n+' night'+(n>1?'s':'')+', '+g+' guests: ':op.dataset.j+'・'+n+'泊・'+g+'名様：')+'<b>¥'+total.toLocaleString()+'</b><div class="note">'+(en?'This is a demo, so no booking is made. On a live site, guests would continue to payment here.':'デモサイトのため、実際の予約は行われません。本番ではここから予約と決済に進みます。')+'</div>';
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>炭火と土鍋ごはん 灯｜デモサイト</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#16110d;--panel:#211a14;--ink:#f1e8dc;--mute:#b3a492;--accent:#d9843b;--line:#3a2e24}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.9;font-size:15px}
+h1,h2,h3,.brand{font-family:"Shippori Mincho",serif;font-weight:700;letter-spacing:.08em}
+a{color:inherit}
+.ribbon{background:#000;color:#cfc4b6;font-size:12px;text-align:center;padding:6px 12px}
+.ribbon a{color:var(--accent)}
+header{position:sticky;top:0;z-index:5;background:rgba(22,17,13,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;padding:14px 24px}
+.brand{font-size:20px}
+nav a{margin-left:20px;text-decoration:none;font-size:13px;color:var(--mute)}
+nav a.cta{color:#16110d;background:var(--accent);padding:8px 16px;border-radius:2px;font-weight:500}
+.hero{min-height:min(78vh,720px);display:grid;place-items:center;text-align:center;padding:80px 24px;
+background:radial-gradient(ellipse at 50% 110%,rgba(217,132,59,.55),transparent 60%),radial-gradient(ellipse at 30% 120%,rgba(180,60,20,.5),transparent 50%),linear-gradient(#0e0a07,#1c140e)}
+.hero small{letter-spacing:.4em;color:var(--accent);font-size:12px}
+.hero h1{font-size:clamp(34px,7vw,68px);line-height:1.4;margin:18px 0}
+.hero p{color:var(--mute);max-width:520px;margin:0 auto 32px}
+.btn{display:inline-block;background:var(--accent);color:#16110d;text-decoration:none;padding:14px 34px;font-weight:500;border:0;border-radius:2px;font-size:15px;cursor:pointer;font-family:inherit}
+section{max-width:1000px;margin:0 auto;padding:88px 24px}
+.label{color:var(--accent);font-size:12px;letter-spacing:.3em}
+h2{font-size:30px;margin:8px 0 36px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.card{background:var(--panel);border:1px solid var(--line);padding:28px}
+.card .ph{height:140px;margin:-28px -28px 22px;background:linear-gradient(135deg,#5b2d12,#d9843b 55%,#f4c98a)}
+.card:nth-child(2) .ph{background:linear-gradient(135deg,#2c2a22,#8a7d5a 55%,#efe6c8)}
+.card:nth-child(3) .ph{background:linear-gradient(135deg,#1d2a26,#3f6b5a 55%,#b9d6c0)}
+.card h3{font-size:19px;margin-bottom:8px}
+.card p{color:var(--mute);font-size:14px}
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:8px 48px}
+.menu h3{grid-column:1/-1;font-size:18px;color:var(--accent);margin-top:24px}
+.item{display:flex;justify-content:space-between;gap:16px;border-bottom:1px dotted var(--line);padding:12px 0}
+.item span:last-child{white-space:nowrap;color:var(--mute)}
+.reserve{background:var(--panel);border:1px solid var(--line);padding:36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+label{display:block;font-size:12px;color:var(--mute);margin-bottom:6px}
+input,select{width:100%;background:#120d0a;border:1px solid var(--line);color:var(--ink);padding:12px;font-size:15px;font-family:inherit}
+.reserve .full{grid-column:1/-1}
+.done{display:none;grid-column:1/-1;border:1px solid var(--accent);padding:14px;color:var(--accent);font-size:14px}
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px}
+dl{display:grid;grid-template-columns:90px 1fr;gap:12px 16px;font-size:14px}
+dt{color:var(--mute)}
+.map{min-height:240px;background:repeating-linear-gradient(45deg,#1d1712,#1d1712 12px,#241c16 12px,#241c16 24px);border:1px solid var(--line);display:grid;place-items:center;color:var(--mute);font-size:13px}
+footer{border-top:1px solid var(--line);text-align:center;color:var(--mute);font-size:12px;padding:32px}
+@media(max-width:640px){nav a:not(.cta){display:none}section{padding:64px 20px}}
+</style>
+</head>
+<body>
+<div class="ribbon">これは架空の店舗を題材にしたデモサイトです｜<a href="../index.html">制作者のページへ</a></div>
+<header>
+  <div class="brand">灯 <span style="font-size:12px;color:var(--mute);letter-spacing:.2em">AKARI</span></div>
+  <nav><a href="#kodawari">こだわり</a><a href="#menu">お品書き</a><a href="#access">店舗情報</a><a class="cta" href="#reserve">ご予約</a></nav>
+</header>
+
+<div class="hero">
+  <div>
+    <small>炭火と土鍋ごはん</small>
+    <h1>火を見ながら、<br>ゆっくり食べる夜。</h1>
+    <p>備長炭で焼く旬の魚と野菜、注文ごとに炊き上げる土鍋ごはん。カウンター8席と小上がり2卓の小さな店です。</p>
+    <a class="btn" href="#reserve">席を予約する</a>
+  </div>
+</div>
+
+<section id="kodawari">
+  <div class="label">KODAWARI</div>
+  <h2>三つのこだわり</h2>
+  <div class="grid3">
+    <div class="card"><div class="ph"></div><h3>紀州備長炭</h3><p>遠赤外線でふっくら焼き上げ、皮目は香ばしく。魚も野菜も炭の香りをまとわせます。</p></div>
+    <div class="card"><div class="ph"></div><h3>土鍋ごはん</h3><p>ご注文をいただいてから30分かけて炊き上げます。おこげは最後に出汁茶漬けで。</p></div>
+    <div class="card"><div class="ph"></div><h3>産地直送の野菜</h3><p>契約農家から週3回届く季節の野菜を、その日の状態を見て献立に組み込みます。</p></div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="label">MENU</div>
+  <h2>お品書き</h2>
+  <div class="menu">
+    <h3>コース</h3>
+    <div class="item"><span>灯コース（全7品）</span><span>6,600円</span></div>
+    <div class="item"><span>季節のおまかせ（全9品）</span><span>9,900円</span></div>
+    <h3>炭火焼き</h3>
+    <div class="item"><span>本日の焼き魚</span><span>1,480円〜</span></div>
+    <div class="item"><span>地鶏もも炭火焼き</span><span>1,280円</span></div>
+    <div class="item"><span>季節野菜の炭火焼き盛り合わせ</span><span>980円</span></div>
+    <div class="item"><span>厚切り牛たん</span><span>1,980円</span></div>
+    <h3>土鍋ごはん（2〜3名様分）</h3>
+    <div class="item"><span>白ごはん</span><span>1,200円</span></div>
+    <div class="item"><span>鯛めし</span><span>2,400円</span></div>
+    <div class="item"><span>季節の炊き込み</span><span>1,980円</span></div>
+    <div class="item"><span>出汁茶漬けセット</span><span>300円</span></div>
+  </div>
+  <p style="color:var(--mute);font-size:12px;margin-top:20px">価格はすべて税込です。</p>
+</section>
+
+<section id="reserve">
+  <div class="label">RESERVATION</div>
+  <h2>ご予約</h2>
+  <form class="reserve" id="f">
+    <div><label>日付</label><input type="date" required></div>
+    <div><label>時間</label><select><option>17:30</option><option>18:00</option><option>18:30</option><option>19:00</option><option>19:30</option><option>20:00</option><option>20:30</option></select></div>
+    <div><label>人数</label><select><option>1名</option><option selected>2名</option><option>3名</option><option>4名</option><option>5名以上（お電話ください）</option></select></div>
+    <div><label>お席</label><select><option>おまかせ</option><option>カウンター</option><option>小上がり</option></select></div>
+    <div><label>お名前</label><input required placeholder="山田 太郎"></div>
+    <div><label>電話番号</label><input type="tel" required placeholder="090-0000-0000"></div>
+    <div class="full"><label>コース</label><select><option>席のみ予約</option><option>灯コース 6,600円</option><option>季節のおまかせ 9,900円</option></select></div>
+    <div class="full"><button class="btn" type="submit">この内容で予約する</button></div>
+    <div class="done" id="done">デモサイトのため、実際の予約は送信されていません。本番ではここで予約が確定し、お店とお客様の両方に確認メールが届きます。</div>
+  </form>
+</section>
+
+<section id="access">
+  <div class="label">ACCESS</div>
+  <h2>店舗情報</h2>
+  <div class="info">
+    <dl>
+      <dt>住所</dt><dd>〒000-0000 架空県見本市中央1-2-3 見本ビル1F</dd>
+      <dt>電話</dt><dd>00-0000-0000</dd>
+      <dt>営業時間</dt><dd>17:30〜23:00（L.O. 22:00）</dd>
+      <dt>定休日</dt><dd>月曜・第3火曜</dd>
+      <dt>席数</dt><dd>カウンター8席／小上がり2卓</dd>
+      <dt>お支払い</dt><dd>現金・各種カード・QR決済</dd>
+    </dl>
+    <div class="map">地図（本番ではGoogleマップを表示）</div>
+  </div>
+</section>
+
+<footer>© 灯 AKARI — 架空店舗のデモサイトです</footer>
+<script>
+document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();document.getElementById('done').style.display='block'});
+</script>
+</body>
+</html>

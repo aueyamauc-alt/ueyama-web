@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>上山 有佑生｜予約・申込につながるWebサイト制作</title>
+<meta name="description" content="飲食店・サロン・教室・宿泊施設向けに、予約や申込につながるWebサイトを制作します。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fafaf7;--ink:#15171a;--mute:#646a73;--accent:#0b5cff;--line:#e4e4dd;--panel:#fff}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.9;font-size:16px}
+a{color:inherit}
+header{display:flex;justify-content:space-between;align-items:center;padding:18px 28px;position:sticky;top:0;background:rgba(250,250,247,.94);backdrop-filter:blur(6px);z-index:5;border-bottom:1px solid var(--line)}
+.brand{font-weight:900;letter-spacing:.04em}
+nav a{margin-left:22px;text-decoration:none;font-size:14px;color:var(--mute)}
+nav a.cta{background:var(--ink);color:#fff;padding:9px 18px;border-radius:6px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+.hero{padding:96px 0 80px}
+.hero h1{font-size:clamp(32px,6vw,60px);font-weight:900;line-height:1.35;letter-spacing:-.01em}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p{max-width:600px;color:var(--mute);margin:24px 0 34px;font-size:17px}
+.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:15px 30px;border-radius:6px;font-weight:700}
+.btn.ghost{background:none;color:var(--ink);border:1px solid var(--ink);margin-left:10px}
+section{padding:80px 0;border-top:1px solid var(--line)}
+.label{font-size:12px;font-weight:700;letter-spacing:.2em;color:var(--accent)}
+h2{font-size:30px;font-weight:900;margin:6px 0 36px}
+.can{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+.can div{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:26px}
+.can b{display:block;font-size:17px;margin-bottom:6px}
+.can p{font-size:14px;color:var(--mute)}
+.works{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:24px}
+.work{display:block;text-decoration:none;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:transform .15s,box-shadow .15s}
+.work:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.08)}
+.thumb{height:170px;display:grid;place-items:center;font-weight:900;font-size:26px;letter-spacing:.1em}
+.t1{background:radial-gradient(ellipse at 50% 120%,#d9843b,transparent 65%),#16110d;color:#f1e8dc}
+.t2{background:linear-gradient(160deg,#eee6da,#b9c4b3);color:#3a3632;font-weight:500}
+.t3{background:radial-gradient(circle at 15% 25%,#ffc93c 0 34px,transparent 35px),radial-gradient(circle at 85% 70%,#ff7a8a 0 28px,transparent 29px),#fffaf0;color:#2f6fed}
+.t4{background:linear-gradient(to top,rgba(20,32,30,.7),transparent),linear-gradient(170deg,#c9b98f,#3f4f46);color:#fff}
+.work .b{padding:22px}
+.work small{color:var(--accent);font-weight:700;font-size:12px}
+.work h3{font-size:18px;margin:2px 0 6px}
+.work p{font-size:14px;color:var(--mute)}
+.note{font-size:13px;color:var(--mute);margin-top:20px}
+.price{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.plan{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:30px}
+.plan.main{border:2px solid var(--accent)}
+.plan h3{font-size:17px}
+.plan .yen{font-size:36px;font-weight:900;margin:6px 0 2px}
+.plan .yen small{font-size:14px;font-weight:500;color:var(--mute)}
+.plan ul{padding-left:1.2em;font-size:14px;color:var(--mute);margin-top:14px}
+.flow{counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+.flow div{counter-increment:s;font-size:14px;color:var(--mute)}
+.flow div::before{content:counter(s);display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--ink);color:#fff;font-weight:700;margin-bottom:12px}
+.flow b{display:block;color:var(--ink);font-size:16px}
+.contact{background:var(--ink);color:#fff;border-radius:14px;padding:56px 32px;text-align:center}
+.contact h2{margin-bottom:12px}
+.contact p{color:#b9bec6;margin-bottom:28px}
+.contact .mail{display:block;margin-top:18px;font-size:14px;color:#b9bec6}
+footer{text-align:center;font-size:12px;color:var(--mute);padding:36px}
+@media(max-width:640px){nav a:not(.cta){display:none}.hero{padding:64px 0 56px}.btn.ghost{margin:12px 0 0}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">上山 有佑生 <span style="font-weight:400;color:var(--mute);font-size:13px">Web制作</span></div>
+  <nav><a href="#works">制作例</a><a href="#price">料金</a><a href="#flow">流れ</a><a class="cta" href="#contact">相談する</a></nav>
+</header>
+
+<div class="wrap">
+  <div class="hero">
+    <h1>見た目だけで終わらない、<br><em>予約と申込につながる</em><br>Webサイトを作ります。</h1>
+    <p>飲食店・サロン・教室・宿泊施設向けに、スマホで見やすく、そのまま予約や申込ができるサイトを制作します。ご相談の前に、あなたのお店向けのデモを無料でお作りします。</p>
+    <a class="btn" href="#contact">無料でデモを依頼する</a><a class="btn ghost" href="#works">制作例を見る</a>
+  </div>
+
+  <section>
+    <div class="label">SERVICE</div>
+    <h2>できること</h2>
+    <div class="can">
+      <div><b>予約・申込フォーム</b><p>席の予約、施術の予約、体験申込、空室検索。電話に出られない時間も受け付けられます。</p></div>
+      <div><b>スマホ最優先の設計</b><p>お客様の大半はスマホで見ています。片手で読めて、迷わず予約まで進める作りにします。</p></div>
+      <div><b>多言語対応</b><p>日本語・英語などの切り替えに対応します。訪日のお客様にもそのまま案内できます。</p></div>
+      <div><b>公開後の更新代行</b><p>メニューや料金、営業時間の変更はご連絡いただくだけ。こちらで反映します。</p></div>
+    </div>
+  </section>
+
+  <section id="works">
+    <div class="label">WORKS</div>
+    <h2>制作例</h2>
+    <div class="works">
+      <a class="work" href="demos/restaurant.html"><div class="thumb t1">灯 AKARI</div><div class="b"><small>飲食店</small><h3>炭火と土鍋ごはん 灯</h3><p>お品書きと席予約フォームつき。コース予約まで1ページで完結します。</p></div></a>
+      <a class="work" href="demos/salon.html"><div class="thumb t2">Lueur</div><div class="b"><small>美容室・サロン</small><h3>hair salon Lueur</h3><p>メニュー・日にち・時間を選ぶだけのWeb予約。埋まった枠は選べません。</p></div></a>
+      <a class="work" href="demos/school.html"><div class="thumb t3">ツクル</div><div class="b"><small>教室・スクール</small><h3>こどもプログラミング教室 ツクル</h3><p>コース紹介、時間割、無料体験の申込フォームをまとめました。</p></div></a>
+      <a class="work" href="demos/stay.html"><div class="thumb t4">澄 SUMI</div><div class="b"><small>宿泊・民泊</small><h3>町家の宿 澄</h3><p>日本語／英語の切り替えと、宿泊料金がその場で出る空室検索つきです。</p></div></a>
+    </div>
+    <p class="note">※ 上の4つはすべて、架空の店舗を題材に制作したデモサイトです。実在の店舗・取引先ではありません。</p>
+  </section>
+
+  <section id="price">
+    <div class="label">PRICE</div>
+    <h2>料金</h2>
+    <div class="price">
+      <div class="plan"><h3>1ページサイト（LP）</h3><div class="yen">10<small>万円〜（税別）</small></div><ul><li>1ページ構成</li><li>予約・問い合わせフォーム</li><li>スマホ対応</li><li>納期の目安：2週間</li></ul></div>
+      <div class="plan main"><h3>店舗サイト</h3><div class="yen">25<small>万円〜（税別）</small></div><ul><li>5ページ前後</li><li>予約・申込機能</li><li>多言語対応（1言語追加）</li><li>納期の目安：3〜4週間</li></ul></div>
+      <div class="plan"><h3>保守・更新代行</h3><div class="yen">1<small>万円／月〜（税別）</small></div><ul><li>メニュー・料金・写真の差し替え</li><li>月3回までの更新</li><li>表示の不具合対応</li><li>サーバー・ドメインの管理</li></ul></div>
+    </div>
+    <p class="note">※ 内容によって金額は変わります。デモをご覧いただいた後に、正式なお見積りをお出しします。</p>
+  </section>
+
+  <section id="flow">
+    <div class="label">FLOW</div>
+    <h2>ご依頼の流れ</h2>
+    <div class="flow">
+      <div><b>ご相談</b>メールでお店の名前と、困っていることを教えてください。</div>
+      <div><b>無料デモ</b>お店向けのデモサイトを作ってお見せします。ここまで費用はかかりません。</div>
+      <div><b>お見積り・ご契約</b>デモを見て気に入っていただけたら、内容と金額を確定します。</div>
+      <div><b>制作・公開</b>写真や文章をいただいて仕上げ、公開します。公開後の更新もお任せください。</div>
+    </div>
+  </section>
+
+  <section id="contact" style="border:0">
+    <div class="contact">
+      <h2>まずはデモをご覧ください</h2>
+      <p>お店の名前を送っていただければ、デモを作ってお返事します。</p>
+      <a class="btn" href="mailto:a.ueyama.uc@gmail.com?subject=%E3%82%B5%E3%82%A4%E3%83%88%E5%88%B6%E4%BD%9C%E3%81%AE%E7%9B%B8%E8%AB%87">メールで相談する</a>
+      <span class="mail">a.ueyama.uc@gmail.com</span>
+    </div>
+  </section>
+</div>
+
+<footer>© 上山 有佑生</footer>
+</body>
+</html>

@@ -1,0 +1,5 @@
+# 公開するのは index.html と demos/ だけ（営業リスト・店別提案・素材は非公開）
+/*
+!/index.html
+!/demos/
+!/.gitignore
