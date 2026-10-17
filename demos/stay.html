@@ -1,141 +1,436 @@
 <!doctype html>
-<html lang="ja" class="notranslate" translate="no">
+<html lang="ja">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="google" content="notranslate">
 <title>町家の宿 澄 SUMI｜デモサイト</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<meta name="description" content="築百年の町家を一日一組に貸し切る宿。架空の宿を題材にしたデモサイトです。 / A demo site for a fictional townhouse inn.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f4f1ea;--ink:#22302e;--mute:#6f7a76;--accent:#2f5d58;--line:#d9d3c5;--panel:#fbf9f4}
+:root{--paper:#f3efe6;--paper2:#ebe5d8;--ink:#1f2124;--mute:#6f6b63;--ai:#2c3d55;--shu:#b0533c;--line:#d8d0bf;--accent:#2c3d55;--e:"Cormorant Garamond",serif}
 *{box-sizing:border-box;margin:0}
-body{background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.95;font-size:15px}
-h1,h2,h3,.brand{font-family:"Shippori Mincho",serif;font-weight:600;letter-spacing:.1em}
-[data-en]{display:none}
-html.en [data-en]{display:revert}
-html.en [data-ja]{display:none}
-.ribbon{background:var(--ink);color:#cfd6d2;font-size:12px;text-align:center;padding:6px 12px}
-.ribbon a{color:#a9d1c9}
-header{display:flex;justify-content:space-between;align-items:center;padding:18px 28px;position:sticky;top:0;background:rgba(244,241,234,.95);backdrop-filter:blur(6px);z-index:5;border-bottom:1px solid var(--line)}
-.brand{font-size:22px}
-.brand small{font-size:11px;color:var(--mute);margin-left:8px;letter-spacing:.3em}
-.right{display:flex;align-items:center;gap:18px}
-nav a{margin-left:20px;text-decoration:none;color:var(--mute);font-size:13px}
-.lang{display:flex;border:1px solid var(--accent);border-radius:99px;overflow:hidden}
-.lang button{border:0;background:none;padding:5px 14px;font-size:12px;cursor:pointer;color:var(--accent);font-family:inherit}
-.lang button.on{background:var(--accent);color:#fff}
-.hero{min-height:min(76vh,700px);display:flex;align-items:flex-end;padding:56px 40px;color:#fff;
-background:linear-gradient(to top,rgba(20,32,30,.8),rgba(20,32,30,.1) 60%),repeating-linear-gradient(90deg,transparent 0 58px,rgba(0,0,0,.28) 58px 62px),linear-gradient(170deg,#c9b98f,#8d7c57 40%,#3f4f46)}
-.hero h1{font-size:clamp(30px,5.6vw,58px);line-height:1.5}
-.hero p{max-width:480px;opacity:.9;margin:14px 0 26px}
-.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:14px 34px;border:0;font-size:15px;font-family:inherit;cursor:pointer}
-.hero .btn{background:#fff;color:var(--ink)}
-section{max-width:1020px;margin:0 auto;padding:88px 24px}
-.label{font-size:12px;letter-spacing:.3em;color:var(--accent)}
-h2{font-size:30px;margin:6px 0 36px}
-.rooms{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:26px}
-.room{background:var(--panel);border:1px solid var(--line)}
-.room .ph{height:190px;background:linear-gradient(135deg,#d8ccae,#9aa58f 60%,#52655c)}
-.room:nth-child(2) .ph{background:linear-gradient(135deg,#e2d5c3,#b79a7a 60%,#5f4a39)}
-.room:nth-child(3) .ph{background:linear-gradient(135deg,#cfd8d6,#7f9a98 60%,#2f4b4c)}
-.room div.b{padding:24px}
-.room h3{font-size:20px}
-.room p{font-size:14px;color:var(--mute);margin:8px 0 14px}
-.room .price{font-family:"Shippori Mincho",serif;font-size:19px}
-.room .price small{font-size:12px;color:var(--mute)}
-.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
-.feat div{background:var(--panel);padding:26px;font-size:14px}
-.feat b{display:block;font-family:"Shippori Mincho",serif;font-size:17px;margin-bottom:6px}
-.check{background:var(--panel);border:1px solid var(--line);padding:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;align-items:end}
-label{display:block;font-size:12px;color:var(--mute);margin-bottom:6px}
-input,select{width:100%;border:1px solid var(--line);background:#fff;padding:12px;font-size:15px;font-family:inherit}
-.result{display:none;grid-column:1/-1;border-top:1px solid var(--line);padding-top:20px;font-size:14px}
-.result b{font-family:"Shippori Mincho",serif;font-size:22px}
-.note{color:var(--mute);font-size:13px;margin-top:8px}
-dl{display:grid;grid-template-columns:120px 1fr;gap:10px 16px;font-size:14px;max-width:640px}
-dt{color:var(--mute)}
-footer{text-align:center;font-size:12px;color:var(--mute);padding:32px;border-top:1px solid var(--line)}
-@media(max-width:680px){nav{display:none}.hero{padding:40px 24px}.check{padding:22px}}
+html.lenis,html.lenis body{height:auto}
+html,body{overflow-x:clip}
+body{background:var(--paper);color:var(--ink);font-family:"Shippori Mincho",serif;line-height:2;font-size:15px;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;color:inherit}
+html:not(.en) [data-en],html.en [data-ja]{display:none}
+.ch{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.14em;margin-bottom:-.14em}.ch>span{display:inline-block}
+.ribbon{background:var(--ink);color:#cfc9bd;font-size:12px;text-align:center;padding:6px 12px;position:relative;z-index:60;font-family:sans-serif}
+.ribbon a{text-decoration:underline;color:#fff}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+#ld{position:fixed;inset:0;z-index:150;background:var(--paper);display:none;place-items:center}
+.fx #ld{display:grid}
+#ld b{font-size:64px;font-weight:400;color:var(--ink);position:relative}
+#ld b::after{content:"";position:absolute;left:50%;top:50%;width:140px;height:140px;margin:-70px;border-radius:50%;border:1px solid var(--shu);opacity:.6}
+
+header{position:fixed;top:30px;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:14px 4vw;transition:top .4s,background .4s,padding .4s}
+header.sc{top:0;background:rgba(243,239,230,.88);backdrop-filter:blur(10px);padding:10px 4vw;border-bottom:1px solid var(--line)}
+.brand{font-size:26px;letter-spacing:.1em;display:flex;align-items:baseline;gap:10px}
+.brand small{font-family:var(--e);font-size:13px;letter-spacing:.4em;color:var(--mute)}
+.right{display:flex;align-items:center;gap:28px}
+nav{display:flex;gap:26px;font-size:14px}
+nav a{position:relative}
+nav a::after{content:"";position:absolute;left:0;right:100%;bottom:2px;height:1px;background:var(--shu);transition:right .4s}
+nav a:hover::after{right:0}
+.lang{display:flex;border:1px solid var(--ink);border-radius:999px;overflow:hidden;font-size:12px}
+.lang button{border:0;background:none;padding:5px 12px;cursor:pointer}
+.lang button.on{background:var(--ink);color:var(--paper)}
+.btn{display:inline-flex;align-items:center;gap:14px;background:var(--ink);color:var(--paper);padding:16px 30px;font-size:14px;letter-spacing:.1em;border:0;cursor:pointer;transition:background .3s}
+.btn:hover{background:var(--ai)}
+.btn i{width:24px;height:1px;background:currentColor;position:relative;transition:width .3s}
+.btn:hover i{width:36px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:.9fr 1.1fr;gap:5vw;align-items:center;padding:140px 6vw 80px;min-height:100svh}
+.hero .k{font-family:var(--e);font-style:italic;color:var(--shu);font-size:18px;letter-spacing:.06em}
+.hero h1{font-weight:400;font-size:clamp(30px,3.6vw,54px);line-height:1.6;margin:18px 0 26px;letter-spacing:.06em}
+html.en .hero h1{font-family:var(--e);font-size:clamp(34px,4vw,60px);line-height:1.25;letter-spacing:0}
+.hero p{color:var(--mute);max-width:26em;margin-bottom:36px}
+.hero .meta{display:flex;gap:30px;margin-top:44px;font-size:12px;color:var(--mute);border-top:1px solid var(--line);padding-top:18px;max-width:420px}
+.hero .meta b{display:block;font-family:var(--e);font-size:26px;font-weight:500;color:var(--ink);line-height:1.2}
+.win{position:relative;aspect-ratio:4/5;max-height:76svh;justify-self:center;width:100%;max-width:520px;border:10px solid #3a2f26;outline:1px solid #3a2f26;outline-offset:6px;overflow:hidden;background:#20283a}
+.win svg.scene{position:absolute;inset:0;width:100%;height:100%}
+.door{position:absolute;top:0;bottom:0;width:50%;background:
+  repeating-linear-gradient(90deg,#4a3b2e 0 7px,transparent 7px 26px),
+  repeating-linear-gradient(0deg,#4a3b2e 0 7px,transparent 7px 110px),
+  rgba(243,239,230,.9);box-shadow:inset 0 0 0 7px #4a3b2e}
+.door.l{left:0}.door.r{right:0}
+.fx .door.l{transform:translateX(0)}.fx .door.r{transform:translateX(0)}
+html:not(.fx) .door.l{transform:translateX(-82%)}html:not(.fx) .door.r{transform:translateX(82%)}
+.rip{transform-origin:center;transform-box:fill-box;animation:rip 4s ease-out infinite}
+.rip.b{animation-delay:2s}
+@keyframes rip{from{transform:scale(.2);opacity:.9}to{transform:scale(1.6);opacity:0}}
+.leaf{animation:fall 9s linear infinite}
+.leaf.b{animation-delay:-4s;animation-duration:11s}
+@keyframes fall{from{transform:translate(0,-40px) rotate(0)}to{transform:translate(-80px,560px) rotate(540deg)}}
+.lamp{animation:flick 3s ease-in-out infinite}
+@keyframes flick{50%{opacity:.6}}
+
+section{position:relative;padding:clamp(90px,11vw,150px) 6vw}
+.label{font-family:var(--e);font-size:14px;letter-spacing:.4em;color:var(--shu);display:flex;align-items:center;gap:14px}
+.label::before{content:"";width:30px;height:1px;background:var(--shu)}
+h2{font-weight:400;font-size:clamp(28px,3.2vw,44px);letter-spacing:.08em;margin:14px 0 56px;line-height:1.5}
+html.en h2{font-family:var(--e);letter-spacing:.01em}
+
+/* rooms */
+.rm{display:grid;grid-template-columns:1.1fr .9fr;gap:6vw;align-items:center;margin-bottom:110px}
+.rm:nth-child(even) .ill{order:2}
+.rm:last-child{margin-bottom:0}
+.ill{aspect-ratio:5/4;background:var(--paper2);position:relative;overflow:hidden}
+.ill svg{width:100%;height:100%;display:block}
+.rm .no{font-family:var(--e);font-size:90px;line-height:1;color:transparent;-webkit-text-stroke:1px var(--line)}
+.rm h3{font-weight:400;font-size:28px;letter-spacing:.1em;margin:8px 0 14px}
+html.en .rm h3{font-family:var(--e);font-size:32px;letter-spacing:0}
+.rm p{color:var(--mute)}
+.rm .spec{display:flex;gap:28px;margin:24px 0;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:13px;color:var(--mute)}
+.rm .spec b{display:block;color:var(--ink);font-family:var(--e);font-size:22px;font-weight:500;line-height:1.3}
+.link{font-size:14px;letter-spacing:.08em;border-bottom:1px solid var(--ink);padding-bottom:4px;cursor:pointer;background:none;border-top:0;border-left:0;border-right:0}
+.link:hover{color:var(--shu);border-color:var(--shu)}
+
+/* day timeline */
+.day{--sky:#e9e2d3;background:var(--sky);transition:background 1s;color:var(--ink)}
+.day.dark{color:#ece7dc}
+.day.dark .label{color:#e7b49f}.day.dark .label::before{background:#e7b49f}
+.dwrap{display:grid;grid-template-columns:280px 1fr;gap:6vw}
+.clock{position:sticky;top:120px;align-self:start}
+.clock svg{width:220px;height:220px}
+.clock .hand{transition:transform 1s cubic-bezier(.6,0,.2,1);transform-origin:110px 110px}
+.clock b{display:block;font-family:var(--e);font-size:48px;font-weight:400;margin-top:8px}
+.tl{border-left:1px solid currentColor;padding-left:40px}
+.ev{padding:20px 0 70px;position:relative;opacity:.35;transition:opacity .6s}
+.ev.on{opacity:1}
+.ev::before{content:"";position:absolute;left:-46px;top:30px;width:11px;height:11px;border-radius:50%;background:currentColor}
+.ev time{font-family:var(--e);font-size:20px;letter-spacing:.1em}
+.ev h3{font-weight:400;font-size:24px;letter-spacing:.06em;margin:4px 0 10px}
+html.en .ev h3{font-family:var(--e);font-size:28px}
+.ev p{max-width:30em;opacity:.85}
+
+/* booking */
+.bk{display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:start}
+.houses{display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap}
+.houses button{flex:1;min-width:140px;border:1px solid var(--line);background:#fbf9f4;padding:14px 16px;text-align:left;cursor:pointer;transition:all .3s;font-size:14px}
+.houses button small{display:block;font-family:var(--e);font-size:15px;color:var(--mute)}
+.houses button.on{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.houses button.on small{color:#bdb6a9}
+.calw{background:#fbf9f4;border:1px solid var(--line);padding:26px}
+.calh{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.calh button{border:1px solid var(--line);background:none;width:36px;height:36px;border-radius:50%;cursor:pointer}
+.calh button:disabled{opacity:.25;cursor:default}
+.calh .hint{font-size:13px;color:var(--mute)}
+.months{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.mo h4{font-family:var(--e);font-weight:500;font-size:20px;text-align:center;margin-bottom:8px}
+.mo .g{display:grid;grid-template-columns:repeat(7,1fr);text-align:center}
+.mo .w{font-size:11px;color:var(--mute);padding-bottom:6px}
+.mo .d{height:40px;display:grid;place-items:center;font-family:var(--e);font-size:17px;cursor:pointer;position:relative;border:0;background:none}
+.mo .d:hover:not(:disabled){outline:1px solid var(--ink);outline-offset:-1px}
+.mo .d:disabled{color:#bdb6a9;cursor:default}
+.mo .d.bk{color:#bdb6a9;text-decoration:line-through;cursor:not-allowed}
+.mo .d.in{background:#e3dccd}
+.mo .d.s,.mo .d.e{background:var(--ink);color:var(--paper)}
+.mo .d.we:not(:disabled):not(.bk):not(.s):not(.e){color:var(--shu)}
+.lg{display:flex;gap:18px;font-size:12px;color:var(--mute);margin-top:14px;flex-wrap:wrap}
+.lg i{display:inline-block;width:12px;height:12px;vertical-align:-1px;margin-right:6px;background:#e3dccd}
+.lg i.x{background:none;border-bottom:1px solid #bdb6a9;height:6px}
+.sum{position:sticky;top:90px;background:var(--ink);color:#e9e4d9;padding:30px}
+.sum h4{font-family:var(--e);font-weight:400;font-size:22px;letter-spacing:.1em;border-bottom:1px solid #444;padding-bottom:12px;margin-bottom:12px}
+.sum dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:13px}
+.sum dt{color:#9e978a}.sum dd{text-align:right}
+.step{display:flex;align-items:center;justify-content:flex-end;gap:12px}
+.step button{width:28px;height:28px;border-radius:50%;border:1px solid #666;background:none;color:#fff;cursor:pointer}
+.step button:disabled{opacity:.3}
+.br{border-top:1px solid #444;margin:16px 0 0;padding-top:14px;font-size:12px;color:#9e978a}
+.br div{display:flex;justify-content:space-between}
+.tot{display:flex;justify-content:space-between;align-items:baseline;margin:14px 0 20px}
+.tot b{font-family:var(--e);font-size:36px;font-weight:500;color:#fff}
+.sum .btn{width:100%;justify-content:center;background:var(--shu)}
+.sum .btn:disabled{background:#555;cursor:not-allowed}
+.sum .note{font-size:11px;color:#9e978a;margin-top:12px;line-height:1.7}
+.okd{display:none;text-align:center;padding:10px 0}
+.okd b{display:block;font-family:var(--e);font-size:28px;font-weight:400;color:#fff}
+.okd code{display:inline-block;margin:10px 0;border:1px solid #666;padding:4px 12px;font-family:var(--e);letter-spacing:.1em}
+
+/* info */
+.info{display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:center}
+dl.tb{display:grid;grid-template-columns:140px 1fr;border-top:1px solid var(--line)}
+dl.tb dt,dl.tb dd{padding:16px 0;border-bottom:1px solid var(--line)}
+dl.tb dt{color:var(--mute);font-size:13px}
+.map{aspect-ratio:4/3;background:var(--paper2);position:relative}
+.map svg{width:100%;height:100%}
+.pin{animation:pp 2s ease-out infinite;transform-origin:center;transform-box:fill-box}
+@keyframes pp{from{transform:scale(.4);opacity:1}to{transform:scale(2.2);opacity:0}}
+
+footer{background:var(--ink);color:#bdb6a9;padding:90px 6vw 40px;overflow:hidden}
+footer .big{font-size:clamp(120px,22vw,320px);line-height:1;color:transparent;-webkit-text-stroke:1px #4a4a4a;text-align:center}
+footer .f{display:flex;justify-content:space-between;font-size:12px;margin-top:40px;flex-wrap:wrap;gap:10px}
+footer a{text-decoration:underline}
+.fbar{display:none}
+@media(max-width:900px){
+  nav{display:none}
+  .hero{grid-template-columns:1fr;padding-top:120px}
+  .win{max-height:none;max-width:420px}
+  .rm{grid-template-columns:1fr;gap:26px;margin-bottom:80px}
+  .rm:nth-child(even) .ill{order:0}
+  .dwrap{grid-template-columns:1fr}
+  .clock{position:sticky;top:64px;z-index:2;display:flex;align-items:center;gap:16px;padding:10px 0;background:var(--sky)}
+  .clock svg{width:70px;height:70px}.clock b{font-size:30px;margin:0}
+  .tl{padding-left:26px}.ev::before{left:-32px}
+  .bk{grid-template-columns:1fr}
+  .months{grid-template-columns:1fr}.mo+.mo{display:none}
+  .calw{padding:18px 14px}
+  .houses{gap:6px}.houses button{min-width:0;padding:10px;font-size:12px}.houses button small{font-size:11px}
+  .info{grid-template-columns:1fr}
+  dl.tb{grid-template-columns:110px 1fr}
+  .fbar{display:block;position:fixed;left:0;right:0;bottom:0;z-index:55}
+  .fbar a{display:flex;justify-content:center;background:var(--ink);color:var(--paper);padding:17px;letter-spacing:.1em;font-size:14px}
+  footer{padding-bottom:90px}
+}
 </style>
 </head>
 <body>
-<div class="ribbon"><span data-ja>これは架空の宿を題材にしたデモサイトです｜<a href="../works.html">制作者のページへ</a></span><span data-en>This is a demo site for a fictional inn | <a href="../index.html">About the creator</a></span></div>
-<header>
-  <div class="brand">澄<small>SUMI</small></div>
+<div id="ld" aria-hidden="true"><b>澄</b></div>
+<div class="ribbon"><span data-ja>これは架空の宿を題材にしたデモサイトです｜<a href="../works.html">制作者のページへ</a></span><span data-en>This is a demo site for a fictional inn | <a href="../works.html">About the creator</a></span></div>
+<header id="hd">
+  <a class="brand" href="#">澄<small>SUMI</small></a>
   <div class="right">
-    <nav><a href="#rooms"><span data-ja>お部屋</span><span data-en>Rooms</span></a><a href="#stay"><span data-ja>過ごし方</span><span data-en>Your stay</span></a><a href="#book"><span data-ja>空室検索</span><span data-en>Availability</span></a></nav>
+    <nav><a href="#rooms"><span data-ja>お部屋</span><span data-en>Rooms</span></a><a href="#stay"><span data-ja>過ごし方</span><span data-en>Your stay</span></a><a href="#book"><span data-ja>空室検索</span><span data-en>Availability</span></a><a href="#info"><span data-ja>ご案内</span><span data-en>Information</span></a></nav>
     <div class="lang"><button id="ja" class="on">日本語</button><button id="en">English</button></div>
   </div>
 </header>
 
 <div class="hero">
   <div>
-    <h1><span data-ja>築百年の町家に、<br>一日一組だけ。</span><span data-en>A century-old townhouse,<br>one party per night.</span></h1>
-    <p><span data-ja>格子戸の向こうに坪庭。檜の湯船と、静かな朝。暮らすように泊まる一棟貸しの宿です。</span><span data-en>A courtyard garden behind lattice doors, a cypress bath, and quiet mornings. A whole house, all to yourselves.</span></p>
-    <a class="btn" href="#book"><span data-ja>空室を確認する</span><span data-en>Check availability</span></a>
+    <div class="k">Kyo-machiya, since 1924</div>
+    <h1 id="h1"><span data-ja>築百年の町家に、<br>一日一組だけ。</span><span data-en>A century-old townhouse,<br>one party per night.</span></h1>
+    <p data-r><span data-ja>格子戸の向こうに坪庭。檜の湯船と、静かな朝。暮らすように泊まる一棟貸しの宿です。</span><span data-en>A courtyard garden behind lattice doors, a cypress bath, and quiet mornings. A whole house, all to yourselves.</span></p>
+    <a class="btn" href="#book" data-r><span data-ja>空室を確認する</span><span data-en>Check availability</span><i></i></a>
+    <div class="meta" data-stagger>
+      <div><b>3</b><span data-ja>棟のみ</span><span data-en>houses</span></div>
+      <div><b>1</b><span data-ja>日一組</span><span data-en>party / night</span></div>
+      <div><b>15:00</b><span data-ja>チェックイン</span><span data-en>check-in</span></div>
+    </div>
+  </div>
+  <div class="win" id="win">
+    <svg class="scene" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
+      <defs><linearGradient id="sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1c2436"/><stop offset=".7" stop-color="#36425c"/><stop offset="1" stop-color="#4a4f5e"/></linearGradient>
+      <radialGradient id="mg"><stop offset="0" stop-color="#fff6dc" stop-opacity=".6"/><stop offset="1" stop-color="#fff6dc" stop-opacity="0"/></radialGradient>
+      <radialGradient id="lg"><stop offset="0" stop-color="#ffcf7a" stop-opacity=".8"/><stop offset="1" stop-color="#ffcf7a" stop-opacity="0"/></radialGradient></defs>
+      <rect width="400" height="500" fill="url(#sk)"/>
+      <circle cx="290" cy="110" r="90" fill="url(#mg)"/><circle cx="290" cy="110" r="34" fill="#f4ecd6"/>
+      <g fill="#e9e1cc" opacity=".7"><circle cx="60" cy="60" r="1.2"/><circle cx="130" cy="40" r="1"/><circle cx="200" cy="90" r="1.3"/><circle cx="350" cy="220" r="1"/><circle cx="90" cy="150" r="1"/></g>
+      <path d="M0 330 Q100 300 200 320 T400 310 V500 H0Z" fill="#1d2230"/>
+      <g stroke="#14171f" stroke-width="5" fill="none" stroke-linecap="round"><path d="M-10 70 Q80 90 140 150 T220 200"/><path d="M60 82 Q70 40 110 30"/><path d="M140 150 Q170 120 210 125"/></g>
+      <g fill="#a3412f"><path d="M110 30l6 -8 2 9 9 -3 -5 8 8 4 -9 2 1 9 -7 -6 -6 6 1 -9 -9 -2 8 -4 -5 -8 9 3z" opacity=".95"/><path d="M210 125l5 -7 2 8 8 -3 -4 7 7 3 -8 2 1 8 -6 -5 -5 5 1 -8 -8 -2 7 -3 -4 -7 8 3z"/><path d="M175 175l5 -7 2 8 8 -3 -4 7 7 3 -8 2 1 8 -6 -5 -5 5 1 -8 -8 -2 7 -3 -4 -7 8 3z" opacity=".8"/></g>
+      <g class="leaf" fill="#c0563d"><path d="M180 140l4 -6 2 7 7 -3 -4 6 6 3 -7 1 1 7 -5 -4 -5 4 1 -7 -7 -1 6 -3 -4 -6 7 3z"/></g>
+      <g class="leaf b" fill="#d06a48"><path d="M260 100l4 -6 2 7 7 -3 -4 6 6 3 -7 1 1 7 -5 -4 -5 4 1 -7 -7 -1 6 -3 -4 -6 7 3z"/></g>
+      <g transform="translate(70 300)"><circle cx="30" cy="20" r="46" fill="url(#lg)" class="lamp"/><path d="M14 0h32l-6 -10h-20z" fill="#2a2d33"/><rect x="18" y="0" width="24" height="22" fill="#ffd894" class="lamp"/><rect x="18" y="0" width="24" height="22" fill="none" stroke="#2a2d33" stroke-width="3"/><path d="M10 22h40v6H10zM24 28h12v40H24zM14 68h32v8H14z" fill="#2a2d33"/></g>
+      <ellipse cx="250" cy="420" rx="90" ry="22" fill="#2b3346"/>
+      <ellipse cx="250" cy="420" rx="40" ry="10" fill="none" stroke="#9fb0cf" stroke-width="1.5" class="rip"/>
+      <ellipse cx="250" cy="420" rx="40" ry="10" fill="none" stroke="#9fb0cf" stroke-width="1.5" class="rip b"/>
+      <g fill="#262b36"><ellipse cx="150" cy="450" rx="30" ry="12"/><ellipse cx="340" cy="440" rx="24" ry="10"/><ellipse cx="90" cy="480" rx="26" ry="10"/></g>
+    </svg>
+    <div class="door l"></div><div class="door r"></div>
   </div>
 </div>
 
 <section id="rooms">
   <div class="label">ROOMS</div>
-  <h2><span data-ja>三つの棟</span><span data-en>Three houses</span></h2>
-  <div class="rooms">
-    <div class="room"><div class="ph"></div><div class="b"><h3><span data-ja>庭の棟</span><span data-en>Garden House</span></h3><p><span data-ja>坪庭に面した和室と檜風呂。2〜4名様。</span><span data-en>Tatami room facing the courtyard, cypress bath. 2–4 guests.</span></p><div class="price">¥38,000〜 <small><span data-ja>／1棟1泊</span><span data-en>/ night</span></small></div></div></div>
-    <div class="room"><div class="ph"></div><div class="b"><h3><span data-ja>蔵の棟</span><span data-en>Storehouse</span></h3><p><span data-ja>土蔵を改装した吹き抜けの寝室。2名様。</span><span data-en>A converted storehouse with a double-height bedroom. 2 guests.</span></p><div class="price">¥32,000〜 <small><span data-ja>／1棟1泊</span><span data-en>/ night</span></small></div></div></div>
-    <div class="room"><div class="ph"></div><div class="b"><h3><span data-ja>離れ</span><span data-en>Annex</span></h3><p><span data-ja>台所つきで長期滞在向け。2〜6名様。</span><span data-en>Full kitchen, ideal for longer stays. 2–6 guests.</span></p><div class="price">¥45,000〜 <small><span data-ja>／1棟1泊</span><span data-en>/ night</span></small></div></div></div>
+  <h2 data-split><span data-ja>三つの棟</span><span data-en>Three houses</span></h2>
+  <div>
+    <div class="rm">
+      <div class="ill" data-r="img"><svg viewBox="0 0 500 400" fill="none" stroke="#3a3530" stroke-width="1.6"><rect x="0" y="0" width="500" height="400" fill="#e6dfd0" stroke="none"/><path d="M60 330h380M60 330V90h380v240"/><path d="M60 90h380" stroke-width="3"/><g stroke="#8a7f6e"><path d="M80 110v200M100 110v200M120 110v200M140 110v200M160 110v200M180 110v200M200 110v200"/></g><rect x="230" y="110" width="190" height="200" fill="#d2dccb"/><path d="M290 310c0-40 20-70 40-90 20 20 36 50 36 90" fill="#9fb594"/><circle cx="330" cy="200" r="34" fill="#b9c9ac"/><path d="M70 340l380 0M90 350h340" stroke="#8a7f6e"/><rect x="250" y="270" width="40" height="24" rx="4" fill="#c7b9a0"/></svg></div>
+      <div><div class="no">01</div><h3><span data-ja>庭の棟</span><span data-en>Garden House</span></h3><p><span data-ja>坪庭に面した和室と檜風呂。障子を開けると、苔と楓が部屋の一部になります。</span><span data-en>Tatami room facing the courtyard, with a cypress bath. Open the shoji and the moss and maple become part of the room.</span></p>
+      <div class="spec"><div><b>2–4</b><span data-ja>名様</span><span data-en>guests</span></div><div><b>62㎡</b><span data-ja>広さ</span><span data-en>size</span></div><div><b>¥38,000〜</b><span data-ja>1棟1泊</span><span data-en>per night</span></div></div>
+      <button class="link" data-house="0"><span data-ja>この棟の空室を見る →</span><span data-en>See availability →</span></button></div>
+    </div>
+    <div class="rm">
+      <div class="ill" data-r="img"><svg viewBox="0 0 500 400" fill="none" stroke="#3a3530" stroke-width="1.6"><rect width="500" height="400" fill="#e9e3d6" stroke="none"/><path d="M120 340V120l130-70 130 70v220z" fill="#f4f0e8"/><path d="M120 120l130-70 130 70" stroke-width="3"/><path d="M110 125l140-78 140 78" stroke-width="2"/><rect x="215" y="150" width="70" height="70" fill="#2c3d55"/><path d="M215 185h70M250 150v70" stroke="#e9e3d6"/><path d="M120 260h260"/><rect x="160" y="270" width="180" height="50" fill="#d7cbb6"/><path d="M160 270c20-14 160-14 180 0"/><path d="M120 340h260" stroke-width="3"/><circle cx="250" cy="120" r="6" fill="#b0533c" stroke="none"/></svg></div>
+      <div><div class="no">02</div><h3><span data-ja>蔵の棟</span><span data-en>Storehouse</span></h3><p><span data-ja>土蔵を改装した吹き抜けの寝室。厚い土壁が、街の音をやわらかく遮ります。</span><span data-en>A converted storehouse with a double-height bedroom. Thick earthen walls soften the sounds of the city.</span></p>
+      <div class="spec"><div><b>2</b><span data-ja>名様</span><span data-en>guests</span></div><div><b>40㎡</b><span data-ja>広さ</span><span data-en>size</span></div><div><b>¥32,000〜</b><span data-ja>1棟1泊</span><span data-en>per night</span></div></div>
+      <button class="link" data-house="1"><span data-ja>この棟の空室を見る →</span><span data-en>See availability →</span></button></div>
+    </div>
+    <div class="rm">
+      <div class="ill" data-r="img"><svg viewBox="0 0 500 400" fill="none" stroke="#3a3530" stroke-width="1.6"><rect width="500" height="400" fill="#e4ddcd" stroke="none"/><path d="M50 330h400M70 330V160h360v170"/><path d="M50 160l200-80 200 80" stroke-width="3"/><rect x="100" y="200" width="140" height="100" fill="#f1ece2"/><path d="M110 240h120M140 200v40M200 200v40" stroke="#8a7f6e"/><circle cx="135" cy="270" r="10"/><circle cx="175" cy="270" r="10"/><path d="M130 258c0-10 10-10 10 0" stroke="#b0533c"/><rect x="270" y="200" width="130" height="130" fill="#d8cfbd"/><path d="M285 320v-80h100v80" /><path d="M300 240c0-20 70-20 70 0"/><path d="M340 160v-30h20v30" fill="#e4ddcd"/></svg></div>
+      <div><div class="no">03</div><h3><span data-ja>離れ</span><span data-en>Annex</span></h3><p><span data-ja>台所つきで長期滞在向け。市場で買った食材で、町の暮らしを少しだけ。</span><span data-en>Full kitchen, ideal for longer stays. Cook with what you find at the local market.</span></p>
+      <div class="spec"><div><b>2–6</b><span data-ja>名様</span><span data-en>guests</span></div><div><b>88㎡</b><span data-ja>広さ</span><span data-en>size</span></div><div><b>¥45,000〜</b><span data-ja>1棟1泊</span><span data-en>per night</span></div></div>
+      <button class="link" data-house="2"><span data-ja>この棟の空室を見る →</span><span data-en>See availability →</span></button></div>
+    </div>
   </div>
 </section>
 
-<section id="stay">
+<section id="stay" class="day">
   <div class="label">YOUR STAY</div>
-  <h2><span data-ja>過ごし方</span><span data-en>What's included</span></h2>
-  <div class="feat">
-    <div><b><span data-ja>朝食</span><span data-en>Breakfast</span></b><span data-ja>近所の仕出し屋から、土鍋ごはんの朝食が届きます。</span><span data-en>A local caterer delivers a Japanese breakfast with clay-pot rice.</span></div>
-    <div><b><span data-ja>無人チェックイン</span><span data-en>Self check-in</span></b><span data-ja>暗証番号で入室。到着時間を気にせずお越しください。</span><span data-en>Enter with a door code. Arrive whenever suits you.</span></div>
-    <div><b><span data-ja>貸し自転車</span><span data-en>Bicycles</span></b><span data-ja>各棟に2台。近くの市場や銭湯へどうぞ。</span><span data-en>Two per house, for the nearby market and public bath.</span></div>
-    <div><b><span data-ja>荷物預かり</span><span data-en>Luggage storage</span></b><span data-ja>チェックイン前・チェックアウト後も無料です。</span><span data-en>Free before check-in and after check-out.</span></div>
+  <h2 data-split><span data-ja>澄の一日</span><span data-en>A day at SUMI</span></h2>
+  <div class="dwrap">
+    <div class="clock"><svg viewBox="0 0 220 220"><circle cx="110" cy="110" r="100" fill="none" stroke="currentColor" stroke-width="1"/><g stroke="currentColor"><path d="M110 14v12M110 194v12M14 110h12M194 110h12"/></g><path class="hand" id="hand" d="M110 110V40" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="110" cy="110" r="4" fill="currentColor"/></svg><b id="ctime">15:00</b></div>
+    <div class="tl">
+      <div class="ev" data-t="15:00" data-sky="#e9e2d3"><time>15:00</time><h3><span data-ja>無人チェックイン</span><span data-en>Self check-in</span></h3><p><span data-ja>暗証番号で入室。到着時間を気にせずお越しください。早く着いたら荷物だけ預けて散歩へ。荷物預かりはチェックイン前・チェックアウト後も無料です。</span><span data-en>Enter with a door code — arrive whenever suits you. Luggage storage is free before check-in and after check-out.</span></p></div>
+      <div class="ev" data-t="17:00" data-sky="#ecd3b8"><time>17:00</time><h3><span data-ja>自転車で市場と銭湯へ</span><span data-en>Cycle to the market and bathhouse</span></h3><p><span data-ja>各棟に貸し自転車が2台。夕方の市場で一品買って、昔ながらの銭湯で汗を流します。</span><span data-en>Two bicycles per house. Pick up something at the evening market, then soak at a classic neighbourhood bathhouse.</span></p></div>
+      <div class="ev" data-t="21:00" data-sky="#2a3347" data-dark><time>21:00</time><h3><span data-ja>檜の湯と、坪庭の灯り</span><span data-en>Cypress bath, lantern-lit garden</span></h3><p><span data-ja>石灯籠に灯りがともる頃、檜の湯船へ。聞こえるのは、つくばいの水音だけ。</span><span data-en>When the stone lantern is lit, ease into the cypress tub. The only sound is water trickling in the basin.</span></p></div>
+      <div class="ev" data-t="7:30" data-sky="#f2ece0"><time>7:30</time><h3><span data-ja>土鍋ごはんの朝食</span><span data-en>Clay-pot rice breakfast</span></h3><p><span data-ja>近所の仕出し屋から、炊きたての土鍋ごはんと季節のおかずが届きます。</span><span data-en>A local caterer delivers freshly cooked clay-pot rice with seasonal side dishes.</span></p></div>
+      <div class="ev" data-t="11:00" data-sky="#e6e9e3"><time>11:00</time><h3><span data-ja>チェックアウト</span><span data-en>Check-out</span></h3><p><span data-ja>鍵は玄関の箱へ。荷物を預けて、最後にもう一度町を歩いてからお帰りください。</span><span data-en>Leave the key in the box by the door, store your luggage, and take one last walk around town.</span></p></div>
+    </div>
   </div>
 </section>
 
 <section id="book">
   <div class="label">AVAILABILITY</div>
-  <h2><span data-ja>空室検索</span><span data-en>Check availability</span></h2>
-  <form class="check" id="f">
-    <div><label><span data-ja>チェックイン</span><span data-en>Check-in</span></label><input type="date" id="in" required></div>
-    <div><label><span data-ja>チェックアウト</span><span data-en>Check-out</span></label><input type="date" id="out" required></div>
-    <div><label><span data-ja>人数</span><span data-en>Guests</span></label><select id="g"><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div>
-    <div><label><span data-ja>棟</span><span data-en>House</span></label><select id="r"><option value="38000" data-j="庭の棟" data-e="Garden House">庭の棟 / Garden House</option><option value="32000" data-j="蔵の棟" data-e="Storehouse">蔵の棟 / Storehouse</option><option value="45000" data-j="離れ" data-e="Annex">離れ / Annex</option></select></div>
-    <div><button class="btn" type="submit" style="width:100%"><span data-ja>検索する</span><span data-en>Search</span></button></div>
-    <div class="result" id="res"></div>
-  </form>
+  <h2 data-split><span data-ja>空室検索</span><span data-en>Check availability</span></h2>
+  <div class="bk">
+    <div>
+      <div class="houses" id="houses">
+        <button class="on" data-i="0"><span data-ja>庭の棟</span><span data-en>Garden House</span><small>¥38,000〜 · 2–4</small></button>
+        <button data-i="1"><span data-ja>蔵の棟</span><span data-en>Storehouse</span><small>¥32,000〜 · 2</small></button>
+        <button data-i="2"><span data-ja>離れ</span><span data-en>Annex</span><small>¥45,000〜 · 2–6</small></button>
+      </div>
+      <div class="calw">
+        <div class="calh"><button id="pv" aria-label="prev">‹</button><span class="hint" id="hint"></span><button id="nx" aria-label="next">›</button></div>
+        <div class="months" id="months"></div>
+        <div class="lg"><span><i></i><span data-ja>ご滞在</span><span data-en>Your stay</span></span><span><i class="x"></i><span data-ja>満室</span><span data-en>Booked</span></span><span style="color:var(--shu)">● <span data-ja>金・土曜の宿泊は +¥8,000</span><span data-en>Fri/Sat nights +¥8,000</span></span></div>
+      </div>
+    </div>
+    <aside class="sum" id="sum">
+      <div id="sumBody">
+        <h4>RESERVATION</h4>
+        <dl>
+          <dt><span data-ja>棟</span><span data-en>House</span></dt><dd id="sH"></dd>
+          <dt><span data-ja>チェックイン</span><span data-en>Check-in</span></dt><dd id="sI">—</dd>
+          <dt><span data-ja>チェックアウト</span><span data-en>Check-out</span></dt><dd id="sO">—</dd>
+          <dt><span data-ja>人数</span><span data-en>Guests</span></dt><dd><div class="step"><button id="gm" type="button">−</button><span id="gN">2</span><button id="gp" type="button">+</button></div></dd>
+        </dl>
+        <div class="br" id="brk"></div>
+        <div class="tot"><span><span data-ja>合計（税込）</span><span data-en>Total (tax incl.)</span></span><b id="tot">—</b></div>
+        <button class="btn" id="go" disabled><span data-ja>この内容で予約へ進む</span><span data-en>Continue to booking</span></button>
+        <p class="note"><span data-ja>※ デモサイトのため、実際の予約は行われません。本番ではここから予約と決済に進みます。</span><span data-en>This is a demo, so no booking is made. On a live site, guests would continue to payment here.</span></p>
+      </div>
+      <div class="okd" id="okd"><b>Thank you.</b><code id="ref"></code><p class="note"><span data-ja>デモのため予約は送信されていません。本番では確認メールと、当日の暗証番号のご案内が届きます。</span><span data-en>Nothing was sent — this is a demo. On a live site, you'd receive a confirmation e-mail and your door code.</span></p><button class="link" id="again" style="color:#fff;border-color:#fff;margin-top:14px"><span data-ja>もう一度試す</span><span data-en>Try again</span></button></div>
+    </aside>
+  </div>
 </section>
 
-<section>
+<section id="info" style="padding-top:0">
   <div class="label">ACCESS</div>
-  <h2><span data-ja>ご案内</span><span data-en>Information</span></h2>
-  <dl>
-    <dt><span data-ja>住所</span><span data-en>Address</span></dt><dd><span data-ja>〒000-0000 架空県見本市格子町7-8</span><span data-en>7-8 Koshi-machi, Mihon City (fictional)</span></dd>
-    <dt><span data-ja>チェックイン</span><span data-en>Check-in</span></dt><dd>15:00〜</dd>
-    <dt><span data-ja>チェックアウト</span><span data-en>Check-out</span></dt><dd>〜11:00</dd>
-    <dt><span data-ja>お問い合わせ</span><span data-en>Contact</span></dt><dd>stay@example.com</dd>
-  </dl>
+  <h2 data-split><span data-ja>ご案内</span><span data-en>Information</span></h2>
+  <div class="info">
+    <dl class="tb" data-r="l">
+      <dt><span data-ja>住所</span><span data-en>Address</span></dt><dd><span data-ja>〒000-0000 架空県見本市格子町7-8</span><span data-en>7-8 Koshi-machi, Mihon City (fictional)</span></dd>
+      <dt><span data-ja>チェックイン</span><span data-en>Check-in</span></dt><dd>15:00〜</dd>
+      <dt><span data-ja>チェックアウト</span><span data-en>Check-out</span></dt><dd>〜11:00</dd>
+      <dt><span data-ja>アクセス</span><span data-en>Access</span></dt><dd><span data-ja>見本駅から徒歩8分</span><span data-en>8 min walk from Mihon Station</span></dd>
+      <dt><span data-ja>お問い合わせ</span><span data-en>Contact</span></dt><dd>stay@example.com</dd>
+    </dl>
+    <div class="map" data-r="r"><svg viewBox="0 0 400 300"><rect width="400" height="300" fill="#e6dfd0"/><g stroke="#f6f2ea" stroke-width="10"><path d="M0 90h400M0 210h400M110 0v300M290 0v300"/></g><g stroke="#f6f2ea" stroke-width="4"><path d="M0 150h400M200 0v300M50 0v300M350 0v300"/></g><path d="M0 40 Q200 70 400 30" stroke="#b9c7d6" stroke-width="16" fill="none"/><rect x="300" y="220" width="70" height="26" fill="#2c3d55"/><text x="335" y="238" font-size="11" fill="#fff" text-anchor="middle" font-family="serif">Mihon Sta.</text><path d="M300 233 H230 V160 H200" stroke="#b0533c" stroke-width="2" stroke-dasharray="5 5" fill="none"/><circle cx="182" cy="160" r="12" fill="#b0533c" class="pin"/><circle cx="182" cy="160" r="8" fill="#b0533c"/><text x="182" y="140" font-size="16" text-anchor="middle" font-family="serif" fill="#1f2124">澄</text></svg></div>
+  </div>
 </section>
 
-<footer><span data-ja>© 町家の宿 澄 — 架空の宿のデモサイトです</span><span data-en>© SUMI Townhouse Stay — a demo site for a fictional inn</span></footer>
+<footer>
+  <div class="big">澄</div>
+  <div class="f"><span><span data-ja>© 町家の宿 澄 — 架空の宿のデモサイトです</span><span data-en>© SUMI Townhouse Stay — a demo site for a fictional inn</span></span><a href="../works.html"><span data-ja>制作者のページへ</span><span data-en>About the creator</span></a></div>
+</footer>
+<div class="fbar"><a href="#book"><span data-ja>空室を確認する</span><span data-en>Check availability</span></a></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="fx.js?v=2"></script>
 <script>
-var h=document.documentElement,bj=document.getElementById('ja'),be=document.getElementById('en');
-function lang(en){h.classList.toggle('en',en);h.lang=en?'en':'ja';bj.classList.toggle('on',!en);be.classList.toggle('on',en)}
-bj.onclick=function(){lang(false)};be.onclick=function(){lang(true)};
-if(location.hash==='#en')lang(true);
-document.getElementById('f').addEventListener('submit',function(e){
-  e.preventDefault();
-  var i=new Date(document.getElementById('in').value),o=new Date(document.getElementById('out').value),n=Math.round((o-i)/864e5),res=document.getElementById('res'),en=h.classList.contains('en');
-  res.style.display='block';
-  if(!(n>0)){res.textContent=en?'Check-out must be after check-in.':'チェックアウトはチェックインより後の日付にしてください。';return}
-  var s=document.getElementById('r'),op=s.options[s.selectedIndex],g=+document.getElementById('g').value,total=(+op.value+Math.max(0,g-2)*6000)*n;
-  res.innerHTML=(en?op.dataset.e+' — '+n+' night'+(n>1?'s':'')+', '+g+' guests: ':op.dataset.j+'・'+n+'泊・'+g+'名様：')+'<b>¥'+total.toLocaleString()+'</b><div class="note">'+(en?'This is a demo, so no booking is made. On a live site, guests would continue to payment here.':'デモサイトのため、実際の予約は行われません。本番ではここから予約と決済に進みます。')+'</div>';
-});
+(function(){
+  var $ = function(s){ return document.querySelector(s); }, h = document.documentElement;
+  var isEn = function(){ return h.classList.contains('en'); };
+
+  /* 言語切り替え */
+  function lang(en){ h.classList.toggle('en', en); h.lang = en ? 'en' : 'ja'; $('#ja').classList.toggle('on', !en); $('#en').classList.toggle('on', en); render(); if (window.ScrollTrigger) ScrollTrigger.refresh(); }
+  $('#ja').onclick = function(){ lang(false); }; $('#en').onclick = function(){ lang(true); };
+
+  /* 空室カレンダー（範囲選択） */
+  var HOUSE = [{ j: '庭の棟', e: 'Garden House', p: 38000, max: 4 }, { j: '蔵の棟', e: 'Storehouse', p: 32000, max: 2 }, { j: '離れ', e: 'Annex', p: 45000, max: 6 }];
+  var hi = 0, guests = 2, ci = null, co = null, today = new Date(); today.setHours(0, 0, 0, 0);
+  var view = new Date(today.getFullYear(), today.getMonth(), 1), first = new Date(view);
+  var key = function(d){ return d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate(); };
+  function booked(d){ var k = key(d) * 7 + hi * 131; return (k % 11) < 3 && d > today; }
+  function surcharge(d){ var w = d.getDay(); return w === 5 || w === 6; }
+  function fmt(d){ return isEn() ? d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', weekday: 'short' }) : (d.getMonth() + 1) + '/' + d.getDate() + '（' + '日月火水木金土'[d.getDay()] + '）'; }
+  function rangeFree(a, b){ for (var d = new Date(a); d < b; d.setDate(d.getDate() + 1)) if (booked(d)) return false; return true; }
+  function month(m){
+    var y = m.getFullYear(), mo = m.getMonth(), start = new Date(y, mo, 1).getDay(), days = new Date(y, mo + 1, 0).getDate();
+    var W = isEn() ? 'SMTWTFS' : '日月火水木金土', s = '<div class="mo"><h4>' + (isEn() ? m.toLocaleDateString('en-US', { month: 'long', year: 'numeric' }) : y + '年 ' + (mo + 1) + '月') + '</h4><div class="g">';
+    for (var i = 0; i < 7; i++) s += '<span class="w">' + W[i] + '</span>';
+    for (i = 0; i < start; i++) s += '<span></span>';
+    for (var d = 1; d <= days; d++) {
+      var dt = new Date(y, mo, d), c = 'd', dis = dt < today;
+      if (!dis && booked(dt)) c += ' bk';
+      if (surcharge(dt)) c += ' we';
+      if (ci && +dt === +ci) c += ' s';
+      if (co && +dt === +co) c += ' e';
+      if (ci && co && dt > ci && dt < co) c += ' in';
+      s += '<button type="button" class="' + c + '" data-t="' + (+dt) + '"' + (dis ? ' disabled' : '') + '>' + d + '</button>';
+    }
+    return s + '</div></div>';
+  }
+  function render(){
+    $('#months').innerHTML = month(view) + month(new Date(view.getFullYear(), view.getMonth() + 1, 1));
+    $('#pv').disabled = +view <= +first;
+    $('#nx').disabled = view.getMonth() + view.getFullYear() * 12 >= first.getMonth() + first.getFullYear() * 12 + 4;
+    $('#hint').textContent = !ci || co ? (isEn() ? 'Select your check-in date' : 'チェックイン日を選んでください') : (isEn() ? 'Now select check-out' : '次にチェックアウト日を選んでください');
+    var H = HOUSE[hi]; guests = Math.min(guests, H.max);
+    $('#sH').textContent = isEn() ? H.e : H.j;
+    $('#sI').textContent = ci ? fmt(ci) : '—'; $('#sO').textContent = co ? fmt(co) : '—';
+    $('#gN').textContent = guests; $('#gm').disabled = guests <= 2; $('#gp').disabled = guests >= H.max;
+    if (ci && co) {
+      var n = 0, base = 0, extra = 0;
+      for (var d = new Date(ci); d < co; d.setDate(d.getDate() + 1)) { n++; base += H.p + (surcharge(d) ? 8000 : 0); }
+      extra = Math.max(0, guests - 2) * 6000 * n;
+      $('#brk').innerHTML = '<div><span>' + (isEn() ? n + ' night' + (n > 1 ? 's' : '') : n + '泊') + '</span><span>¥' + base.toLocaleString() + '</span></div>' + (extra ? '<div><span>' + (isEn() ? 'Extra guests ×' : '追加人数 ×') + (guests - 2) + '</span><span>¥' + extra.toLocaleString() + '</span></div>' : '');
+      $('#tot').textContent = '¥' + (base + extra).toLocaleString(); $('#go').disabled = false;
+    } else { $('#brk').innerHTML = ''; $('#tot').textContent = '—'; $('#go').disabled = true; }
+  }
+  $('#months').addEventListener('click', function(e){
+    var b = e.target.closest('.d'); if (!b || b.disabled) return;
+    var d = new Date(+b.dataset.t);
+    if (!ci || co || d <= ci) { if (booked(d)) return; ci = d; co = null; }
+    else if (rangeFree(ci, d)) co = d;
+    else { $('#hint').textContent = isEn() ? 'Some nights in that range are booked' : '期間内に満室の日があります'; return; }
+    render();
+  });
+  $('#pv').onclick = function(){ view = new Date(view.getFullYear(), view.getMonth() - 1, 1); render(); };
+  $('#nx').onclick = function(){ view = new Date(view.getFullYear(), view.getMonth() + 1, 1); render(); };
+  function pick(i){ hi = i; ci = co = null; document.querySelectorAll('#houses button').forEach(function(b){ b.classList.toggle('on', +b.dataset.i === i); }); render(); }
+  $('#houses').addEventListener('click', function(e){ var b = e.target.closest('button'); if (b) pick(+b.dataset.i); });
+  document.querySelectorAll('[data-house]').forEach(function(b){ b.onclick = function(){ pick(+b.dataset.house); var t = $('#book'); FX.lenis ? FX.lenis.scrollTo(t, { offset: -70 }) : t.scrollIntoView({ behavior: 'smooth' }); }; });
+  $('#gm').onclick = function(){ guests--; render(); }; $('#gp').onclick = function(){ guests++; render(); };
+  $('#go').onclick = function(){ $('#sumBody').style.display = 'none'; $('#okd').style.display = 'block'; $('#ref').textContent = 'No. SM-' + Math.floor(1000 + Math.random() * 9000) + '-DEMO'; };
+  $('#again').onclick = function(){ $('#okd').style.display = 'none'; $('#sumBody').style.display = ''; ci = co = null; render(); };
+  if (location.hash === '#en') lang(true); else render();
+
+  /* 一日のタイムライン：時計と空の色 */
+  var evs = document.querySelectorAll('.ev'), day = $('#stay');
+  function setEv(ev){
+    evs.forEach(function(x){ x.classList.toggle('on', x === ev); });
+    var t = ev.dataset.t.split(':'), deg = ((+t[0] % 12) + t[1] / 60) * 30;
+    $('#hand').style.transform = 'rotate(' + deg + 'deg)'; $('#ctime').textContent = ev.dataset.t;
+    day.style.setProperty('--sky', ev.dataset.sky); day.classList.toggle('dark', ev.hasAttribute('data-dark'));
+  }
+  setEv(evs[0]);
+
+  var hd = $('#hd'); addEventListener('scroll', function(){ hd.classList.toggle('sc', scrollY > 30); }, { passive: true });
+
+  if (!FX.on) { evs.forEach(function(x){ x.classList.add('on'); }); return; }
+  evs.forEach(function(ev){ ScrollTrigger.create({ trigger: ev, start: 'top 60%', end: 'bottom 60%', onToggle: function(s){ if (s.isActive) setEv(ev); } }); });
+  FX.init();
+  var chs = FX.split($('#h1')); gsap.set(chs, { yPercent: 110 });
+  var ld = $('#ld');
+  gsap.timeline()
+    .from('#ld b', { opacity: 0, scale: .9, duration: .9, ease: 'power2.out' })
+    .to(ld, { opacity: 0, duration: .6, delay: .2, onComplete: function(){ ld.style.display = 'none'; } })
+    .to('.door.l', { xPercent: -82, duration: 1.8, ease: 'power3.inOut' }, '-=.3')
+    .to('.door.r', { xPercent: 82, duration: 1.8, ease: 'power3.inOut' }, '<')
+    .to(chs, { yPercent: 0, duration: 1.1, stagger: .04, ease: 'expo.out' }, '<.4')
+    .from('.hero .k', { opacity: 0, y: 10, duration: .8 }, '<');
+  ld.onclick = function(){ gsap.globalTimeline.getChildren().forEach(function(t){ t.progress(1); }); };
+  gsap.to('.win .scene', { yPercent: 8, scale: 1.08, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+})();
 </script>
 </body>
 </html>

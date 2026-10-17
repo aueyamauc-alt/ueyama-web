@@ -4,139 +4,392 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>hair salon Lueur｜デモサイト</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+<meta name="description" content="髪質とライフスタイルに合わせたカットを提案する、全席半個室のプライベートサロン。架空店舗を題材にしたデモサイトです。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Old+Mincho:wght@500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f6f2ec;--panel:#fff;--ink:#3a3632;--mute:#8b837a;--accent:#7d8f7a;--line:#e3dcd2}
+:root{--bg:#f7f3ed;--bg2:#efe9e0;--panel:#fffdf9;--ink:#3a3632;--mute:#8b837a;--accent:#7d8f7a;--accent2:#a9b8a5;--blush:#e8cfc4;--line:#e3dcd2;--en:"Cormorant Garamond",serif;--min:"Zen Old Mincho",serif}
 *{box-sizing:border-box;margin:0}
-body{background:var(--bg);color:var(--ink);font-family:"Zen Kaku Gothic New",sans-serif;line-height:1.9;font-size:15px}
-.en{font-family:"Cormorant Garamond",serif;letter-spacing:.12em}
-.ribbon{background:var(--ink);color:#ddd5ca;font-size:12px;text-align:center;padding:6px 12px}
-.ribbon a{color:#c9d6c6}
-header{display:flex;justify-content:space-between;align-items:center;padding:20px 28px;position:sticky;top:0;background:rgba(246,242,236,.94);backdrop-filter:blur(6px);z-index:5}
-.brand{font-size:26px}
-nav a{margin-left:22px;text-decoration:none;color:var(--mute);font-size:13px}
-nav a.cta{color:#fff;background:var(--accent);padding:9px 20px;border-radius:99px}
-.hero{display:grid;grid-template-columns:1.1fr 1fr;min-height:min(74vh,680px)}
-.hero .txt{padding:64px 48px;align-self:center}
-.hero h1{font-size:clamp(40px,6vw,72px);font-weight:400;line-height:1.15}
-.hero p{color:var(--mute);margin:24px 0 32px;max-width:400px}
-.hero .img{background:radial-gradient(circle at 30% 30%,#fff8,transparent 45%),linear-gradient(160deg,#d8cdbd,#b9c4b3 60%,#8fa08b);border-radius:200px 0 0 200px;margin:32px 0}
-.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:14px 36px;border-radius:99px;border:0;font-size:15px;font-family:inherit;cursor:pointer}
-section{max-width:980px;margin:0 auto;padding:84px 24px}
-h2{font-size:38px;font-weight:400;text-align:center;margin-bottom:6px}
-.sub{text-align:center;color:var(--mute);font-size:13px;margin-bottom:44px}
-.menu{background:var(--panel);border-radius:16px;padding:12px 36px}
-.row{display:flex;justify-content:space-between;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
-.row:last-child{border:0}
-.row small{display:block;color:var(--mute);font-size:12px}
-.row b{font-weight:500;white-space:nowrap}
-.staff{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px}
-.person{background:var(--panel);border-radius:16px;padding:28px;text-align:center}
-.face{width:96px;height:96px;border-radius:50%;margin:0 auto 16px;background:linear-gradient(135deg,#d9cbb8,#a8b5a3)}
-.person:nth-child(2) .face{background:linear-gradient(135deg,#e6c9c0,#c9a79a)}
-.person:nth-child(3) .face{background:linear-gradient(135deg,#c8d2dc,#93a4b5)}
-.person small{color:var(--accent)}
-.person p{font-size:13px;color:var(--mute);margin-top:8px}
-.book{background:var(--panel);border-radius:16px;padding:36px}
-.step{font-size:13px;color:var(--accent);margin:22px 0 10px}
-.step:first-child{margin-top:0}
-.chips{display:flex;flex-wrap:wrap;gap:10px}
-.chip{border:1px solid var(--line);background:var(--bg);padding:10px 18px;border-radius:99px;font-size:14px;cursor:pointer;font-family:inherit;color:var(--ink)}
-.chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
-.chip:disabled{opacity:.35;cursor:not-allowed;text-decoration:line-through}
-.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
-input{width:100%;border:1px solid var(--line);background:var(--bg);padding:12px 14px;border-radius:10px;font-size:15px;font-family:inherit}
-.summary{margin:24px 0 16px;font-size:14px;color:var(--mute)}
-.done{display:none;margin-top:16px;background:#eef2ec;padding:14px 18px;border-radius:10px;font-size:14px;color:#56684f}
-.info{text-align:center;font-size:14px;color:var(--mute)}
-.info b{color:var(--ink);font-weight:500}
-footer{text-align:center;color:var(--mute);font-size:12px;padding:32px;border-top:1px solid var(--line)}
-@media(max-width:720px){.hero{grid-template-columns:1fr;min-height:0}.hero .img{height:240px;border-radius:120px 0 0 120px;margin:0 0 0 24px}.hero .txt{padding:48px 24px}nav a:not(.cta){display:none}.menu,.book{padding:12px 20px}.book{padding:24px 20px}}
+html.lenis,html.lenis body{height:auto}
+html,body{overflow-x:clip}
+body{background:var(--bg);color:var(--ink);font-family:"Zen Kaku Gothic New",sans-serif;line-height:1.9;font-size:15px;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit}
+.ch{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.12em;margin-bottom:-.12em}.ch>span{display:inline-block}
+.en{font-family:var(--en)}
+.ribbon{background:var(--ink);color:#ddd5ca;font-size:12px;text-align:center;padding:6px 12px;position:relative;z-index:60}
+.ribbon a{color:#c9d6c6;text-decoration:underline}
+
+#ld{position:fixed;inset:0;z-index:100;background:var(--bg);display:none;place-items:center}
+.fx #ld{display:grid}
+#ld .o{width:14px;height:14px;border-radius:50%;background:radial-gradient(circle,#fff,var(--blush) 60%,transparent 70%);box-shadow:0 0 60px 30px rgba(232,207,196,.6)}
+#ld b{position:absolute;font-family:var(--en);font-weight:300;font-size:64px;letter-spacing:.3em;text-indent:.3em;opacity:0}
+
+header{position:fixed;top:30px;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px 4vw;transition:top .4s,background .4s,padding .4s}
+header.sc{top:0;background:rgba(247,243,237,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:12px 4vw;box-shadow:0 1px 0 var(--line)}
+.brand{font-family:var(--en);font-size:30px;font-weight:400;letter-spacing:.14em}
+.brand small{font-size:10px;letter-spacing:.4em;color:var(--mute);margin-left:10px;font-family:"Zen Kaku Gothic New"}
+nav{display:flex;align-items:center;gap:30px;font-family:var(--en);font-size:16px;letter-spacing:.12em}
+nav a:not(.cta){color:var(--mute);transition:color .3s}
+nav a:not(.cta):hover{color:var(--ink)}
+.cta,.btn{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;border-radius:999px;padding:10px 22px;font-size:13px;font-family:"Zen Kaku Gothic New";letter-spacing:.08em;border:0;cursor:pointer;position:relative;overflow:hidden;isolation:isolate;transition:color .4s}
+.btn{padding:16px 34px;font-size:14px}
+.cta::before,.btn::before{content:"";position:absolute;inset:0;background:var(--ink);border-radius:inherit;transform:scale(0);transition:transform .5s cubic-bezier(.2,.8,.2,1);z-index:-1}
+.cta:hover::before,.btn:hover::before{transform:scale(1)}
+.btn.gh{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.btn.gh:hover{color:#fff}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn:disabled::before{display:none}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:4vw;padding:130px 6vw 70px;overflow:hidden}
+.hero h1{font-family:var(--en);font-weight:300;font-size:clamp(56px,8.6vw,132px);line-height:.98;letter-spacing:.01em}
+.hero h1 i{font-weight:300;color:var(--accent)}
+.hero .jp{font-family:var(--min);font-size:clamp(16px,1.5vw,20px);letter-spacing:.2em;margin:28px 0 14px}
+.hero p{color:var(--mute);max-width:28em;font-size:14px}
+.hero .row{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+.arch{position:relative;justify-self:center;width:min(100%,460px);aspect-ratio:3/4}
+.arch .a{position:absolute;inset:0;border-radius:999px 999px 0 0;overflow:hidden;background:linear-gradient(180deg,#f3e6dd,#e7ddd0)}
+.blob{position:absolute;border-radius:50%;filter:blur(40px);opacity:.9;animation:mv 12s ease-in-out infinite alternate}
+.blob.b1{width:70%;height:55%;left:-10%;top:5%;background:#f0cfc1}
+.blob.b2{width:65%;height:50%;right:-15%;top:35%;background:#c7d3c2;animation-duration:15s}
+.blob.b3{width:50%;height:40%;left:20%;bottom:-5%;background:#fff3e6;animation-duration:10s}
+@keyframes mv{to{transform:translate(12%,-8%) scale(1.15)}}
+.rays{position:absolute;inset:0;background:repeating-linear-gradient(115deg,transparent 0 40px,rgba(255,255,255,.25) 40px 46px,transparent 46px 110px);mix-blend-mode:soft-light;animation:ray 8s ease-in-out infinite alternate}
+@keyframes ray{to{transform:translateX(-30px)}}
+.arch svg{position:absolute;left:50%;bottom:0;width:78%;transform:translateX(-50%)}
+.arch .lb{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);font-size:11px;color:var(--mute);white-space:nowrap;background:rgba(255,255,255,.7);padding:3px 10px;border-radius:99px}
+.chip-f{position:absolute;background:rgba(255,253,249,.9);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:12px;box-shadow:0 14px 30px -14px rgba(58,54,50,.3);display:flex;gap:8px;align-items:center;white-space:nowrap}
+.chip-f i{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.chip-f.c1{left:-12%;top:22%}.chip-f.c2{right:-8%;top:52%}.chip-f.c3{left:-4%;bottom:12%}
+.circ{position:absolute;right:-30px;top:-30px;width:120px;height:120px;animation:spin 20s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.mq{overflow:hidden;white-space:nowrap;border-block:1px solid var(--line);padding:18px 0}
+.mq .tr{display:inline-flex;gap:40px;font-family:var(--en);font-style:italic;font-weight:300;font-size:clamp(28px,4vw,52px);animation:mq 30s linear infinite}
+.mq .tr span::after{content:"·";margin-left:40px;color:var(--accent)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+section{position:relative;padding:clamp(90px,12vw,150px) 6vw}
+.ttl{text-align:center;margin-bottom:60px}
+.ttl .en{display:block;font-weight:300;font-size:clamp(46px,6vw,80px);line-height:1;letter-spacing:.06em}
+.ttl small{display:block;margin-top:10px;font-size:12px;letter-spacing:.3em;color:var(--mute)}
+
+.concept{display:grid;grid-template-columns:repeat(3,1fr);gap:4vw}
+.concept div{text-align:center}
+.concept .n{font-family:var(--en);font-style:italic;font-weight:300;font-size:70px;color:var(--accent2);line-height:1}
+.concept b{display:block;font-family:var(--min);font-weight:500;font-size:20px;letter-spacing:.14em;margin:16px 0 10px}
+.concept p{color:var(--mute);font-size:14px;max-width:20em;margin:0 auto}
+
+/* menu */
+.menu{background:var(--bg2)}
+.mt{display:flex;justify-content:center;gap:6px;margin-bottom:40px;flex-wrap:wrap}
+.mt button{background:transparent;border:1px solid var(--line);border-radius:999px;padding:9px 22px;cursor:pointer;font-family:var(--en);font-size:17px;letter-spacing:.1em;color:var(--mute);transition:all .3s}
+.mt button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.ml{max-width:860px;margin:0 auto}
+.mr{display:grid;grid-template-columns:1fr auto;gap:4px 20px;padding:22px 6px;border-bottom:1px solid var(--line);transition:background .3s,padding .3s}
+.mr:hover{background:rgba(255,255,255,.6);padding-inline:18px}
+.mr b{font-weight:500;font-size:17px}
+.mr em{font-style:normal;font-family:var(--en);font-size:24px}
+.mr small{color:var(--mute);font-size:12px;display:flex;align-items:center;gap:10px}
+.mr .dur{height:3px;border-radius:3px;background:var(--line);width:120px;position:relative;overflow:hidden}
+.mr .dur i{position:absolute;inset:0;background:var(--accent);transform-origin:left}
+.mr[hidden]{display:none}
+
+/* style gallery */
+.styles{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 6vw 20px;margin:0 -6vw;scrollbar-width:none}
+.styles::-webkit-scrollbar{display:none}
+.st{flex:none;width:min(300px,72vw);scroll-snap-align:start}
+.st .pic{aspect-ratio:3/4;border-radius:160px 160px 14px 14px;background:linear-gradient(170deg,var(--c1),var(--c2));display:grid;place-items:end center;overflow:hidden;position:relative;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.st:hover .pic{transform:translateY(-8px)}
+.st svg{width:80%}
+.st .lb{position:absolute;top:16px;right:16px;font-size:10px;color:var(--mute);background:rgba(255,255,255,.7);padding:2px 8px;border-radius:99px}
+.st b{display:block;margin-top:14px;font-family:var(--min);font-weight:500;letter-spacing:.1em}
+.st small{color:var(--mute);font-size:12px}
+.hint{text-align:right;font-family:var(--en);font-style:italic;color:var(--mute);margin-bottom:16px}
+
+/* staff */
+.staff{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.sf{text-align:center}
+.sf .ph{position:relative;aspect-ratio:1;border-radius:50%;margin:0 auto 20px;width:76%;background:radial-gradient(circle at 35% 30%,#fff8,transparent 50%),linear-gradient(140deg,var(--c1),var(--c2));display:grid;place-items:center;overflow:hidden}
+.sf .ph span{font-family:var(--en);font-style:italic;font-size:44px;color:#fff}
+.sf .ph .ov{position:absolute;inset:0;background:rgba(58,54,50,.75);color:#fff;display:flex;flex-direction:column;justify-content:center;gap:6px;padding:20px;font-size:12px;opacity:0;transition:opacity .4s}
+.sf:hover .ph .ov{opacity:1}
+.sf .ov i{font-style:normal;border:1px solid rgba(255,255,255,.5);border-radius:99px;padding:2px 10px;align-self:center}
+.sf b{font-size:17px;font-weight:500}
+.sf small{display:block;color:var(--accent);font-family:var(--en);letter-spacing:.14em;font-size:14px}
+.sf p{color:var(--mute);font-size:13px;margin:10px auto 16px;max-width:20em}
+.sf a{font-size:12px;border-bottom:1px solid var(--ink);padding-bottom:2px}
+
+/* booking */
+.book{background:var(--panel);max-width:980px;margin:0 auto;border-radius:28px;border:1px solid var(--line);overflow:hidden;box-shadow:0 40px 80px -50px rgba(58,54,50,.35)}
+.prog{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
+.prog div{padding:18px 10px;text-align:center;font-size:12px;color:var(--mute);position:relative}
+.prog div b{display:block;font-family:var(--en);font-size:20px;font-weight:400}
+.prog div::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--accent);transform:scaleX(0);transition:transform .5s}
+.prog div.on{color:var(--ink)}
+.prog div.on::after,.prog div.dn::after{transform:scaleX(1)}
+.prog div.dn{color:var(--accent)}
+.pn{display:none;padding:36px 40px;animation:fi .5s ease}
+.pn.on{display:block}
+@keyframes fi{from{opacity:0;transform:translateX(20px)}}
+.pn h4{font-family:var(--min);font-weight:500;font-size:19px;letter-spacing:.1em;margin-bottom:20px}
+.opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.opt{text-align:left;background:var(--bg);border:1.5px solid transparent;border-radius:16px;padding:18px;cursor:pointer;transition:all .25s;color:var(--ink)}
+.opt:hover{border-color:var(--accent2)}
+.opt.on{border-color:var(--accent);background:#f1f5ef}
+.opt b{display:block;font-weight:500}
+.opt small{color:var(--mute);font-size:12px}
+.opt em{display:block;font-style:normal;font-family:var(--en);font-size:22px;margin-top:6px}
+.opt .av{width:44px;height:44px;border-radius:50%;background:linear-gradient(140deg,var(--c1),var(--c2));float:right;display:grid;place-items:center;color:#fff;font-family:var(--en);font-style:italic;font-size:18px}
+.days{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;margin-bottom:20px;scrollbar-width:thin}
+.days button{flex:none;width:64px;padding:10px 0;border-radius:14px;border:1.5px solid var(--line);background:#fff;cursor:pointer;color:var(--ink);transition:all .2s}
+.days button small{display:block;font-size:11px;color:var(--mute)}
+.days button b{font-family:var(--en);font-size:22px;font-weight:400}
+.days button.sun small{color:#c26a5a}.days button.sat small{color:#5a7ac2}
+.days button:disabled{opacity:.35;cursor:not-allowed}
+.days button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.days button.on small{color:#ddd}
+.times{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:8px}
+.times button{padding:12px 0;border-radius:12px;border:1.5px solid var(--line);background:#fff;cursor:pointer;color:var(--ink);font-family:var(--en);font-size:18px;transition:all .2s}
+.times button:disabled{background:var(--bg);color:#c9c2b8;cursor:not-allowed;text-decoration:line-through}
+.times button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.legend{font-size:12px;color:var(--mute);margin-top:12px}
+.fl{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fl input,.fl textarea{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:14px;font-family:inherit;font-size:15px;background:#fff}
+.fl input:focus,.fl textarea:focus{outline:none;border-color:var(--accent)}
+.fl .full{grid-column:1/-1}
+.rv{background:var(--bg);border-radius:16px;padding:20px 22px;margin-top:20px;display:grid;grid-template-columns:5em 1fr;gap:8px 16px;font-size:14px}
+.rv dt{color:var(--mute)}
+.rv dd{margin:0}
+.rv .tt{grid-column:1/-1;border-top:1px solid var(--line);padding-top:12px;margin-top:4px;display:flex;justify-content:space-between;align-items:baseline}
+.rv .tt b{font-family:var(--en);font-size:30px;font-weight:400}
+.nav2{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;border-top:1px solid var(--line);background:#fbf9f5}
+.nav2 .back{background:none;border:0;color:var(--mute);cursor:pointer;font-size:13px}
+.nav2 .back:disabled{visibility:hidden}
+.done{display:none;text-align:center;padding:60px 30px}
+.done svg{width:72px;margin-bottom:16px}
+.done svg path{stroke-dasharray:70;stroke-dashoffset:70;animation:ck .9s .2s forwards}
+@keyframes ck{to{stroke-dashoffset:0}}
+.done b{display:block;font-family:var(--min);font-weight:500;font-size:22px;letter-spacing:.12em}
+.done .no{font-family:var(--en);font-size:24px;color:var(--accent);margin:8px 0 14px}
+.done p{color:var(--mute);font-size:13px}
+
+/* info */
+.info{display:grid;grid-template-columns:1fr 1fr;gap:5vw;align-items:center}
+.hours{width:100%;border-collapse:collapse;font-size:14px}
+.hours td{padding:12px 4px;border-bottom:1px solid var(--line)}
+.hours td:last-child{text-align:right;font-family:var(--en);font-size:18px}
+.hours tr.off td{color:#c26a5a}
+.hours tr.today{background:rgba(125,143,122,.1)}
+.hours tr.today td:first-child::after{content:"今日";font-size:10px;background:var(--accent);color:#fff;border-radius:99px;padding:1px 8px;margin-left:8px}
+.adr{background:var(--panel);border-radius:24px;padding:36px;border:1px solid var(--line)}
+.adr b{font-family:var(--en);font-size:28px;font-weight:400;letter-spacing:.1em}
+.adr p{color:var(--mute);font-size:14px;margin-top:10px}
+footer{padding:70px 6vw 40px;text-align:center;border-top:1px solid var(--line)}
+footer .big{font-family:var(--en);font-weight:300;font-style:italic;font-size:clamp(70px,14vw,200px);line-height:1;color:var(--accent2)}
+footer p{font-size:12px;color:var(--mute);margin-top:16px}
+.fbar{display:none}
+
+@media(max-width:860px){
+  nav a:not(.cta){display:none}
+  header{padding:14px 20px}
+  .hero{grid-template-columns:1fr;padding:110px 22px 60px;gap:50px}
+  .arch{width:80%}
+  .chip-f.c1{left:-8%}.chip-f.c2{right:-10%}
+  .concept,.staff,.info{grid-template-columns:1fr}
+  .concept{gap:50px}
+  .pn{padding:26px 20px}.nav2{padding:16px 20px}
+  .prog div{font-size:10px;padding:14px 4px}
+  .fl{grid-template-columns:1fr}
+  .fbar{display:block;position:fixed;left:14px;right:14px;bottom:14px;z-index:55}
+  .fbar a{display:flex;justify-content:center;background:var(--ink);color:#fff;border-radius:999px;padding:16px;font-size:14px;box-shadow:0 14px 30px -10px rgba(0,0,0,.4)}
+  footer{padding-bottom:100px}
+}
 </style>
 </head>
 <body>
+<div id="ld" aria-hidden="true"><div class="o"></div><b>Lueur</b></div>
 <div class="ribbon">これは架空の店舗を題材にしたデモサイトです｜<a href="../works.html">制作者のページへ</a></div>
-<header>
-  <div class="brand en">Lueur</div>
-  <nav><a href="#menu">メニュー</a><a href="#staff">スタッフ</a><a href="#info">アクセス</a><a class="cta" href="#book">Web予約</a></nav>
+<header id="hd">
+  <a class="brand" href="#">Lueur<small>HAIR SALON</small></a>
+  <nav><a href="#concept">Concept</a><a href="#menu">Menu</a><a href="#style">Style</a><a href="#staff">Staff</a><a class="cta" href="#book">Web予約</a></nav>
 </header>
 
 <div class="hero">
-  <div class="txt">
-    <h1 class="en">Soft light,<br>soft hair.</h1>
-    <p>髪質とライフスタイルに合わせて、朝のスタイリングが楽になるカットをご提案します。全席半個室のプライベートサロンです。</p>
-    <a class="btn" href="#book">空き時間を見て予約する</a>
+  <div>
+    <h1 id="h1">Soft light,<br><i>soft</i> hair.</h1>
+    <div class="jp" data-r>朝のスタイリングが、楽になる髪へ。</div>
+    <p data-r>髪質とライフスタイルに合わせて、伸びても形が崩れにくいカットをご提案します。全席半個室の、静かなプライベートサロンです。</p>
+    <div class="row" data-r><a class="btn" href="#book">空き時間を見て予約する</a><a class="btn gh" href="#menu">メニュー・料金</a></div>
   </div>
-  <div class="img"></div>
+  <div class="arch" id="arch">
+    <div class="a"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="rays"></div>
+      <svg viewBox="0 0 200 220" aria-hidden="true" fill="none" stroke="#7d8f7a" stroke-width="1.3" stroke-linecap="round"><path d="M60 220c0-40 10-60 40-66s40 26 40 66"/><path d="M100 150c-26 0-40-22-40-52s16-56 42-56 40 24 40 54-16 54-42 54z"/><path d="M58 96c-10 30-4 70 4 96M142 96c10 30 6 66-2 92"/><path d="M62 80c14-20 50-30 80-6"/><path d="M70 64c10 14 30 20 60 18"/></svg>
+    </div>
+    <span class="lb">※ 本番ではスタイル写真が入ります</span>
+    <svg class="circ" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="cp" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"/></defs><circle cx="60" cy="60" r="58" fill="#fffdf9" stroke="#e3dcd2"/><text font-family="Cormorant Garamond" font-size="12" letter-spacing="3" fill="#7d8f7a"><textPath href="#cp">PRIVATE SALON · SINCE 2020 · LUEUR · </textPath></text><circle cx="60" cy="60" r="4" fill="#7d8f7a"/></svg>
+    <div class="chip-f c1"><i></i>全席半個室</div>
+    <div class="chip-f c2"><i></i>髪質改善トリートメント</div>
+    <div class="chip-f c3"><i></i>24時間Web予約</div>
+  </div>
 </div>
 
-<section id="menu">
-  <h2 class="en">Menu</h2>
-  <div class="sub">メニュー・料金（税込）</div>
-  <div class="menu">
-    <div class="row"><div>カット<small>シャンプー・ブロー込み／約60分</small></div><b>5,500円</b></div>
-    <div class="row"><div>カット＋カラー<small>リタッチまたはフルカラー／約120分</small></div><b>11,000円</b></div>
-    <div class="row"><div>カット＋パーマ<small>コスメパーマ／約150分</small></div><b>13,200円</b></div>
-    <div class="row"><div>髪質改善トリートメント<small>ホームケアつき／約90分</small></div><b>9,900円</b></div>
-    <div class="row"><div>ヘッドスパ<small>炭酸クレンジング込み／約40分</small></div><b>4,400円</b></div>
+<div class="mq" aria-hidden="true"><div class="tr"><span>Cut</span><span>Color</span><span>Perm</span><span>Treatment</span><span>Head spa</span><span>Cut</span><span>Color</span><span>Perm</span><span>Treatment</span><span>Head spa</span></div></div>
+
+<section id="concept">
+  <div class="ttl"><span class="en" data-split>Concept</span><small>大切にしていること</small></div>
+  <div class="concept" data-stagger>
+    <div><div class="n">i.</div><b>髪質から考える</b><p>くせ・量・生えぐせを見てから、似合う長さと形をご提案します。</p></div>
+    <div><div class="n">ii.</div><b>朝、5分で整う</b><p>乾かすだけでまとまるように。ご自宅での乾かし方もお伝えします。</p></div>
+    <div><div class="n">iii.</div><b>静かな半個室</b><p>周りを気にせず過ごせる半個室。会話なしのご希望も承ります。</p></div>
   </div>
 </section>
 
-<section id="staff">
-  <h2 class="en">Staff</h2>
-  <div class="sub">スタッフ</div>
-  <div class="staff">
-    <div class="person"><div class="face"></div><b>見本 あかり</b><br><small>オーナースタイリスト</small><p>くせ毛を活かすカットと、伸びても形が崩れないショートが得意です。</p></div>
-    <div class="person"><div class="face"></div><b>例田 ゆい</b><br><small>カラーリスト</small><p>ブリーチなしの透明感カラーと、白髪をぼかすハイライトを担当します。</p></div>
-    <div class="person"><div class="face"></div><b>架空 そうた</b><br><small>スタイリスト</small><p>メンズカットとパーマが得意です。スパの指名もお任せください。</p></div>
+<section id="menu" class="menu">
+  <div class="ttl"><span class="en" data-split>Menu</span><small>メニュー・料金（税込）</small></div>
+  <div class="mt"><button class="on" data-c="all">All</button><button data-c="cut">Cut</button><button data-c="color">Color</button><button data-c="care">Care</button></div>
+  <div class="ml" id="ml">
+    <div class="mr" data-c="cut"><b>カット</b><em>¥5,500</em><small><span class="dur"><i style="transform:scaleX(.4)"></i></span>約60分・シャンプー・ブロー込み</small></div>
+    <div class="mr" data-c="color"><b>カット＋カラー</b><em>¥11,000</em><small><span class="dur"><i style="transform:scaleX(.8)"></i></span>約120分・リタッチまたはフルカラー</small></div>
+    <div class="mr" data-c="cut"><b>カット＋パーマ</b><em>¥13,200</em><small><span class="dur"><i style="transform:scaleX(1)"></i></span>約150分・コスメパーマ</small></div>
+    <div class="mr" data-c="care"><b>髪質改善トリートメント</b><em>¥9,900</em><small><span class="dur"><i style="transform:scaleX(.6)"></i></span>約90分・ホームケアつき</small></div>
+    <div class="mr" data-c="care"><b>ヘッドスパ</b><em>¥4,400</em><small><span class="dur"><i style="transform:scaleX(.27)"></i></span>約40分・炭酸クレンジング込み</small></div>
+    <div class="mr" data-c="color"><b>透明感カラー（ブリーチなし）</b><em>¥7,700</em><small><span class="dur"><i style="transform:scaleX(.6)"></i></span>約90分</small></div>
+  </div>
+</section>
+
+<section id="style">
+  <div class="ttl"><span class="en" data-split>Style</span><small>スタイルカタログ</small></div>
+  <p class="hint">Swipe →</p>
+  <div class="styles" data-stagger>
+    <div class="st"><div class="pic" style="--c1:#f3e2d8;--c2:#e5cfc2"><span class="lb">写真</span><svg viewBox="0 0 200 200" fill="none" stroke="#8a6f62" stroke-width="1.3" stroke-linecap="round"><path d="M70 200c0-26 10-40 30-44s30 18 30 44"/><path d="M100 140c-20 0-32-18-32-40s12-44 32-44 32 20 32 42-12 42-32 42z"/><path d="M64 100c-6-34 10-64 38-66s44 28 34 64c-4-14-10-24-18-30-16 8-34 10-54 32z"/></svg></div><b>ショートボブ</b><small>くせ毛を活かして / 見本 あかり</small></div>
+    <div class="st"><div class="pic" style="--c1:#e6ece3;--c2:#c9d4c4"><span class="lb">写真</span><svg viewBox="0 0 200 200" fill="none" stroke="#5f725c" stroke-width="1.3" stroke-linecap="round"><path d="M70 200c0-26 10-40 30-44s30 18 30 44"/><path d="M100 140c-20 0-32-18-32-40s12-44 32-44 32 20 32 42-12 42-32 42z"/><path d="M66 96c-12 30-4 70-14 100M134 96c10 34 2 70 14 100M62 106c-4-40 14-70 40-70s44 30 38 68c-10-20-24-30-40-34"/><path d="M58 150c6 8 2 20 8 30M142 150c-6 8-2 20-8 30"/></svg></div><b>透明感ロング</b><small>ブリーチなしカラー / 例田 ゆい</small></div>
+    <div class="st"><div class="pic" style="--c1:#e9e4dc;--c2:#d5cec3"><span class="lb">写真</span><svg viewBox="0 0 200 200" fill="none" stroke="#6d6458" stroke-width="1.3" stroke-linecap="round"><path d="M70 200c0-26 10-40 30-44s30 18 30 44"/><path d="M100 140c-20 0-32-18-32-40s12-44 32-44 32 20 32 42-12 42-32 42z"/><path d="M68 90c2-30 18-46 40-44 18 2 28 16 26 40-10-16-30-22-66 4z"/><path d="M80 60l6-10M96 54l4-12M112 56l6-10"/></svg></div><b>メンズショート</b><small>乾かすだけで決まる / 架空 そうた</small></div>
+    <div class="st"><div class="pic" style="--c1:#f2e7e1;--c2:#dfcfc6"><span class="lb">写真</span><svg viewBox="0 0 200 200" fill="none" stroke="#8a6f62" stroke-width="1.3" stroke-linecap="round"><path d="M70 200c0-26 10-40 30-44s30 18 30 44"/><path d="M100 140c-20 0-32-18-32-40s12-44 32-44 32 20 32 42-12 42-32 42z"/><path d="M64 100c-8-36 12-64 38-64s46 28 36 62c-8-18-30-26-52-24M64 100c-10 16-6 36-14 52 6 2 14-2 18-8M136 100c10 18 6 36 14 50-6 2-14-2-18-8"/></svg></div><b>ゆるふわパーマ</b><small>コスメパーマ / 架空 そうた</small></div>
+  </div>
+</section>
+
+<section id="staff" style="background:var(--bg2)">
+  <div class="ttl"><span class="en" data-split>Staff</span><small>スタッフ</small></div>
+  <div class="staff" data-stagger>
+    <div class="sf"><div class="ph" style="--c1:#e8cfc4;--c2:#c9a99a"><span>A</span><div class="ov"><i>くせ毛カット</i><i>ショート</i><i>髪質改善</i></div></div><b>見本 あかり</b><small>Owner Stylist</small><p>くせ毛を活かすカットと、伸びても形が崩れないショートが得意です。</p><a href="#book" data-st="1">このスタイリストで予約 →</a></div>
+    <div class="sf"><div class="ph" style="--c1:#c9d4c4;--c2:#94a891"><span>Y</span><div class="ov"><i>透明感カラー</i><i>白髪ぼかし</i><i>ハイライト</i></div></div><b>例田 ゆい</b><small>Colorist</small><p>ブリーチなしの透明感カラーと、白髪をぼかすハイライトを担当します。</p><a href="#book" data-st="2">このスタイリストで予約 →</a></div>
+    <div class="sf"><div class="ph" style="--c1:#d9d2c6;--c2:#a59c8e"><span>S</span><div class="ov"><i>メンズ</i><i>パーマ</i><i>ヘッドスパ</i></div></div><b>架空 そうた</b><small>Stylist</small><p>メンズカットとパーマが得意です。ヘッドスパの指名もお任せください。</p><a href="#book" data-st="3">このスタイリストで予約 →</a></div>
   </div>
 </section>
 
 <section id="book">
-  <h2 class="en">Reservation</h2>
-  <div class="sub">Web予約（24時間受付）</div>
-  <div class="book">
-    <div class="step">1. メニューを選ぶ</div>
-    <div class="chips" data-g="menu">
-      <button class="chip on">カット</button><button class="chip">カット＋カラー</button><button class="chip">カット＋パーマ</button><button class="chip">髪質改善</button><button class="chip">ヘッドスパ</button>
+  <div class="ttl"><span class="en" data-split>Reservation</span><small>Web予約（24時間受付）</small></div>
+  <div class="book" data-r>
+    <div class="prog" id="prog"><div class="on"><b>01</b>メニュー</div><div><b>02</b>スタイリスト</div><div><b>03</b>日時</div><div><b>04</b>お客様情報</div></div>
+    <div id="wiz">
+      <div class="pn on" data-s="0"><h4>メニューを選んでください</h4><div class="opts" id="o-menu"></div></div>
+      <div class="pn" data-s="1"><h4>担当スタイリスト</h4><div class="opts" id="o-st"></div></div>
+      <div class="pn" data-s="2"><h4>ご来店日時</h4><div class="days" id="days"></div><div class="times" id="times"></div><p class="legend">取り消し線の時間は予約が埋まっています。火曜は定休日です。</p></div>
+      <div class="pn" data-s="3"><h4>お客様情報</h4>
+        <div class="fl"><input id="nm" placeholder="お名前" autocomplete="off"><input id="tel" placeholder="電話番号" inputmode="tel" autocomplete="off"><textarea class="full" rows="2" placeholder="ご要望（任意）例：会話少なめ希望、くせ毛が気になる"></textarea></div>
+        <dl class="rv" id="rv"></dl>
+      </div>
+      <div class="nav2"><button class="back" id="back" disabled>← 戻る</button><button class="btn" id="next" disabled>次へ</button></div>
     </div>
-    <div class="step">2. 日にちを選ぶ</div>
-    <div class="chips" data-g="day" id="days"></div>
-    <div class="step">3. 時間を選ぶ</div>
-    <div class="chips" data-g="time">
-      <button class="chip">10:00</button><button class="chip" disabled>11:00</button><button class="chip on">13:00</button><button class="chip">14:00</button><button class="chip" disabled>15:00</button><button class="chip">16:00</button><button class="chip">17:00</button><button class="chip" disabled>18:00</button>
+    <div class="done" id="done">
+      <svg viewBox="0 0 72 72"><circle cx="36" cy="36" r="34" fill="none" stroke="#7d8f7a" stroke-width="1.5"/><path d="M22 37l10 10 20-21" fill="none" stroke="#7d8f7a" stroke-width="2.5" stroke-linecap="round"/></svg>
+      <b>ご予約が完了しました</b><div class="no" id="no"></div>
+      <p>デモサイトのため、実際の予約は送信されていません。<br>本番ではここで予約が確定し、空き枠が自動で埋まります。前日にリマインドメールも届きます。</p>
     </div>
-    <div class="step">4. お客様情報</div>
-    <form id="f">
-      <div class="fields"><input required placeholder="お名前"><input type="tel" required placeholder="電話番号"><input type="email" placeholder="メールアドレス（任意）"></div>
-      <div class="summary" id="sum"></div>
-      <button class="btn" type="submit">予約を確定する</button>
-      <div class="done" id="done">デモサイトのため、実際の予約は送信されていません。本番ではここで予約が確定し、空き枠が自動で埋まります。</div>
-    </form>
   </div>
 </section>
 
 <section id="info">
-  <h2 class="en">Access</h2>
-  <div class="sub">店舗情報</div>
+  <div class="ttl"><span class="en" data-split>Access</span><small>店舗情報</small></div>
   <div class="info">
-    <p><b>hair salon Lueur</b></p>
-    <p>〒000-0000 架空県見本市南町4-5-6 サンプルテラス2F</p>
-    <p>営業時間 10:00〜19:00（最終受付 カット18:00）／定休日 火曜</p>
-    <p>TEL 00-0000-0000</p>
+    <div class="adr" data-r="l"><b>hair salon Lueur</b><p>〒000-0000 架空県見本市南町4-5-6 サンプルテラス2F<br>見本駅 南口から徒歩4分<br>TEL 00-0000-0000</p></div>
+    <table class="hours" id="hours" data-r="r"></table>
   </div>
 </section>
 
-<footer>© hair salon Lueur — 架空店舗のデモサイトです</footer>
+<footer><div class="big">Lueur</div><p>© hair salon Lueur — 架空店舗のデモサイトです ｜ <a href="../works.html" style="text-decoration:underline">制作者のページへ</a></p></footer>
+<div class="fbar"><a href="#book">空き時間を見て予約する</a></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="fx.js?v=2"></script>
 <script>
-var days=document.getElementById('days'),w=['日','月','火','水','木','金','土'],t=new Date();
-for(var i=1;i<=7;i++){var d=new Date(t.getFullYear(),t.getMonth(),t.getDate()+i),b=document.createElement('button');b.className='chip'+(i===1?' on':'');b.textContent=(d.getMonth()+1)+'/'+d.getDate()+'（'+w[d.getDay()]+'）';if(d.getDay()===2)b.disabled=true;days.appendChild(b)}
-if(days.querySelector('.on:disabled')){days.querySelector('.on').classList.remove('on');days.querySelector('.chip:not(:disabled)').classList.add('on')}
-function sum(){var s=[].map.call(document.querySelectorAll('.chips'),function(g){var o=g.querySelector('.on');return o?o.textContent:''});document.getElementById('sum').textContent='ご予約内容：'+s.join(' ／ ')}
-document.querySelectorAll('.chips').forEach(function(g){g.addEventListener('click',function(e){var c=e.target.closest('.chip');if(!c||c.disabled)return;g.querySelectorAll('.chip').forEach(function(x){x.classList.remove('on')});c.classList.add('on');sum()})});
-sum();
-document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();document.getElementById('done').style.display='block'});
+(function(){
+  var $ = function(s){ return document.querySelector(s); };
+  /* メニューの絞り込み */
+  document.querySelectorAll('.mt button').forEach(function(b){ b.onclick = function(){
+    document.querySelectorAll('.mt button').forEach(function(x){ x.classList.toggle('on', x === b); });
+    document.querySelectorAll('#ml .mr').forEach(function(r){ r.hidden = b.dataset.c !== 'all' && r.dataset.c !== b.dataset.c; });
+  }; });
+
+  /* 営業時間（今日を強調） */
+  var wd = ['日','月','火','水','木','金','土'], hrs = { 0: '10:00 – 18:00', 2: '定休日' };
+  $('#hours').innerHTML = [1,2,3,4,5,6,0].map(function(d){ return '<tr class="' + (d === 2 ? 'off ' : '') + (d === new Date().getDay() ? 'today' : '') + '"><td>' + wd[d] + '曜日</td><td>' + (hrs[d] || '10:00 – 19:00') + '</td></tr>'; }).join('');
+
+  /* 予約ウィザード */
+  var M = [['カット','約60分',5500,60],['カット＋カラー','約120分',11000,120],['カット＋パーマ','約150分',13200,150],['髪質改善トリートメント','約90分',9900,90],['ヘッドスパ','約40分',4400,40]];
+  var S = [['指名なし','空いているスタッフ',0,'–','#e3dcd2','#cfc6b9'],['見本 あかり','オーナースタイリスト',550,'A','#e8cfc4','#c9a99a'],['例田 ゆい','カラーリスト',550,'Y','#c9d4c4','#94a891'],['架空 そうた','スタイリスト',0,'S','#d9d2c6','#a59c8e']];
+  var st = { s: 0, m: null, p: null, d: null, t: null };
+  $('#o-menu').innerHTML = M.map(function(m, i){ return '<button class="opt" data-i="' + i + '"><b>' + m[0] + '</b><small>' + m[1] + '</small><em>¥' + m[2].toLocaleString() + '</em></button>'; }).join('');
+  $('#o-st').innerHTML = S.map(function(s, i){ return '<button class="opt" data-i="' + i + '" style="--c1:' + s[4] + ';--c2:' + s[5] + '"><span class="av">' + s[3] + '</span><b>' + s[0] + '</b><small>' + s[1] + '</small><em>' + (s[2] ? '指名料 ¥' + s[2] : '指名料なし') + '</em></button>'; }).join('');
+  function pickIn(box, key){ box.addEventListener('click', function(e){ var b = e.target.closest('.opt'); if (!b) return; box.querySelectorAll('.opt').forEach(function(x){ x.classList.toggle('on', x === b); }); st[key] = +b.dataset.i; if (key === 'p') { st.t = null; times(); } upd(); }); }
+  pickIn($('#o-menu'), 'm'); pickIn($('#o-st'), 'p');
+  var t0 = new Date(); t0.setHours(0,0,0,0);
+  (function(){ var h = ''; for (var i = 1; i <= 14; i++) { var d = new Date(t0); d.setDate(d.getDate() + i); h += '<button data-i="' + i + '" class="' + (d.getDay() === 0 ? 'sun' : d.getDay() === 6 ? 'sat' : '') + '"' + (d.getDay() === 2 ? ' disabled' : '') + '><small>' + (d.getMonth() + 1) + '/' + wd[d.getDay()] + '</small><b>' + d.getDate() + '</b></button>'; } $('#days').innerHTML = h; })();
+  $('#days').addEventListener('click', function(e){ var b = e.target.closest('button'); if (!b || b.disabled) return; $('#days').querySelectorAll('button').forEach(function(x){ x.classList.toggle('on', x === b); }); st.d = +b.dataset.i; st.t = null; times(); upd(); });
+  var TS = ['10:00','10:30','11:00','11:30','13:00','13:30','14:00','14:30','15:00','16:00','16:30','17:00','18:00'];
+  function times(){
+    $('#times').innerHTML = TS.map(function(t, i){ var busy = !st.d || ((st.d * 5 + i * 3 + (st.p || 0) * 7) % 5 === 0); return '<button' + (busy ? ' disabled' : '') + (st.t === t ? ' class="on"' : '') + '>' + t + '</button>'; }).join('');
+  }
+  $('#times').addEventListener('click', function(e){ var b = e.target.closest('button'); if (!b || b.disabled) return; $('#times').querySelectorAll('button').forEach(function(x){ x.classList.toggle('on', x === b); }); st.t = b.textContent; upd(); });
+  times();
+  function show(n){
+    st.s = n;
+    document.querySelectorAll('.pn').forEach(function(p){ p.classList.toggle('on', +p.dataset.s === n); });
+    document.querySelectorAll('#prog div').forEach(function(p, i){ p.classList.toggle('on', i === n); p.classList.toggle('dn', i < n); });
+    $('#back').disabled = n === 0;
+    $('#next').textContent = n === 3 ? '予約を確定する' : '次へ';
+    upd();
+  }
+  function upd(){
+    var ok = [st.m !== null, st.p !== null, st.d && st.t, $('#nm').value.trim() && $('#tel').value.trim()][st.s];
+    $('#next').disabled = !ok;
+    if (st.m !== null && st.p !== null && st.d) {
+      var d = new Date(t0), tot = M[st.m][2] + S[st.p][2];
+      d.setDate(d.getDate() + st.d);
+      $('#rv').innerHTML = '<dt>メニュー</dt><dd>' + M[st.m][0] + '（' + M[st.m][1] + '）</dd><dt>担当</dt><dd>' + S[st.p][0] + '</dd><dt>日時</dt><dd>' + (d.getMonth() + 1) + '月' + d.getDate() + '日（' + wd[d.getDay()] + '）' + (st.t || '') + '</dd><div class="tt"><span style="font-size:13px;color:var(--mute)">合計（税込）</span><b>¥' + tot.toLocaleString() + '</b></div>';
+    }
+  }
+  ['#nm','#tel'].forEach(function(s){ $(s).addEventListener('input', upd); });
+  $('#back').onclick = function(){ show(st.s - 1); };
+  $('#next').onclick = function(){
+    if (st.s < 3) return show(st.s + 1);
+    $('#wiz').style.display = 'none'; $('#prog').style.display = 'none'; $('#done').style.display = 'block';
+    $('#no').textContent = 'No. LU-' + (Math.random() * 9000 + 1000 | 0) + '-DEMO';
+  };
+  document.querySelectorAll('[data-st]').forEach(function(a){ a.addEventListener('click', function(){ var b = $('#o-st').children[+a.dataset.st]; b.click(); if (st.m === null) $('#o-menu').children[0].click(); show(1); }); });
+
+  var hd = $('#hd'); addEventListener('scroll', function(){ hd.classList.toggle('sc', scrollY > 40); }, { passive: true });
+
+  if (!FX.on) return;
+  FX.init();
+  var ch = FX.split($('#h1')); gsap.set(ch, { yPercent: 110 });
+  var ld = $('#ld');
+  gsap.timeline()
+    .to('#ld .o', { scale: 14, duration: 1.2, ease: 'power2.inOut' })
+    .to('#ld b', { opacity: 1, duration: .5 }, '-=.6')
+    .to(ld, { opacity: 0, duration: .7, onComplete: function(){ ld.style.display = 'none'; } }, '+=.3')
+    .to(ch, { yPercent: 0, duration: 1.3, stagger: .04, ease: 'expo.out' }, '-=.4')
+    .from('#arch', { clipPath: 'inset(100% 0 0 0 round 999px 999px 0 0)', duration: 1.6, ease: 'expo.inOut' }, '<')
+    .from('.chip-f', { opacity: 0, y: 20, stagger: .15, duration: .8, ease: 'back.out(2)' }, '-=.6');
+  ld.onclick = function(){ gsap.globalTimeline.getChildren().forEach(function(t){ t.progress(1); }); };
+  gsap.to('#arch .a', { yPercent: -6, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+  gsap.from('.mr .dur i', { scaleX: 0, duration: 1.2, stagger: .08, ease: 'power3.out', scrollTrigger: { trigger: '#ml', start: 'top 80%' } });
+  gsap.from('footer .big', { yPercent: 50, opacity: 0, duration: 1.4, ease: 'expo.out', scrollTrigger: { trigger: 'footer', start: 'top 90%' } });
+})();
 </script>
 </body>
 </html>

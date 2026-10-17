@@ -4,119 +4,344 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>こどもプログラミング教室 ツクル｜デモサイト</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<meta name="description" content="ゲームづくり、ロボット、Webサイト。小学1年生〜中学3年生向けの少人数プログラミング教室。架空の教室を題材にしたデモサイトです。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=M+PLUS+Rounded+1c:wght@800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#fffaf0;--ink:#2b2a33;--mute:#6d6b78;--blue:#2f6fed;--yellow:#ffc93c;--pink:#ff7a8a;--green:#2fbf8f;--line:#ece4d2}
+:root{--bg:#fffaf0;--ink:#2b2a33;--mute:#6d6b78;--blue:#2f6fed;--yellow:#ffc93c;--pink:#ff7a8a;--green:#2bb673;--line:#efe6d2;--accent:#2f6fed;--r:"M PLUS Rounded 1c",sans-serif}
 *{box-sizing:border-box;margin:0}
-body{background:var(--bg);color:var(--ink);font-family:"Zen Maru Gothic",sans-serif;font-weight:500;line-height:1.85;font-size:16px}
-.ribbon{background:var(--ink);color:#ddd;font-size:12px;text-align:center;padding:6px 12px}
-.ribbon a{color:var(--yellow)}
-header{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;position:sticky;top:0;background:rgba(255,250,240,.95);z-index:5;border-bottom:2px solid var(--line)}
-.brand{font-weight:900;font-size:22px}
-.brand i{display:inline-block;width:14px;height:14px;border-radius:4px;background:var(--blue);margin-right:4px;transform:rotate(12deg)}
-nav a{margin-left:18px;text-decoration:none;color:var(--mute);font-size:14px;font-weight:700}
-nav a.cta{background:var(--pink);color:#fff;padding:10px 20px;border-radius:99px}
-.hero{padding:72px 24px 88px;text-align:center;background:radial-gradient(circle at 12% 20%,#ffc93c55 0 90px,transparent 91px),radial-gradient(circle at 88% 30%,#2f6fed33 0 120px,transparent 121px),radial-gradient(circle at 78% 92%,#ff7a8a44 0 80px,transparent 81px),radial-gradient(circle at 18% 88%,#2fbf8f44 0 60px,transparent 61px)}
-.badge{display:inline-block;background:var(--yellow);padding:6px 18px;border-radius:99px;font-size:13px;font-weight:700}
-h1{font-size:clamp(32px,6.4vw,60px);font-weight:900;line-height:1.35;margin:20px 0}
-h1 em{font-style:normal;color:var(--blue)}
-.hero p{max-width:560px;margin:0 auto 30px;color:var(--mute)}
-.btn{display:inline-block;background:var(--pink);color:#fff;text-decoration:none;padding:16px 40px;border-radius:99px;font-weight:700;font-size:17px;border:0;font-family:inherit;cursor:pointer;box-shadow:0 5px 0 #d95566}
-section{max-width:1000px;margin:0 auto;padding:76px 24px}
-h2{font-size:30px;font-weight:900;text-align:center;margin-bottom:40px}
-h2 span{background:linear-gradient(transparent 60%,var(--yellow) 60%)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
-.course{background:#fff;border:2px solid var(--line);border-radius:22px;padding:28px;border-top:10px solid var(--blue)}
-.course:nth-child(2){border-top-color:var(--green)}
-.course:nth-child(3){border-top-color:var(--pink)}
-.course small{font-weight:700;color:var(--mute)}
-.course h3{font-size:21px;font-weight:900;margin:4px 0 10px}
-.course p{font-size:14px;color:var(--mute)}
-.course b{display:block;margin-top:14px;font-size:18px}
-table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:2px solid var(--line);border-radius:18px;overflow:hidden;font-size:14px;text-align:center}
-th,td{padding:14px 8px;border-bottom:2px solid var(--line)}
-tr:last-child td{border:0}
-th{background:#fff3d1;font-weight:700}
-td.b{background:#e6efff;color:var(--blue);font-weight:700}
-td.g{background:#e2f7ef;color:#1d9a71;font-weight:700}
-td.p{background:#ffe9ec;color:#e25567;font-weight:700}
-.scroll{overflow-x:auto}
-.voices{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
-.voice{background:#fff;border-radius:22px;padding:24px;border:2px solid var(--line);font-size:14px}
-.voice b{display:block;margin-top:10px;color:var(--mute);font-size:13px}
-.form{background:#fff;border:2px solid var(--line);border-radius:22px;padding:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}
-input,select,textarea{width:100%;border:2px solid var(--line);border-radius:12px;padding:12px;font-size:16px;font-family:inherit;background:var(--bg)}
-.full{grid-column:1/-1}
-.done{display:none;grid-column:1/-1;background:#e2f7ef;color:#177d5c;border-radius:12px;padding:14px;font-size:14px}
-footer{text-align:center;font-size:12px;color:var(--mute);padding:32px;border-top:2px solid var(--line)}
-@media(max-width:640px){nav a:not(.cta){display:none}.form{padding:22px}}
+html.lenis,html.lenis body{height:auto}
+html,body{overflow-x:clip}
+body{background:var(--bg);color:var(--ink);font-family:"Zen Maru Gothic",sans-serif;line-height:1.85;font-size:15px;font-weight:500;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;font-weight:700}
+.ch{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.14em;margin-bottom:-.14em}.ch>span{display:inline-block}
+.ribbon{background:var(--ink);color:#e9e6f0;font-size:12px;text-align:center;padding:6px 12px;position:relative;z-index:60}
+.ribbon a{color:var(--yellow);text-decoration:underline}
+
+#ld{position:fixed;inset:0;z-index:100;background:var(--bg);display:none;place-items:center}
+.fx #ld{display:grid}
+#ld .bl{display:flex;gap:8px}
+#ld .bl i{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-family:var(--r);font-size:24px;color:#fff;font-style:normal;box-shadow:0 6px 0 rgba(0,0,0,.15)}
+
+header{position:fixed;top:30px;left:14px;right:14px;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:10px 12px 10px 22px;background:#fff;border-radius:999px;box-shadow:0 10px 30px -14px rgba(43,42,51,.25);transition:top .4s}
+header.sc{top:12px}
+.brand{display:flex;align-items:center;gap:8px;font-family:var(--r);font-size:22px}
+.brand i{width:26px;height:26px;border-radius:8px;background:var(--blue);display:block;position:relative}
+.brand i::after{content:"";position:absolute;right:-5px;bottom:-5px;width:13px;height:13px;border-radius:4px;background:var(--yellow)}
+nav{display:flex;align-items:center;gap:22px;font-size:14px;font-weight:700}
+nav a:not(.cta){color:var(--mute)}
+nav a:not(.cta):hover{color:var(--blue)}
+.cta,.btn{display:inline-flex;align-items:center;gap:8px;background:var(--pink);color:#fff;border-radius:999px;padding:11px 22px;font-weight:700;font-size:14px;border:0;cursor:pointer;box-shadow:0 5px 0 #d9566a;transition:transform .12s,box-shadow .12s}
+.cta:hover,.btn:hover{transform:translateY(3px);box-shadow:0 2px 0 #d9566a}
+.btn{padding:17px 34px;font-size:16px}
+.btn.b{background:var(--blue);box-shadow:0 5px 0 #1f50b8}
+.btn.b:hover{box-shadow:0 2px 0 #1f50b8}
+
+/* hero */
+.hero{position:relative;padding:150px 6vw 60px;display:grid;grid-template-columns:1fr 1fr;gap:4vw;align-items:center;min-height:100svh}
+.shape{position:absolute;pointer-events:none}
+.shape.s1{left:4%;top:20%;width:90px;height:90px;border-radius:50%;background:var(--yellow);opacity:.5}
+.shape.s2{right:46%;top:16%;width:40px;height:40px;background:var(--green);border-radius:10px;transform:rotate(20deg);opacity:.5}
+.shape.s3{left:40%;bottom:10%;width:0;height:0;border-left:30px solid transparent;border-right:30px solid transparent;border-bottom:52px solid var(--pink);opacity:.45}
+.shape.s4{left:8%;bottom:16%;width:60px;height:60px;border:8px solid var(--blue);border-radius:50%;opacity:.3}
+.badge{display:inline-block;background:var(--yellow);border-radius:999px;padding:6px 16px;font-size:14px;font-weight:700}
+.hero h1{font-family:var(--r);font-size:clamp(32px,4.4vw,66px);white-space:nowrap;line-height:1.3;margin:20px 0}
+.hero h1 em{font-style:normal;color:var(--blue);position:relative}
+.hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:.08em;height:.22em;background:var(--yellow);z-index:-1;border-radius:6px}
+.hero p{color:var(--mute);max-width:28em}
+.hero .row{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+.stats{display:flex;gap:26px;margin-top:34px}
+.stats div{font-size:12px;color:var(--mute)}
+.stats b{display:block;font-family:var(--r);font-size:30px;color:var(--ink);line-height:1.2}
+
+/* mini game */
+.game{background:#fff;border-radius:30px;padding:24px;box-shadow:0 30px 60px -30px rgba(43,42,51,.35);border:3px solid var(--ink);position:relative}
+.game .tt{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.game .tt b{font-family:var(--r);font-size:17px}
+.game .tt small{white-space:nowrap;flex:none;background:var(--green);color:#fff;border-radius:99px;padding:2px 10px;font-size:12px}
+.gwrap{display:grid;grid-template-columns:auto 1fr;gap:18px}
+.grid{display:grid;grid-template-columns:repeat(5,46px);grid-template-rows:repeat(5,46px);gap:4px;background:#f3eee2;padding:6px;border-radius:14px;position:relative}
+.grid i{background:#fff;border-radius:8px}
+.grid i.w{background:#cfc6b3}
+.star,.bot{position:absolute;width:46px;height:46px;display:grid;place-items:center;transition:transform .35s cubic-bezier(.4,1.4,.6,1)}
+.star{font-size:28px;animation:tw 1.4s ease-in-out infinite}
+@keyframes tw{50%{transform:var(--p) scale(1.2) rotate(15deg)}}
+.bot svg{width:38px;height:38px;transition:transform .3s}
+.prog{min-height:120px;background:#f7f4ec;border-radius:14px;padding:10px;display:flex;flex-wrap:wrap;align-content:flex-start;gap:6px;border:2px dashed var(--line)}
+.prog:empty::before{content:"↓ ブロックをタップして並べよう";font-size:12px;color:var(--mute)}
+.blk{border:0;border-radius:10px;padding:8px 12px;font-size:13px;color:#fff;cursor:pointer;box-shadow:0 3px 0 rgba(0,0,0,.18)}
+.blk.f{background:var(--blue)}.blk.r{background:var(--green)}.blk.l{background:#9b6bff}
+.blk.act{outline:3px solid var(--yellow);transform:scale(1.08)}
+.pal{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+.gbtn{display:flex;gap:8px}
+.gbtn button{flex:1;border:0;border-radius:12px;padding:10px;cursor:pointer;font-size:14px}
+.run{background:var(--yellow);box-shadow:0 4px 0 #d9a520}
+.rst{background:#eee;color:var(--mute)}
+.msg{margin-top:10px;font-size:13px;min-height:1.6em;font-weight:700}
+.msg.ok{color:var(--green)}.msg.ng{color:var(--pink)}
+
+/* sections */
+section{position:relative;padding:clamp(80px,10vw,130px) 6vw}
+.ttl{text-align:center;margin-bottom:50px}
+.ttl small{display:inline-block;font-family:var(--r);font-size:13px;color:#fff;background:var(--blue);border-radius:999px;padding:3px 14px;letter-spacing:.1em}
+.ttl h2{font-family:var(--r);font-size:clamp(28px,3.6vw,44px);margin-top:12px;line-height:1.4}
+
+.courses{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.cs{background:#fff;border-radius:28px;padding:30px 26px 26px;border:3px solid var(--ink);position:relative;transition:transform .3s;box-shadow:8px 8px 0 var(--c)}
+.cs:hover{transform:translate(-4px,-4px);box-shadow:12px 12px 0 var(--c)}
+.cs .age{display:inline-block;background:var(--c);color:#fff;border-radius:99px;padding:3px 14px;font-size:13px}
+.cs h3{font-family:var(--r);font-size:24px;margin:12px 0 8px}
+.cs .ic{position:absolute;right:20px;top:20px;width:60px;height:60px}
+.cs p{color:var(--mute);font-size:14px}
+.cs ul{list-style:none;padding:0;margin:16px 0;display:flex;flex-wrap:wrap;gap:6px}
+.cs li{background:#f6f2e8;border-radius:8px;padding:3px 10px;font-size:12px}
+.cs .pr{border-top:2px dashed var(--line);padding-top:14px;display:flex;justify-content:space-between;align-items:baseline}
+.cs .pr b{font-family:var(--r);font-size:26px}
+.cs .pr small{color:var(--mute);font-size:12px}
+
+.skills{background:#fff;border-radius:40px;margin:0 3vw;border:3px solid var(--ink)}
+.sk{display:grid;grid-template-columns:repeat(2,1fr);gap:24px 60px;max-width:900px;margin:0 auto}
+.sk div b{display:flex;justify-content:space-between;font-size:15px;margin-bottom:6px}
+.sk div b span{font-family:var(--r);color:var(--blue)}
+.sk .bar{height:16px;border-radius:99px;background:#f3eee2;overflow:hidden}
+.sk .bar i{display:block;height:100%;border-radius:99px;background:repeating-linear-gradient(45deg,var(--c),var(--c) 10px,color-mix(in srgb,var(--c),#fff 25%) 10px,color-mix(in srgb,var(--c),#fff 25%) 20px);transform-origin:left}
+
+.tf{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.tf button{border:2px solid var(--ink);background:#fff;border-radius:99px;padding:7px 18px;cursor:pointer;font-size:14px;transition:all .2s}
+.tf button.on{background:var(--ink);color:#fff}
+.tt-wrap{overflow-x:auto;max-width:880px;margin:0 auto}
+table{width:100%;border-collapse:separate;border-spacing:6px;min-width:560px}
+th{font-size:14px;color:var(--mute);padding:6px}
+td{height:62px;border-radius:14px;background:#fff;border:2px dashed var(--line);text-align:center;font-size:13px;font-weight:700;transition:opacity .3s,filter .3s}
+td.b{background:#e3ecff;border:2px solid var(--blue);color:var(--blue)}
+td.g{background:#ddf5e9;border:2px solid var(--green);color:#16935a}
+td.p{background:#ffe5e9;border:2px solid var(--pink);color:#e0526a}
+td.dim{opacity:.18;filter:grayscale(1)}
+td.hi{box-shadow:0 6px 0 -2px currentColor}
+
+.voices{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.vc{position:relative;background:#fff;border-radius:24px;padding:26px;border:3px solid var(--ink)}
+.vc::after{content:"";position:absolute;left:30px;bottom:-16px;width:24px;height:24px;background:#fff;border-right:3px solid var(--ink);border-bottom:3px solid var(--ink);transform:rotate(45deg)}
+.vc .st{color:var(--yellow);letter-spacing:2px;font-size:14px}
+.vc b{display:block;margin-top:24px;font-size:12px;color:var(--mute);padding-left:6px}
+
+.form{background:#fff;border-radius:32px;padding:40px;max-width:860px;margin:0 auto;border:3px solid var(--ink);display:grid;grid-template-columns:1fr 1fr;gap:18px;position:relative}
+.form .full{grid-column:1/-1}
+label{display:block;font-size:13px;color:var(--mute);margin-bottom:6px}
+input,select,textarea{width:100%;border:2px solid var(--line);border-radius:14px;padding:13px;font-family:inherit;font-size:15px;background:#fffdf8}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--blue)}
+.rec{grid-column:1/-1;background:#fff7dc;border-radius:16px;padding:14px 18px;font-size:14px;display:none}
+.rec b{color:var(--blue)}
+.dchips{display:flex;gap:6px;flex-wrap:wrap}
+.dchips button{border:2px solid var(--line);background:#fffdf8;border-radius:12px;padding:8px 14px;cursor:pointer;font-size:14px}
+.dchips button.on{border-color:var(--blue);background:var(--blue);color:#fff}
+.done{display:none;grid-column:1/-1;text-align:center;padding:30px 0}
+.done b{display:block;font-family:var(--r);font-size:26px;color:var(--blue)}
+.done p{color:var(--mute);font-size:13px;margin-top:10px}
+#cf{position:fixed;inset:0;pointer-events:none;z-index:90}
+
+details{background:#fff;border:3px solid var(--ink);border-radius:20px;margin:0 auto 12px;max-width:820px;padding:0 22px}
+summary{cursor:pointer;padding:18px 0;font-weight:700;list-style:none;display:flex;gap:12px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"Q";width:28px;height:28px;border-radius:50%;background:var(--yellow);display:grid;place-items:center;font-family:var(--r);flex:none}
+details p{padding:0 0 18px 40px;color:var(--mute);font-size:14px}
+
+footer{background:var(--ink);color:#e9e6f0;text-align:center;padding:60px 20px 40px;border-radius:40px 40px 0 0}
+footer .brand{justify-content:center;font-size:40px;color:#fff}
+footer p{font-size:12px;opacity:.7;margin-top:14px}
+.fbar{display:none}
+@media(max-width:900px){
+  nav a:not(.cta){display:none}
+  .hero{grid-template-columns:1fr;padding-top:120px}
+  .courses,.voices{grid-template-columns:1fr}
+  .sk{grid-template-columns:1fr}
+  .form{grid-template-columns:1fr;padding:26px 20px}
+  .fbar{display:block;position:fixed;left:14px;right:14px;bottom:14px;z-index:55}
+  .fbar a{display:flex;justify-content:center;background:var(--pink);color:#fff;border-radius:999px;padding:16px;font-weight:700;box-shadow:0 5px 0 #d9566a}
+  footer{padding-bottom:100px}
+}
+@media(max-width:440px){.grid{grid-template-columns:repeat(5,38px);grid-template-rows:repeat(5,38px)}.star,.bot{width:38px;height:38px}.bot svg{width:30px;height:30px}.gwrap{grid-template-columns:1fr}.grid{justify-self:center}.hero h1{font-size:8.6vw}.game{padding:18px}}
 </style>
 </head>
 <body>
+<div id="ld" aria-hidden="true"><div class="bl"><i style="background:#2f6fed">ツ</i><i style="background:#ffc93c">ク</i><i style="background:#ff7a8a">ル</i></div></div>
 <div class="ribbon">これは架空の教室を題材にしたデモサイトです｜<a href="../works.html">制作者のページへ</a></div>
-<header>
-  <div class="brand"><i></i>ツクル</div>
-  <nav><a href="#course">コース</a><a href="#time">時間割</a><a href="#voice">保護者の声</a><a class="cta" href="#trial">無料体験</a></nav>
+<header id="hd">
+  <a class="brand" href="#"><i></i>ツクル</a>
+  <nav><a href="#course">コース</a><a href="#time">時間割</a><a href="#voice">保護者の声</a><a href="#faq">よくある質問</a><a class="cta" href="#trial">無料体験</a></nav>
 </header>
 
 <div class="hero">
-  <span class="badge">小学1年生〜中学3年生</span>
-  <h1>「やってみたい」を<br><em>つくれる力</em>に。</h1>
-  <p>ゲームづくり、ロボット、Webサイト。自分で考えて形にする楽しさを、1クラス6人までの少人数で教えます。</p>
-  <a class="btn" href="#trial">無料体験に申し込む</a>
+  <i class="shape s1" data-m="30"></i><i class="shape s2" data-m="-40"></i><i class="shape s3" data-m="20"></i><i class="shape s4" data-m="-25"></i>
+  <div>
+    <span class="badge">小学1年生〜中学3年生</span>
+    <h1 id="h1">「やってみたい」を<br><em>つくれる力</em>に。</h1>
+    <p data-r>ゲームづくり、ロボット、Webサイト。自分で考えて形にする楽しさを、1クラス6人までの少人数で教えます。</p>
+    <div class="row" data-r><a class="btn" href="#trial">無料体験に申し込む</a><a class="btn b" href="#course">コースを見る</a></div>
+    <div class="stats" data-stagger><div><b><span data-count="6">0</span>人</b>1クラスの上限</div><div><b><span data-count="320">0</span>人</b>これまでの生徒</div><div><b><span data-count="94">0</span>%</b>続けている割合</div></div>
+  </div>
+  <div class="game" id="game" data-r="s">
+    <div class="tt"><b>やってみよう！ロボットを★まで動かそう</b><small>体験</small></div>
+    <div class="gwrap">
+      <div class="grid" id="grid"></div>
+      <div>
+        <div class="prog" id="prog"></div>
+        <div class="pal"><button class="blk f" data-k="f">まえへ</button><button class="blk r" data-k="r">みぎを向く</button><button class="blk l" data-k="l">ひだりを向く</button></div>
+        <div class="gbtn"><button class="run" id="run">▶ うごかす</button><button class="rst" id="rst">リセット</button></div>
+        <div class="msg" id="msg"></div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <section id="course">
-  <h2><span>3つのコース</span></h2>
-  <div class="grid">
-    <div class="course"><small>小1〜小3</small><h3>はじめてコース</h3><p>ブロックを組み合わせるビジュアルプログラミングで、かんたんなゲームやアニメーションを作ります。</p><b>月額 8,800円（月4回）</b></div>
-    <div class="course"><small>小4〜小6</small><h3>ロボットコース</h3><p>センサーつきロボットを組み立てて動かします。試して直すくり返しで、考える力が育ちます。</p><b>月額 11,000円（月4回）</b></div>
-    <div class="course"><small>中1〜中3</small><h3>クリエイターコース</h3><p>本格的なコードを書いてWebサイトやアプリを作ります。発表会で作品を公開します。</p><b>月額 13,200円（月4回）</b></div>
+  <div class="ttl"><small>COURSE</small><h2 data-split>3つのコース</h2></div>
+  <div class="courses" data-stagger>
+    <div class="cs" style="--c:#2f6fed"><svg class="ic" viewBox="0 0 60 60"><rect x="6" y="14" width="22" height="16" rx="4" fill="#2f6fed"/><rect x="24" y="30" width="26" height="16" rx="4" fill="#ffc93c"/><rect x="10" y="40" width="14" height="12" rx="3" fill="#ff7a8a"/></svg><span class="age">小1〜小3</span><h3>はじめてコース</h3><p>ブロックを組み合わせるビジュアルプログラミングで、かんたんなゲームやアニメーションを作ります。</p><ul><li>Scratch</li><li>アニメーション</li><li>迷路ゲーム</li></ul><div class="pr"><b>8,800円</b><small>月額・月4回</small></div></div>
+    <div class="cs" style="--c:#2bb673"><svg class="ic" viewBox="0 0 60 60"><rect x="14" y="16" width="32" height="26" rx="6" fill="#2bb673"/><circle cx="24" cy="28" r="4" fill="#fff"/><circle cx="36" cy="28" r="4" fill="#fff"/><path d="M30 16V8" stroke="#2b2a33" stroke-width="3"/><circle cx="30" cy="7" r="3" fill="#ff7a8a"/><circle cx="20" cy="48" r="5" fill="#2b2a33"/><circle cx="40" cy="48" r="5" fill="#2b2a33"/></svg><span class="age">小4〜小6</span><h3>ロボットコース</h3><p>センサーつきロボットを組み立てて動かします。試して直すくり返しで、考える力が育ちます。</p><ul><li>センサー</li><li>モーター制御</li><li>ロボコン</li></ul><div class="pr"><b>11,000円</b><small>月額・月4回</small></div></div>
+    <div class="cs" style="--c:#ff7a8a"><svg class="ic" viewBox="0 0 60 60"><rect x="6" y="10" width="48" height="36" rx="6" fill="#ff7a8a"/><path d="M20 24l-6 5 6 5M40 24l6 5-6 5M33 20l-6 18" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/><rect x="22" y="48" width="16" height="4" rx="2" fill="#2b2a33"/></svg><span class="age">中1〜中3</span><h3>クリエイターコース</h3><p>本格的なコードを書いてWebサイトやアプリを作ります。発表会で作品を公開します。</p><ul><li>HTML/CSS</li><li>JavaScript</li><li>アプリ公開</li></ul><div class="pr"><b>13,200円</b><small>月額・月4回</small></div></div>
+  </div>
+</section>
+
+<section class="skills">
+  <div class="ttl"><small>SKILLS</small><h2 data-split>1年間で身につくこと</h2></div>
+  <div class="sk">
+    <div><b>論理的に考える力<span>★★★</span></b><div class="bar"><i style="width:92%;--c:#2f6fed"></i></div></div>
+    <div><b>あきらめずに直す力<span>★★★</span></b><div class="bar"><i style="width:88%;--c:#2bb673"></i></div></div>
+    <div><b>アイデアを形にする力<span>★★☆</span></b><div class="bar"><i style="width:76%;--c:#ff7a8a"></i></div></div>
+    <div><b>人に伝える力<span>★★☆</span></b><div class="bar"><i style="width:70%;--c:#ffc93c"></i></div></div>
   </div>
 </section>
 
 <section id="time">
-  <h2><span>時間割</span></h2>
-  <div class="scroll">
-  <table>
-    <tr><th></th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th></tr>
-    <tr><th>10:00〜</th><td></td><td></td><td></td><td></td><td class="b">はじめて</td></tr>
-    <tr><th>13:00〜</th><td></td><td></td><td></td><td></td><td class="g">ロボット</td></tr>
-    <tr><th>16:00〜</th><td class="b">はじめて</td><td class="g">ロボット</td><td class="b">はじめて</td><td class="g">ロボット</td><td class="p">クリエイター</td></tr>
-    <tr><th>18:00〜</th><td class="g">ロボット</td><td class="p">クリエイター</td><td class="p">クリエイター</td><td class="p">クリエイター</td><td></td></tr>
-  </table>
+  <div class="ttl"><small>TIMETABLE</small><h2 data-split>時間割</h2></div>
+  <div class="tf"><button class="on" data-c="">すべて</button><button data-c="b">はじめて</button><button data-c="g">ロボット</button><button data-c="p">クリエイター</button></div>
+  <div class="tt-wrap" data-r>
+    <table id="tt">
+      <tr><th></th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th></tr>
+      <tr><th>10:00〜</th><td></td><td></td><td></td><td></td><td class="b">はじめて</td></tr>
+      <tr><th>13:00〜</th><td></td><td></td><td></td><td></td><td class="g">ロボット</td></tr>
+      <tr><th>16:00〜</th><td class="b">はじめて</td><td class="g">ロボット</td><td class="b">はじめて</td><td class="g">ロボット</td><td class="p">クリエイター</td></tr>
+      <tr><th>18:00〜</th><td class="g">ロボット</td><td class="p">クリエイター</td><td class="p">クリエイター</td><td class="p">クリエイター</td><td></td></tr>
+    </table>
   </div>
 </section>
 
-<section id="voice">
-  <h2><span>保護者の声</span></h2>
-  <div class="voices">
-    <div class="voice">ゲームは遊ぶだけだった息子が、自分で作ったゲームを家族に見せてくれるようになりました。<b>小3 保護者（サンプル）</b></div>
-    <div class="voice">うまく動かないときも、先生がすぐ答えを言わずに待ってくれるのがありがたいです。<b>小5 保護者（サンプル）</b></div>
-    <div class="voice">発表会で人前で話す経験ができたのが、本人の自信になったようです。<b>中1 保護者（サンプル）</b></div>
+<section id="voice" style="padding-top:0">
+  <div class="ttl"><small>VOICE</small><h2 data-split>保護者の声</h2></div>
+  <div class="voices" data-stagger>
+    <div class="vc"><div class="st">★★★★★</div>ゲームは遊ぶだけだった息子が、自分で作ったゲームを家族に見せてくれるようになりました。<b>小3 保護者（サンプル）</b></div>
+    <div class="vc"><div class="st">★★★★★</div>うまく動かないときも、先生がすぐ答えを言わずに待ってくれるのがありがたいです。<b>小5 保護者（サンプル）</b></div>
+    <div class="vc"><div class="st">★★★★★</div>発表会で人前で話す経験ができたのが、本人の自信になったようです。<b>中1 保護者（サンプル）</b></div>
   </div>
 </section>
 
-<section id="trial">
-  <h2><span>無料体験のお申し込み</span></h2>
-  <form class="form" id="f">
-    <div><label>保護者のお名前</label><input required></div>
-    <div><label>お子さまの学年</label><select><option>小学1年</option><option>小学2年</option><option>小学3年</option><option>小学4年</option><option>小学5年</option><option>小学6年</option><option>中学1年</option><option>中学2年</option><option>中学3年</option></select></div>
-    <div><label>希望コース</label><select><option>はじめてコース</option><option>ロボットコース</option><option>クリエイターコース</option><option>相談して決めたい</option></select></div>
-    <div><label>希望の曜日</label><select><option>火</option><option>水</option><option>木</option><option>金</option><option>土</option></select></div>
-    <div><label>電話番号</label><input type="tel" required></div>
-    <div><label>メールアドレス</label><input type="email" required></div>
+<section id="trial" style="background:#e9f0ff;border-radius:40px;margin:0 3vw">
+  <div class="ttl"><small>FREE TRIAL</small><h2 data-split>無料体験のお申し込み</h2></div>
+  <form class="form" id="f" data-r>
+    <div><label>保護者のお名前</label><input id="pn" required autocomplete="off"></div>
+    <div><label>お子さまの学年</label><select id="gr"><option value="">選んでください</option><option>小学1年</option><option>小学2年</option><option>小学3年</option><option>小学4年</option><option>小学5年</option><option>小学6年</option><option>中学1年</option><option>中学2年</option><option>中学3年</option></select></div>
+    <div class="rec" id="rec"></div>
+    <div class="full"><label>希望の曜日（体験できる曜日だけ表示）</label><div class="dchips" id="dc"><span style="font-size:13px;color:var(--mute)">学年を選ぶと表示されます</span></div></div>
+    <div><label>電話番号</label><input type="tel" required autocomplete="off"></div>
+    <div><label>メールアドレス</label><input type="email" required autocomplete="off"></div>
     <div class="full"><label>ご質問など（任意）</label><textarea rows="3"></textarea></div>
     <div class="full" style="text-align:center"><button class="btn" type="submit">この内容で申し込む</button></div>
-    <div class="done" id="done">デモサイトのため、実際の申し込みは送信されていません。本番ではここで申し込みが届き、保護者の方に自動で確認メールが送られます。</div>
+    <div class="done" id="done"><b>お申し込みありがとうございます！</b><p>デモサイトのため、実際の申し込みは送信されていません。<br>本番ではここで申し込みが届き、保護者の方に自動で確認メールが送られます。</p></div>
   </form>
 </section>
 
-<footer>© こどもプログラミング教室 ツクル — 架空の教室のデモサイトです</footer>
+<section id="faq">
+  <div class="ttl"><small>FAQ</small><h2 data-split>よくある質問</h2></div>
+  <details open><summary>パソコンを持っていなくても大丈夫ですか？</summary><p>はい。教室のパソコン・ロボットを使うので、お持ちでなくても始められます。</p></details>
+  <details><summary>振替はできますか？</summary><p>お休みした回は、同じ月の別の曜日に振り替えられます。</p></details>
+  <details><summary>保護者の見学はできますか？</summary><p>体験授業はもちろん、通常の授業もいつでも見学いただけます。</p></details>
+</section>
+
+<footer><div class="brand"><i></i>ツクル</div><p>© こどもプログラミング教室 ツクル — 架空の教室のデモサイトです ｜ <a href="../works.html" style="text-decoration:underline">制作者のページへ</a></p></footer>
+<div class="fbar"><a href="#trial">無料体験に申し込む</a></div>
+<canvas id="cf"></canvas>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="fx.js?v=2"></script>
 <script>
-document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();document.getElementById('done').style.display='block'});
+(function(){
+  var $ = function(s){ return document.querySelector(s); };
+
+  /* ミニゲーム：5×5、壁あり。ロボットは左下・上向きからスタート */
+  var N = 5, WALL = [[1,1],[1,2],[3,3],[3,2]], GOAL = [4,0], grid = $('#grid'), SZ;
+  for (var y = 0; y < N; y++) for (var x = 0; x < N; x++) { var c = document.createElement('i'); if (WALL.some(function(w){ return w[0] === x && w[1] === y; })) c.className = 'w'; grid.appendChild(c); }
+  grid.insertAdjacentHTML('beforeend', '<div class="star" id="star">⭐</div><div class="bot" id="bot"><svg viewBox="0 0 40 40"><rect x="8" y="10" width="24" height="22" rx="6" fill="#2f6fed"/><circle cx="16" cy="20" r="3" fill="#fff"/><circle cx="24" cy="20" r="3" fill="#fff"/><path d="M20 10V4" stroke="#2b2a33" stroke-width="2.5"/><circle cx="20" cy="4" r="3" fill="#ff7a8a"/><path d="M14 2l6-2 6 2" fill="none"/><path d="M20 32v4" stroke="#ffc93c" stroke-width="3"/></svg></div>');
+  var bot = { x: 0, y: 4, d: 0 }, prog = [], busy = false; /* d: 0上 1右 2下 3左 */
+  function cell(){ var g = grid.querySelector('i'); return g.offsetWidth + 4; }
+  function place(){ SZ = cell(); var b = $('#bot'); b.style.transform = 'translate(' + (6 + bot.x * SZ) + 'px,' + (6 + bot.y * SZ) + 'px)'; b.querySelector('svg').style.transform = 'rotate(' + bot.d * 90 + 'deg)'; var s = $('#star'); s.style.setProperty('--p', 'translate(' + (6 + GOAL[0] * SZ) + 'px,' + (6 + GOAL[1] * SZ) + 'px)'); s.style.transform = 'var(--p)'; s.style.transform = 'translate(' + (6 + GOAL[0] * SZ) + 'px,' + (6 + GOAL[1] * SZ) + 'px)'; }
+  place(); addEventListener('resize', place);
+  var L = { f: 'まえへ', r: 'みぎを向く', l: 'ひだりを向く' };
+  function draw(){ $('#prog').innerHTML = prog.map(function(k, i){ return '<button class="blk ' + k + '" data-i="' + i + '" title="タップで消す">' + L[k] + '</button>'; }).join(''); }
+  document.querySelectorAll('.pal .blk').forEach(function(b){ b.onclick = function(){ if (busy || prog.length >= 14) return; prog.push(b.dataset.k); draw(); }; });
+  $('#prog').addEventListener('click', function(e){ var b = e.target.closest('.blk'); if (!b || busy) return; prog.splice(+b.dataset.i, 1); draw(); });
+  function reset(){ bot = { x: 0, y: 4, d: 0 }; place(); $('#msg').textContent = ''; $('#msg').className = 'msg'; }
+  $('#rst').onclick = function(){ if (busy) return; prog = []; draw(); reset(); };
+  $('#run').onclick = function(){
+    if (busy || !prog.length) { if (!prog.length) { $('#msg').textContent = 'まずはブロックを並べてね'; } return; }
+    reset(); busy = true; var i = 0, M = [[0,-1],[1,0],[0,1],[-1,0]];
+    (function step(){
+      document.querySelectorAll('#prog .blk').forEach(function(b, j){ b.classList.toggle('act', j === i); });
+      if (i >= prog.length) { busy = false; var win = bot.x === GOAL[0] && bot.y === GOAL[1]; $('#msg').textContent = win ? 'クリア！ これがプログラミングです 🎉' : 'おしい！ ならべ方を変えてもう一回'; $('#msg').className = 'msg ' + (win ? 'ok' : 'ng'); if (win) confetti(); return; }
+      var k = prog[i];
+      if (k === 'r') bot.d = (bot.d + 1) % 4; else if (k === 'l') bot.d = (bot.d + 3) % 4;
+      else { var nx = bot.x + M[bot.d][0], ny = bot.y + M[bot.d][1]; if (nx >= 0 && ny >= 0 && nx < N && ny < N && !WALL.some(function(w){ return w[0] === nx && w[1] === ny; })) { bot.x = nx; bot.y = ny; } else { $('#msg').textContent = 'ゴツン！ 壁にぶつかったよ'; $('#msg').className = 'msg ng'; } }
+      place(); i++; setTimeout(step, 450);
+    })();
+  };
+
+  /* 紙吹雪 */
+  var cf = $('#cf'), cx = cf.getContext('2d');
+  function confetti(){
+    cf.width = innerWidth; cf.height = innerHeight; var P = [], C = ['#2f6fed','#ffc93c','#ff7a8a','#2bb673','#9b6bff'];
+    for (var i = 0; i < 140; i++) P.push({ x: innerWidth / 2, y: innerHeight / 2, vx: (Math.random() - .5) * 18, vy: Math.random() * -16 - 4, r: Math.random() * 6.28, c: C[i % 5], s: Math.random() * 6 + 4 });
+    var t = 0; (function f(){ cx.clearRect(0, 0, cf.width, cf.height); P.forEach(function(p){ p.x += p.vx; p.y += p.vy; p.vy += .45; p.vx *= .99; p.r += .2; cx.save(); cx.translate(p.x, p.y); cx.rotate(p.r); cx.fillStyle = p.c; cx.fillRect(-p.s / 2, -p.s / 4, p.s, p.s / 2); cx.restore(); }); if (++t < 150) requestAnimationFrame(f); else cx.clearRect(0, 0, cf.width, cf.height); })();
+  }
+
+  /* 時間割の絞り込み */
+  document.querySelectorAll('.tf button').forEach(function(b){ b.onclick = function(){
+    document.querySelectorAll('.tf button').forEach(function(x){ x.classList.toggle('on', x === b); });
+    document.querySelectorAll('#tt td').forEach(function(td){ var c = td.className.replace(/ ?(dim|hi)/g, ''); td.className = c; if (b.dataset.c) td.classList.add(c === b.dataset.c ? 'hi' : 'dim'); });
+  }; });
+
+  /* 申込フォーム：学年からコースと曜日を案内 */
+  var DAYS = { b: ['火 16:00','木 16:00','土 10:00'], g: ['火 18:00','水 16:00','金 16:00','土 13:00'], p: ['水 18:00','木 18:00','金 18:00','土 16:00'] }, NM = { b: 'はじめてコース', g: 'ロボットコース', p: 'クリエイターコース' };
+  $('#gr').onchange = function(){
+    var g = this.selectedIndex, k = !g ? null : g <= 3 ? 'b' : g <= 6 ? 'g' : 'p';
+    $('#rec').style.display = k ? 'block' : 'none';
+    if (!k) return;
+    $('#rec').innerHTML = this.value + 'なら、<b>' + NM[k] + '</b>がおすすめです。';
+    $('#dc').innerHTML = DAYS[k].map(function(d, i){ return '<button type="button"' + (i ? '' : ' class="on"') + '>' + d + '</button>'; }).join('');
+  };
+  $('#dc').addEventListener('click', function(e){ var b = e.target.closest('button'); if (!b) return; $('#dc').querySelectorAll('button').forEach(function(x){ x.classList.toggle('on', x === b); }); });
+  $('#f').addEventListener('submit', function(e){ e.preventDefault(); $('#done').style.display = 'block'; confetti(); });
+
+  var hd = $('#hd'); addEventListener('scroll', function(){ hd.classList.toggle('sc', scrollY > 30); }, { passive: true });
+
+  if (!FX.on) return;
+  FX.init();
+  var ch = FX.split($('#h1')); gsap.set(ch, { yPercent: 110 });
+  var ld = $('#ld');
+  gsap.timeline()
+    .from('#ld .bl i', { y: -200, opacity: 0, duration: .7, stagger: .12, ease: 'bounce.out' })
+    .to('#ld .bl i', { scale: 0, rotate: 90, duration: .4, stagger: .06, ease: 'back.in(2)' }, '+=.3')
+    .to(ld, { opacity: 0, duration: .3, onComplete: function(){ ld.style.display = 'none'; } })
+    .to(ch, { yPercent: 0, duration: .9, stagger: .035, ease: 'back.out(2)' }, '-=.1')
+    .from('.badge', { scale: 0, duration: .6, ease: 'back.out(3)' }, '<')
+    .from('.shape', { scale: 0, duration: .8, stagger: .1, ease: 'elastic.out(1,.5)' }, '<.2');
+  ld.onclick = function(){ gsap.globalTimeline.getChildren().forEach(function(t){ t.progress(1); }); };
+  addEventListener('mousemove', function(e){ var dx = e.clientX / innerWidth - .5, dy = e.clientY / innerHeight - .5; document.querySelectorAll('[data-m]').forEach(function(s){ gsap.to(s, { x: dx * s.dataset.m, y: dy * s.dataset.m, duration: 1, ease: 'power3.out' }); }); });
+  gsap.from('.sk .bar i', { scaleX: 0, duration: 1.4, stagger: .12, ease: 'power3.out', scrollTrigger: { trigger: '.sk', start: 'top 80%' } });
+  gsap.fromTo('#tt td.b,#tt td.g,#tt td.p', { scale: 0 }, { scale: 1, clearProps: 'transform', duration: .6, stagger: .05, ease: 'back.out(2)', scrollTrigger: { trigger: '#tt', start: 'top 80%' } });
+})();
 </script>
 </body>
 </html>

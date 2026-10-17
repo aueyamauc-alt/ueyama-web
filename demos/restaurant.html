@@ -4,121 +4,393 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>炭火と土鍋ごはん 灯｜デモサイト</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<meta name="description" content="備長炭で焼く旬の魚と野菜、注文ごとに炊き上げる土鍋ごはん。架空店舗を題材にしたデモサイトです。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#16110d;--panel:#211a14;--ink:#f1e8dc;--mute:#b3a492;--accent:#d9843b;--line:#3a2e24}
+:root{--bg:#120d0a;--bg2:#1a1310;--panel:#211913;--ink:#f3e9dc;--mute:#a99a88;--accent:#e08a3e;--ember:#ff7a2f;--line:rgba(243,233,220,.12);--min:"Shippori Mincho B1",serif;--en:"Cormorant Garamond",serif}
 *{box-sizing:border-box;margin:0}
-body{background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.9;font-size:15px}
-h1,h2,h3,.brand{font-family:"Shippori Mincho",serif;font-weight:700;letter-spacing:.08em}
-a{color:inherit}
-.ribbon{background:#000;color:#cfc4b6;font-size:12px;text-align:center;padding:6px 12px}
-.ribbon a{color:var(--accent)}
-header{position:sticky;top:0;z-index:5;background:rgba(22,17,13,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;padding:14px 24px}
-.brand{font-size:20px}
-nav a{margin-left:20px;text-decoration:none;font-size:13px;color:var(--mute)}
-nav a.cta{color:#16110d;background:var(--accent);padding:8px 16px;border-radius:2px;font-weight:500}
-.hero{min-height:min(78vh,720px);display:grid;place-items:center;text-align:center;padding:80px 24px;
-background:radial-gradient(ellipse at 50% 110%,rgba(217,132,59,.55),transparent 60%),radial-gradient(ellipse at 30% 120%,rgba(180,60,20,.5),transparent 50%),linear-gradient(#0e0a07,#1c140e)}
-.hero small{letter-spacing:.4em;color:var(--accent);font-size:12px}
-.hero h1{font-size:clamp(34px,7vw,68px);line-height:1.4;margin:18px 0}
-.hero p{color:var(--mute);max-width:520px;margin:0 auto 32px}
-.btn{display:inline-block;background:var(--accent);color:#16110d;text-decoration:none;padding:14px 34px;font-weight:500;border:0;border-radius:2px;font-size:15px;cursor:pointer;font-family:inherit}
-section{max-width:1000px;margin:0 auto;padding:88px 24px}
-.label{color:var(--accent);font-size:12px;letter-spacing:.3em}
-h2{font-size:30px;margin:8px 0 36px}
-.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
-.card{background:var(--panel);border:1px solid var(--line);padding:28px}
-.card .ph{height:140px;margin:-28px -28px 22px;background:linear-gradient(135deg,#5b2d12,#d9843b 55%,#f4c98a)}
-.card:nth-child(2) .ph{background:linear-gradient(135deg,#2c2a22,#8a7d5a 55%,#efe6c8)}
-.card:nth-child(3) .ph{background:linear-gradient(135deg,#1d2a26,#3f6b5a 55%,#b9d6c0)}
-.card h3{font-size:19px;margin-bottom:8px}
-.card p{color:var(--mute);font-size:14px}
-.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:8px 48px}
-.menu h3{grid-column:1/-1;font-size:18px;color:var(--accent);margin-top:24px}
-.item{display:flex;justify-content:space-between;gap:16px;border-bottom:1px dotted var(--line);padding:12px 0}
-.item span:last-child{white-space:nowrap;color:var(--mute)}
-.reserve{background:var(--panel);border:1px solid var(--line);padding:36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
-label{display:block;font-size:12px;color:var(--mute);margin-bottom:6px}
-input,select{width:100%;background:#120d0a;border:1px solid var(--line);color:var(--ink);padding:12px;font-size:15px;font-family:inherit}
-.reserve .full{grid-column:1/-1}
-.done{display:none;grid-column:1/-1;border:1px solid var(--accent);padding:14px;color:var(--accent);font-size:14px}
-.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px}
-dl{display:grid;grid-template-columns:90px 1fr;gap:12px 16px;font-size:14px}
-dt{color:var(--mute)}
-.map{min-height:240px;background:repeating-linear-gradient(45deg,#1d1712,#1d1712 12px,#241c16 12px,#241c16 24px);border:1px solid var(--line);display:grid;place-items:center;color:var(--mute);font-size:13px}
-footer{border-top:1px solid var(--line);text-align:center;color:var(--mute);font-size:12px;padding:32px}
-@media(max-width:640px){nav a:not(.cta){display:none}section{padding:64px 20px}}
+html.lenis,html.lenis body{height:auto}
+html,body{overflow-x:clip}
+body{background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.9;font-size:15px;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit}
+.ch{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.12em;margin-bottom:-.12em}.ch>span{display:inline-block}
+.ribbon{position:relative;z-index:60;background:#000;color:#cfc4b6;font-size:12px;text-align:center;padding:6px 12px}
+.ribbon a{color:var(--accent);text-decoration:underline}
+
+/* loader */
+#ld{position:fixed;inset:0;z-index:100;background:#0a0705;display:none;place-items:center}
+.fx #ld{display:grid}
+#ld .fl{width:46px;height:70px;filter:drop-shadow(0 0 18px rgba(255,122,47,.8))}
+#ld .fl path{transform-origin:50% 100%;animation:flk .18s ease-in-out infinite alternate}
+@keyframes flk{to{transform:scale(.94,1.05) skewX(2deg)}}
+#ld b{display:block;margin-top:18px;font-family:var(--min);font-size:44px;letter-spacing:.3em;text-indent:.3em;opacity:0}
+
+header{position:fixed;top:30px;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:16px 4vw;transition:background .4s,top .4s,transform .5s}
+header.sc{background:rgba(18,13,10,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);top:0;border-bottom:1px solid var(--line)}
+header.hide{transform:translateY(-110%)}
+.brand{font-family:var(--min);font-size:26px;font-weight:800;display:flex;align-items:center;gap:12px}
+.brand small{font-family:var(--en);font-size:13px;letter-spacing:.4em;color:var(--mute);font-weight:500}
+nav{display:flex;align-items:center;gap:30px;font-size:13px;letter-spacing:.1em}
+nav a:not(.cta){color:#d8ccbd;position:relative}
+nav a:not(.cta)::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:var(--accent);transform:scaleX(0);transition:transform .3s}
+nav a:not(.cta):hover::after{transform:scaleX(1)}
+.cta,.btn{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#1a120c;font-weight:700;padding:10px 20px;letter-spacing:.1em;position:relative;overflow:hidden;border:0;cursor:pointer;font-size:14px}
+.btn{padding:16px 34px;font-size:15px}
+.cta::after,.btn::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.45) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s}
+.cta:hover::after,.btn:hover::after{transform:translateX(120%)}
+.btn.gh{background:transparent;color:var(--ink);border:1px solid rgba(243,233,220,.4)}
+
+/* hero */
+.hero{position:relative;height:100svh;min-height:640px;overflow:hidden;display:grid;grid-template-columns:1fr auto;align-items:end;padding:0 6vw 10vh}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%}
+.hero .glow{position:absolute;left:50%;bottom:-30vh;width:120vw;height:80vh;transform:translateX(-50%);background:radial-gradient(ellipse at 50% 100%,rgba(255,122,47,.55),rgba(160,50,10,.28) 40%,transparent 70%);animation:breathe 4s ease-in-out infinite alternate;pointer-events:none}
+@keyframes breathe{to{opacity:.75;transform:translateX(-50%) scale(1.05)}}
+.hero .bgk{position:absolute;right:-4vw;top:50%;transform:translateY(-50%);font-family:var(--min);font-weight:800;font-size:68vh;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(243,233,220,.06);pointer-events:none;user-select:none}
+.hero .left{position:relative;z-index:2;max-width:440px}
+.hero .left small{font-family:var(--en);font-style:italic;font-size:20px;color:var(--accent);letter-spacing:.06em}
+.hero .left p{color:#cbbfae;margin:14px 0 30px;font-size:14px}
+.hero .left .row{display:flex;gap:12px;flex-wrap:wrap}
+.hero h1{position:relative;z-index:2;writing-mode:vertical-rl;white-space:nowrap;font-family:var(--min);font-weight:800;font-size:clamp(36px,min(5.4vw,8vh),76px);line-height:1.5;letter-spacing:.18em;align-self:center;margin-top:10vh;text-shadow:0 0 40px rgba(0,0,0,.6)}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.scrl{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);z-index:2;font-family:var(--en);font-size:12px;letter-spacing:.4em;color:var(--mute);display:flex;flex-direction:column;align-items:center;gap:10px}
+.scrl i{width:1px;height:46px;background:linear-gradient(var(--accent),transparent);animation:drop 2s ease-in-out infinite}
+@keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* common */
+section{position:relative;padding:clamp(90px,12vw,150px) 6vw}
+.ttl{display:flex;align-items:baseline;gap:20px;margin-bottom:60px}
+.ttl .en{font-family:var(--en);font-style:italic;font-size:clamp(46px,7vw,92px);line-height:1;color:var(--accent);opacity:.9}
+.ttl h2{font-family:var(--min);font-size:clamp(20px,2vw,26px);letter-spacing:.2em}
+
+/* statement */
+.stmt{text-align:center;padding-block:clamp(110px,14vw,180px)}
+.stmt p{font-family:var(--min);font-size:clamp(20px,2.6vw,32px);line-height:2.3;letter-spacing:.16em}
+.stmt p span{color:var(--accent)}
+.stmt .sep{width:1px;height:70px;margin:0 auto 50px;background:linear-gradient(transparent,var(--accent))}
+
+/* kodawari */
+.kd{display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:center;margin-bottom:clamp(80px,10vw,140px)}
+.kd:last-child{margin-bottom:0}
+.kd:nth-child(even) .art{order:2}
+.kd .art{position:relative;aspect-ratio:1/1;background:radial-gradient(circle at 50% 60%,#2a1c13,#140e0a 70%);border:1px solid var(--line);display:grid;place-items:center;overflow:hidden}
+.kd .art svg{width:70%;overflow:visible}
+.kd .art .lb{position:absolute;left:18px;bottom:14px;font-size:11px;color:var(--mute)}
+.kd .num{font-family:var(--min);font-size:15px;color:var(--accent);letter-spacing:.3em;display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.kd .num::after{content:"";width:50px;height:1px;background:var(--accent)}
+.kd h3{word-break:auto-phrase;font-family:var(--min);font-size:clamp(26px,3vw,40px);letter-spacing:.12em;margin-bottom:20px;line-height:1.5}
+.kd p{color:#cbbfae;max-width:28em}
+.kd .data{display:flex;gap:34px;margin-top:30px}
+.kd .data div{font-size:12px;color:var(--mute)}
+.kd .data b{display:block;font-family:var(--en);font-size:40px;color:var(--ink);line-height:1.1;font-weight:500}
+.ember{animation:emb 2.4s ease-in-out infinite alternate}
+@keyframes emb{0%{opacity:.55}100%{opacity:1}}
+.steam path{stroke-dasharray:4 7;animation:stm 2.5s linear infinite}
+@keyframes stm{to{stroke-dashoffset:-44}}
+
+/* course */
+.course{background:var(--bg2)}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.cc{position:relative;border:1px solid var(--line);padding:44px 40px;background:linear-gradient(160deg,rgba(224,138,62,.08),transparent 50%);transition:border-color .4s,transform .5s}
+.cc:hover{border-color:rgba(224,138,62,.6);transform:translateY(-6px)}
+.cc .tag{position:absolute;top:-1px;right:30px;background:var(--accent);color:#1a120c;font-size:11px;font-weight:700;padding:6px 12px;letter-spacing:.1em}
+.cc h3{font-family:var(--min);font-size:26px;letter-spacing:.14em}
+.cc .pr{font-family:var(--en);font-size:44px;color:var(--accent);margin:6px 0 20px}
+.cc .pr small{font-family:"Noto Sans JP";font-size:13px;color:var(--mute);margin-left:6px}
+.cc ol{list-style:none;padding:0;counter-reset:c;border-top:1px solid var(--line)}
+.cc li{counter-increment:c;padding:11px 0;border-bottom:1px dotted var(--line);display:flex;gap:14px;font-size:14px}
+.cc li::before{content:counter(c,cjk-ideographic);font-family:var(--min);color:var(--accent);width:1.6em}
+.cc .btn{margin-top:28px}
+
+/* menu */
+.mwrap{display:grid;grid-template-columns:auto 1fr;gap:6vw}
+.mv{writing-mode:vertical-rl;font-family:var(--min);font-size:56px;font-weight:800;letter-spacing:.3em;color:transparent;-webkit-text-stroke:1px rgba(224,138,62,.6)}
+.mtabs{display:flex;gap:6px;margin-bottom:30px;flex-wrap:wrap}
+.mtabs button{background:transparent;border:1px solid var(--line);color:var(--mute);padding:10px 20px;cursor:pointer;font-size:14px;letter-spacing:.1em;transition:all .3s}
+.mtabs button.on{background:var(--accent);color:#1a120c;border-color:var(--accent);font-weight:700}
+.mpane{display:none}.mpane.on{display:grid;grid-template-columns:1fr 1fr;gap:0 50px;animation:fi .6s ease}
+@keyframes fi{from{opacity:0;transform:translateY(10px)}}
+.mi{display:flex;align-items:baseline;gap:12px;padding:16px 0;border-bottom:1px solid var(--line)}
+.mi b{font-family:var(--min);font-weight:700;font-size:17px;letter-spacing:.06em}
+.mi small{display:block;color:var(--mute);font-size:12px}
+.mi i{flex:1;border-bottom:1px dotted rgba(243,233,220,.2);transform:translateY(-5px)}
+.mi em{font-style:normal;font-family:var(--en);font-size:22px;color:var(--accent)}
+.mnote{color:var(--mute);font-size:12px;margin-top:20px}
+
+/* reserve */
+.rv{display:grid;grid-template-columns:1.3fr 1fr;gap:30px;align-items:start}
+.rbox{background:var(--panel);border:1px solid var(--line);padding:34px}
+.rbox h4{font-family:var(--min);font-size:16px;letter-spacing:.14em;margin:0 0 14px;display:flex;align-items:center;gap:10px}
+.rbox h4 span{width:24px;height:24px;border-radius:50%;background:var(--accent);color:#1a120c;font-size:12px;display:grid;place-items:center;font-family:"Noto Sans JP"}
+.rbox .blk{margin-bottom:30px}
+.cal-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-family:var(--min);letter-spacing:.1em}
+.cal-h button{background:none;border:1px solid var(--line);color:var(--ink);width:34px;height:34px;cursor:pointer}
+.cal-h button:disabled{opacity:.25;cursor:default}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.cal .w{font-size:11px;color:var(--mute);padding:4px 0}
+.cal button{height:44px;background:#17110d;border:1px solid transparent;color:var(--ink);cursor:pointer;font-size:14px;position:relative;transition:all .2s}
+.cal button:hover:not(:disabled){border-color:var(--accent)}
+.cal button:disabled{color:#5a4d42;cursor:not-allowed;background:transparent}
+.cal button.cl::after{content:"休";position:absolute;bottom:2px;left:0;right:0;font-size:9px;color:#7a5a45}
+.cal button.few::after{content:"△";position:absolute;bottom:1px;left:0;right:0;font-size:9px;color:var(--accent)}
+.cal button.on{background:var(--accent);color:#1a120c;font-weight:700}
+.cal button.on::after{color:#1a120c}
+.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.slots button,.seg button{background:#17110d;border:1px solid var(--line);color:var(--ink);padding:11px 0;cursor:pointer;font-size:14px;transition:all .2s}
+.slots button small{display:block;font-size:10px;color:var(--mute)}
+.slots button:disabled{opacity:.3;cursor:not-allowed;text-decoration:line-through}
+.slots button.on,.seg button.on{background:var(--accent);color:#1a120c;border-color:var(--accent);font-weight:700}
+.slots button.on small{color:#1a120c}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.step{display:flex;align-items:center;gap:0;border:1px solid var(--line);width:max-content}
+.step button{width:44px;height:44px;background:#17110d;border:0;color:var(--ink);font-size:20px;cursor:pointer}
+.step output{width:70px;text-align:center;font-family:var(--en);font-size:24px}
+.crs{display:grid;gap:8px}
+.crs label{display:flex;justify-content:space-between;align-items:center;gap:12px;border:1px solid var(--line);padding:14px 16px;cursor:pointer;transition:border-color .2s}
+.crs input{accent-color:var(--accent)}
+.crs label:has(input:checked){border-color:var(--accent);background:rgba(224,138,62,.08)}
+.crs em{font-style:normal;font-family:var(--en);font-size:18px;color:var(--accent)}
+.fld{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fld input{width:100%;background:#17110d;border:1px solid var(--line);color:var(--ink);padding:13px;font-size:15px;font-family:inherit}
+.fld input:focus{outline:1px solid var(--accent)}
+.sum{position:sticky;top:90px;background:linear-gradient(170deg,#2a1d14,#1a130e);border:1px solid rgba(224,138,62,.35);padding:34px}
+.sum h4{font-family:var(--min);letter-spacing:.2em;margin-bottom:18px;font-size:16px}
+.sum dl{display:grid;grid-template-columns:5em 1fr;gap:10px;font-size:14px;margin-bottom:22px}
+.sum dt{color:var(--mute)}
+.sum dd{margin:0}
+.sum .tot{border-top:1px solid var(--line);padding-top:16px;display:flex;justify-content:space-between;align-items:baseline}
+.sum .tot b{font-family:var(--en);font-size:38px;color:var(--accent);font-weight:500}
+.sum .tot b.tx{font-family:var(--min);font-size:16px}
+.sum .btn{width:100%;justify-content:center;margin-top:22px}
+.sum .btn:disabled{opacity:.4;cursor:not-allowed}
+.sum .hint{font-size:12px;color:var(--mute);margin-top:12px;text-align:center}
+.ok{display:none;text-align:center;padding:10px 0}
+.ok svg{width:64px;height:64px;margin-bottom:10px}
+.ok svg path{stroke-dasharray:60;stroke-dashoffset:60;animation:chk .8s .2s forwards}
+@keyframes chk{to{stroke-dashoffset:0}}
+.ok b{font-family:var(--min);font-size:20px;letter-spacing:.1em;display:block}
+.ok .no{font-family:var(--en);font-size:26px;color:var(--accent);margin:8px 0}
+.ok p{font-size:12px;color:var(--mute)}
+
+/* access */
+.acc{display:grid;grid-template-columns:1fr 1.2fr;gap:5vw;align-items:center}
+.acc dl{display:grid;grid-template-columns:6em 1fr;gap:16px 20px;font-size:14px}
+.acc dt{color:var(--accent);font-family:var(--min);letter-spacing:.1em}
+.acc dd{margin:0}
+.map{position:relative;aspect-ratio:4/3;background:#17110d;border:1px solid var(--line);overflow:hidden}
+.map svg{width:100%;height:100%}
+.map .pin{position:absolute;left:56%;top:46%;transform:translate(-50%,-100%)}
+.map .pin b{display:block;background:var(--accent);color:#1a120c;font-family:var(--min);font-size:13px;padding:6px 12px;white-space:nowrap}
+.map .pin i{display:block;width:12px;height:12px;margin:-1px auto 0;background:var(--accent);clip-path:polygon(0 0,100% 0,50% 100%)}
+.map .pin::after{content:"";position:absolute;left:50%;top:100%;width:16px;height:16px;margin:2px 0 0 -8px;border-radius:50%;background:var(--accent);opacity:.5;animation:ping 1.8s ease-out infinite}
+@keyframes ping{to{transform:scale(3.2);opacity:0}}
+.map .lb{position:absolute;right:12px;bottom:10px;font-size:11px;color:var(--mute)}
+
+footer{padding:90px 6vw 40px;border-top:1px solid var(--line);overflow:hidden}
+footer .big{font-family:var(--min);font-weight:800;font-size:clamp(80px,18vw,260px);line-height:1;letter-spacing:.1em;color:transparent;-webkit-text-stroke:1px rgba(224,138,62,.45)}
+footer .row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:30px;font-size:12px;color:var(--mute)}
+.fbar{display:none}
+
+@media(max-width:860px){
+  nav a:not(.cta){display:none}
+  header{top:30px;padding:12px 20px}
+  .hero{grid-template-columns:1fr;align-items:end;padding:0 22px 110px}
+  .hero h1{position:absolute;right:20px;top:90px;margin:0;font-size:clamp(30px,8.5vw,44px)}
+  .hero .bgk{font-size:60vh;right:-30vw;opacity:.7}
+  .hero .left{max-width:60%}
+  .scrl{display:none}
+  .kd,.acc,.rv{grid-template-columns:1fr}
+  .kd:nth-child(even) .art{order:0}
+  .cgrid{grid-template-columns:1fr}
+  .mwrap{grid-template-columns:1fr}.mv{display:none}
+  .mpane.on{grid-template-columns:1fr}
+  .cc{padding:34px 24px}
+  .rbox,.sum{padding:24px 18px}
+  .sum{position:static}
+  .fbar{display:grid;grid-template-columns:1fr 1.6fr;position:fixed;left:0;right:0;bottom:0;z-index:55;background:rgba(18,13,10,.95);border-top:1px solid var(--line);backdrop-filter:blur(8px)}
+  .fbar a{display:flex;align-items:center;justify-content:center;gap:8px;padding:15px 0;font-size:14px;font-weight:700}
+  .fbar a.r{background:var(--accent);color:#1a120c}
+  footer{padding-bottom:90px}
+}
+@media(max-width:480px){.hero .left{max-width:100%}.hero h1{font-size:34px;top:80px}.slots{grid-template-columns:repeat(3,1fr)}.fld{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
+<div id="ld" aria-hidden="true"><div style="text-align:center"><svg class="fl" viewBox="0 0 46 70"><path d="M23 2C30 20 44 28 44 46a21 21 0 0 1-42 0C2 34 12 28 14 16c4 8 8 10 9-14z" fill="#ff7a2f"/><path d="M23 30c4 8 10 12 10 20a10 10 0 0 1-20 0c0-6 6-10 10-20z" fill="#ffd27a"/></svg><b>灯</b></div></div>
 <div class="ribbon">これは架空の店舗を題材にしたデモサイトです｜<a href="../works.html">制作者のページへ</a></div>
-<header>
-  <div class="brand">灯 <span style="font-size:12px;color:var(--mute);letter-spacing:.2em">AKARI</span></div>
-  <nav><a href="#kodawari">こだわり</a><a href="#menu">お品書き</a><a href="#access">店舗情報</a><a class="cta" href="#reserve">ご予約</a></nav>
+<header id="hd">
+  <a class="brand" href="#">灯<small>AKARI</small></a>
+  <nav><a href="#kodawari">こだわり</a><a href="#course">コース</a><a href="#menu">お品書き</a><a href="#access">店舗情報</a><a class="cta" href="#reserve">ご予約</a></nav>
 </header>
 
-<div class="hero">
-  <div>
-    <small>炭火と土鍋ごはん</small>
-    <h1>火を見ながら、<br>ゆっくり食べる夜。</h1>
-    <p>備長炭で焼く旬の魚と野菜、注文ごとに炊き上げる土鍋ごはん。カウンター8席と小上がり2卓の小さな店です。</p>
-    <a class="btn" href="#reserve">席を予約する</a>
+<div class="hero" id="top">
+  <canvas id="emb" aria-hidden="true"></canvas>
+  <div class="glow"></div>
+  <div class="bgk" aria-hidden="true">灯</div>
+  <div class="left">
+    <small>Charcoal &amp; clay-pot dining</small>
+    <p>備長炭で焼く旬の魚と野菜、注文ごとに炊き上げる土鍋ごはん。カウンター8席と小上がり2卓の、小さな店です。</p>
+    <div class="row"><a class="btn" href="#reserve">席を予約する</a><a class="btn gh" href="#course">コースを見る</a></div>
   </div>
+  <h1 id="h1">火を見ながら、<br><em>ゆっくり</em>食べる夜。</h1>
+  <div class="scrl">SCROLL<i></i></div>
 </div>
 
+<section class="stmt">
+  <div class="sep"></div>
+  <p data-r>炭がはぜる音、土鍋のふたが鳴る音。<br>急がずに、<span>火の通る時間</span>ごと<br>味わっていただく店です。</p>
+</section>
+
 <section id="kodawari">
-  <div class="label">KODAWARI</div>
-  <h2>三つのこだわり</h2>
-  <div class="grid3">
-    <div class="card"><div class="ph"></div><h3>紀州備長炭</h3><p>遠赤外線でふっくら焼き上げ、皮目は香ばしく。魚も野菜も炭の香りをまとわせます。</p></div>
-    <div class="card"><div class="ph"></div><h3>土鍋ごはん</h3><p>ご注文をいただいてから30分かけて炊き上げます。おこげは最後に出汁茶漬けで。</p></div>
-    <div class="card"><div class="ph"></div><h3>産地直送の野菜</h3><p>契約農家から週3回届く季節の野菜を、その日の状態を見て献立に組み込みます。</p></div>
+  <div class="ttl"><span class="en">Kodawari</span><h2 data-split>三つのこだわり</h2></div>
+
+  <div class="kd">
+    <div class="art" data-r="img">
+      <svg viewBox="0 0 200 160" aria-hidden="true"><g fill="none" stroke="#e08a3e" stroke-width="1.4" stroke-linecap="round">
+        <path d="M20 130h160M30 130l10-30h120l10 30"/>
+        <rect x="52" y="78" width="30" height="22" rx="3"/><rect x="86" y="72" width="34" height="28" rx="3"/><rect x="124" y="80" width="26" height="20" rx="3"/>
+        <path d="M44 66h112" stroke-dasharray="3 5"/><path d="M60 58c10-6 20 6 30 0s20-6 30 0 20 6 30 0"/></g>
+        <g class="ember"><circle cx="67" cy="90" r="4" fill="#ff7a2f"/><circle cx="103" cy="86" r="6" fill="#ff7a2f"/><circle cx="137" cy="90" r="4" fill="#ffb06a"/></g>
+        <path d="M70 52c-4-10 6-14 2-24M100 50c-4-10 6-14 2-24M130 52c-4-10 6-14 2-24" stroke="rgba(243,233,220,.35)" fill="none" stroke-width="1" class="ember"/></svg>
+      <span class="lb">※ 本番では焼き場の写真が入ります</span>
+    </div>
+    <div>
+      <div class="num">壱</div>
+      <h3 data-r>紀州備長炭で、<br>皮は香ばしく、身はふっくら。</h3>
+      <p data-r>遠赤外線でじっくり火を入れ、魚も野菜も炭の香りをまとわせます。焼き場はカウンターの目の前。火を眺めながらお待ちください。</p>
+      <div class="data" data-stagger><div><b><span data-count="800">0</span>℃</b>炭の温度</div><div><b><span data-count="12">0</span>分</b>焼き魚の火入れ</div></div>
+    </div>
+  </div>
+
+  <div class="kd">
+    <div class="art" data-r="img">
+      <svg viewBox="0 0 200 160" aria-hidden="true"><g fill="none" stroke="#e08a3e" stroke-width="1.4" stroke-linecap="round">
+        <path d="M40 92c0 30 26 44 60 44s60-14 60-44z"/><path d="M34 92h132"/><path d="M50 92c4-16 26-24 50-24s46 8 50 24"/><path d="M92 68c0-6 16-6 16 0"/>
+        <path d="M30 104h10M160 104h10"/></g>
+        <g class="steam" fill="none" stroke="rgba(243,233,220,.45)" stroke-width="1.2" stroke-linecap="round"><path d="M80 58c-6-10 6-16 0-28"/><path d="M100 54c-6-10 6-16 0-28"/><path d="M120 58c-6-10 6-16 0-28"/></g></svg>
+      <span class="lb">※ 本番では土鍋の写真が入ります</span>
+    </div>
+    <div>
+      <div class="num">弐</div>
+      <h3 data-r>ご注文から30分。<br>炊きたての土鍋ごはん。</h3>
+      <p data-r>お米は一合ずつ、ご注文をいただいてから炊き上げます。底のおこげは、最後に出汁を注いで茶漬けで。</p>
+      <div class="data" data-stagger><div><b><span data-count="30">0</span>分</b>炊き上げ時間</div><div><b><span data-count="3">0</span>種</b>季節の炊き込み</div></div>
+    </div>
+  </div>
+
+  <div class="kd">
+    <div class="art" data-r="img">
+      <svg viewBox="0 0 200 160" aria-hidden="true"><g fill="none" stroke="#e08a3e" stroke-width="1.4" stroke-linecap="round">
+        <path d="M30 120h140"/><path d="M50 120c0-30 10-50 22-58 12 8 22 28 22 58"/><path d="M72 62c-4-12 0-20 6-26M72 62c4-10 12-14 20-14"/>
+        <path d="M108 120c2-22 16-36 32-36s28 14 30 36"/><path d="M140 84c0-8 4-14 10-18"/>
+        <ellipse cx="88" cy="132" rx="70" ry="6"/></g></svg>
+      <span class="lb">※ 本番では季節の野菜の写真が入ります</span>
+    </div>
+    <div>
+      <div class="num">参</div>
+      <h3 data-r>契約農家から、<br>週に3回届く野菜。</h3>
+      <p data-r>その日に届いた野菜の状態を見て、焼くか、炊くか、和えるかを決めます。献立は毎日少しずつ変わります。</p>
+      <div class="data" data-stagger><div><b><span data-count="3">0</span>回</b>週の入荷</div><div><b><span data-count="4">0</span>軒</b>契約農家</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="course" class="course">
+  <div class="ttl"><span class="en">Course</span><h2 data-split>コース</h2></div>
+  <div class="cgrid" data-stagger>
+    <div class="cc">
+      <h3>灯コース</h3><div class="pr">6,600<small>円（税込）・全7品</small></div>
+      <ol><li>先付</li><li>季節のお造り</li><li>炭火焼き野菜</li><li>本日の焼き魚</li><li>地鶏の炭火焼き</li><li>土鍋ごはん・香の物・汁</li><li>甘味</li></ol>
+      <a class="btn" href="#reserve" data-course="1">このコースで予約</a>
+    </div>
+    <div class="cc">
+      <span class="tag">記念日におすすめ</span>
+      <h3>季節のおまかせ</h3><div class="pr">9,900<small>円（税込）・全9品</small></div>
+      <ol><li>先付</li><li>椀物</li><li>季節のお造り三種</li><li>炭火焼き野菜</li><li>本日の焼き魚</li><li>厚切り牛たん</li><li>鯛めし（土鍋）</li><li>出汁茶漬け</li><li>甘味</li></ol>
+      <a class="btn" href="#reserve" data-course="2">このコースで予約</a>
+    </div>
   </div>
 </section>
 
 <section id="menu">
-  <div class="label">MENU</div>
-  <h2>お品書き</h2>
-  <div class="menu">
-    <h3>コース</h3>
-    <div class="item"><span>灯コース（全7品）</span><span>6,600円</span></div>
-    <div class="item"><span>季節のおまかせ（全9品）</span><span>9,900円</span></div>
-    <h3>炭火焼き</h3>
-    <div class="item"><span>本日の焼き魚</span><span>1,480円〜</span></div>
-    <div class="item"><span>地鶏もも炭火焼き</span><span>1,280円</span></div>
-    <div class="item"><span>季節野菜の炭火焼き盛り合わせ</span><span>980円</span></div>
-    <div class="item"><span>厚切り牛たん</span><span>1,980円</span></div>
-    <h3>土鍋ごはん（2〜3名様分）</h3>
-    <div class="item"><span>白ごはん</span><span>1,200円</span></div>
-    <div class="item"><span>鯛めし</span><span>2,400円</span></div>
-    <div class="item"><span>季節の炊き込み</span><span>1,980円</span></div>
-    <div class="item"><span>出汁茶漬けセット</span><span>300円</span></div>
+  <div class="mwrap">
+    <div class="mv" aria-hidden="true">お品書き</div>
+    <div>
+      <div class="ttl" style="margin-bottom:34px"><span class="en">Menu</span><h2 data-split>お品書き</h2></div>
+      <div class="mtabs" role="tablist"><button class="on" data-p="a">炭火焼き</button><button data-p="b">土鍋ごはん</button><button data-p="c">お飲み物</button></div>
+      <div class="mpane on" id="m-a">
+        <div class="mi"><div><b>本日の焼き魚</b><small>その日の仕入れから</small></div><i></i><em>¥1,480〜</em></div>
+        <div class="mi"><div><b>地鶏もも炭火焼き</b><small>柚子胡椒で</small></div><i></i><em>¥1,280</em></div>
+        <div class="mi"><div><b>季節野菜の盛り合わせ</b><small>5種</small></div><i></i><em>¥980</em></div>
+        <div class="mi"><div><b>厚切り牛たん</b><small>塩・レモン</small></div><i></i><em>¥1,980</em></div>
+      </div>
+      <div class="mpane" id="m-b">
+        <div class="mi"><div><b>白ごはん</b><small>2〜3名様分</small></div><i></i><em>¥1,200</em></div>
+        <div class="mi"><div><b>鯛めし</b><small>2〜3名様分</small></div><i></i><em>¥2,400</em></div>
+        <div class="mi"><div><b>季節の炊き込み</b><small>2〜3名様分</small></div><i></i><em>¥1,980</em></div>
+        <div class="mi"><div><b>出汁茶漬けセット</b><small>おこげで</small></div><i></i><em>¥300</em></div>
+      </div>
+      <div class="mpane" id="m-c">
+        <div class="mi"><div><b>日本酒（一合）</b><small>季節の三種から</small></div><i></i><em>¥900〜</em></div>
+        <div class="mi"><div><b>生ビール</b><small>中ジョッキ</small></div><i></i><em>¥700</em></div>
+        <div class="mi"><div><b>ほうじ茶ハイ</b><small>自家焙煎</small></div><i></i><em>¥650</em></div>
+        <div class="mi"><div><b>ノンアルコール</b><small>柚子ソーダ ほか</small></div><i></i><em>¥500</em></div>
+      </div>
+      <p class="mnote">価格はすべて税込です。</p>
+    </div>
   </div>
-  <p style="color:var(--mute);font-size:12px;margin-top:20px">価格はすべて税込です。</p>
 </section>
 
-<section id="reserve">
-  <div class="label">RESERVATION</div>
-  <h2>ご予約</h2>
-  <form class="reserve" id="f">
-    <div><label>日付</label><input type="date" required></div>
-    <div><label>時間</label><select><option>17:30</option><option>18:00</option><option>18:30</option><option>19:00</option><option>19:30</option><option>20:00</option><option>20:30</option></select></div>
-    <div><label>人数</label><select><option>1名</option><option selected>2名</option><option>3名</option><option>4名</option><option>5名以上（お電話ください）</option></select></div>
-    <div><label>お席</label><select><option>おまかせ</option><option>カウンター</option><option>小上がり</option></select></div>
-    <div><label>お名前</label><input required placeholder="山田 太郎"></div>
-    <div><label>電話番号</label><input type="tel" required placeholder="090-0000-0000"></div>
-    <div class="full"><label>コース</label><select><option>席のみ予約</option><option>灯コース 6,600円</option><option>季節のおまかせ 9,900円</option></select></div>
-    <div class="full"><button class="btn" type="submit">この内容で予約する</button></div>
-    <div class="done" id="done">デモサイトのため、実際の予約は送信されていません。本番ではここで予約が確定し、お店とお客様の両方に確認メールが届きます。</div>
-  </form>
+<section id="reserve" style="background:var(--bg2)">
+  <div class="ttl"><span class="en">Reservation</span><h2 data-split>ご予約</h2></div>
+  <div class="rv">
+    <div class="rbox" data-r>
+      <div class="blk">
+        <h4><span>1</span>日付</h4>
+        <div class="cal-h"><button id="pm" aria-label="前の月">‹</button><b id="mlab"></b><button id="nm" aria-label="次の月">›</button></div>
+        <div class="cal" id="cal"></div>
+        <p style="font-size:11px;color:var(--mute);margin-top:8px">△ 残りわずか ／ 休 定休日（月曜・第3火曜）</p>
+      </div>
+      <div class="blk"><h4><span>2</span>時間</h4><div class="slots" id="slots"></div></div>
+      <div class="blk"><h4><span>3</span>人数・お席</h4>
+        <div style="display:flex;gap:20px;flex-wrap:wrap;align-items:center">
+          <div class="step"><button id="dn" aria-label="減らす">−</button><output id="ppl">2</output><button id="up" aria-label="増やす">＋</button></div>
+          <div class="seg" id="seat" style="flex:1;min-width:220px"><button class="on">おまかせ</button><button>カウンター</button><button>小上がり</button></div>
+        </div>
+      </div>
+      <div class="blk"><h4><span>4</span>コース</h4>
+        <div class="crs" id="crs">
+          <label><span><input type="radio" name="c" value="0" checked> 席のみ予約</span><em>—</em></label>
+          <label><span><input type="radio" name="c" value="6600"> 灯コース（全7品）</span><em>¥6,600</em></label>
+          <label><span><input type="radio" name="c" value="9900"> 季節のおまかせ（全9品）</span><em>¥9,900</em></label>
+        </div>
+      </div>
+      <div class="blk" style="margin:0"><h4><span>5</span>お客様情報</h4>
+        <div class="fld"><input id="nmI" placeholder="お名前" autocomplete="off"><input id="telI" placeholder="電話番号" inputmode="tel" autocomplete="off"></div>
+      </div>
+    </div>
+    <aside class="sum" data-r>
+      <div id="sumIn">
+        <h4>ご予約内容</h4>
+        <dl><dt>日付</dt><dd id="sD">—</dd><dt>時間</dt><dd id="sT">—</dd><dt>人数</dt><dd id="sP">2名</dd><dt>お席</dt><dd id="sS">おまかせ</dd><dt>コース</dt><dd id="sC">席のみ予約</dd></dl>
+        <div class="tot"><span style="font-size:13px;color:var(--mute)">お見積り（税込）</span><b id="sTot">—</b></div>
+        <button class="btn" id="go" disabled>この内容で予約する</button>
+        <p class="hint" id="hint">日付と時間を選んでください</p>
+      </div>
+      <div class="ok" id="ok">
+        <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="none" stroke="#e08a3e" stroke-width="1.5"/><path d="M19 33l9 9 18-19" fill="none" stroke="#e08a3e" stroke-width="2.5" stroke-linecap="round"/></svg>
+        <b>ご予約を承りました</b><div class="no" id="no"></div>
+        <p>デモサイトのため、実際の予約は送信されていません。<br>本番ではここで予約が確定し、お店とお客様の両方に確認メールが届きます。</p>
+      </div>
+    </aside>
+  </div>
 </section>
 
 <section id="access">
-  <div class="label">ACCESS</div>
-  <h2>店舗情報</h2>
-  <div class="info">
-    <dl>
+  <div class="ttl"><span class="en">Access</span><h2 data-split>店舗情報</h2></div>
+  <div class="acc">
+    <dl data-stagger>
       <dt>住所</dt><dd>〒000-0000 架空県見本市中央1-2-3 見本ビル1F</dd>
       <dt>電話</dt><dd>00-0000-0000</dd>
       <dt>営業時間</dt><dd>17:30〜23:00（L.O. 22:00）</dd>
@@ -126,13 +398,135 @@ footer{border-top:1px solid var(--line);text-align:center;color:var(--mute);font
       <dt>席数</dt><dd>カウンター8席／小上がり2卓</dd>
       <dt>お支払い</dt><dd>現金・各種カード・QR決済</dd>
     </dl>
-    <div class="map">地図（本番ではGoogleマップを表示）</div>
+    <div class="map" data-r="s">
+      <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g stroke="rgba(243,233,220,.08)" stroke-width="18" fill="none"><path d="M-10 190h420"/><path d="M230 -10v320"/></g><g stroke="rgba(243,233,220,.05)" stroke-width="8" fill="none"><path d="M-10 80h420M-10 260h420M90 -10v320M330 -10v320"/></g><path d="M-10 40C100 70 200 20 410 60" stroke="rgba(90,140,180,.25)" stroke-width="22" fill="none"/><text x="240" y="208" fill="#7d6d5e" font-size="11">見本通り</text><text x="20" y="183" fill="#7d6d5e" font-size="11">中央駅 →</text></svg>
+      <div class="pin"><b>灯 AKARI</b><i></i></div>
+      <span class="lb">本番ではGoogleマップを表示</span>
+    </div>
   </div>
 </section>
 
-<footer>© 灯 AKARI — 架空店舗のデモサイトです</footer>
+<footer>
+  <div class="big" aria-hidden="true">灯 AKARI</div>
+  <div class="row"><span>© 灯 AKARI — 架空店舗のデモサイトです</span><a href="../works.html">制作者のページへ →</a></div>
+</footer>
+<div class="fbar"><a href="#access">☎ 電話</a><a class="r" href="#reserve">席を予約する</a></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="fx.js?v=2"></script>
 <script>
-document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();document.getElementById('done').style.display='block'});
+(function(){
+  /* 火の粉 */
+  var cv = document.getElementById('emb'), cx = cv.getContext('2d'), P = [], W, H, dpr = Math.min(devicePixelRatio || 1, 2);
+  function rs(){ W = cv.clientWidth; H = cv.clientHeight; cv.width = W * dpr; cv.height = H * dpr; cx.setTransform(dpr, 0, 0, dpr, 0, 0); }
+  rs(); addEventListener('resize', rs);
+  function sp(){ return { x: W * (.2 + Math.random() * .6), y: H + 10, r: Math.random() * 2 + .6, vy: -(Math.random() * 1.2 + .5), vx: (Math.random() - .5) * .5, l: 0, m: 180 + Math.random() * 220, s: Math.random() * 6.28 }; }
+  var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  for (var i = 0; i < 70; i++) { var p = sp(); p.y = Math.random() * H; P.push(p); }
+  (function loop(){
+    cx.clearRect(0, 0, W, H);
+    P.forEach(function(p, i){
+      if (!still) { p.y += p.vy; p.x += p.vx + Math.sin((p.l + p.s) / 22) * .35; p.l++; }
+      var a = Math.max(0, 1 - p.l / p.m) * (.5 + .5 * Math.sin(p.l / 6 + p.s));
+      cx.beginPath(); cx.fillStyle = 'rgba(255,' + (120 + (p.r * 30 | 0)) + ',50,' + a + ')'; cx.shadowColor = 'rgba(255,120,40,.9)'; cx.shadowBlur = 8;
+      cx.arc(p.x, p.y, p.r, 0, 6.28); cx.fill();
+      if (p.l > p.m || p.y < -10) P[i] = sp();
+    });
+    if (!still) requestAnimationFrame(loop);
+  })();
+
+  /* メニューのタブ */
+  document.querySelectorAll('.mtabs button').forEach(function(b){ b.onclick = function(){
+    document.querySelectorAll('.mtabs button').forEach(function(x){ x.classList.toggle('on', x === b); });
+    document.querySelectorAll('.mpane').forEach(function(p){ p.classList.toggle('on', p.id === 'm-' + b.dataset.p); });
+  }; });
+
+  /* 予約 */
+  var st = { d: null, t: null, p: 2, s: 'おまかせ', c: 0, cn: '席のみ予約' }, wd = ['日','月','火','水','木','金','土'];
+  var today = new Date(); today.setHours(0,0,0,0);
+  var view = new Date(today.getFullYear(), today.getMonth(), 1);
+  function closed(d){ var w = d.getDay(); return w === 1 || (w === 2 && Math.ceil(d.getDate() / 7) === 3); }
+  function seed(d){ return (d.getDate() * 7 + d.getMonth() * 3) % 10; }
+  function cal(){
+    var c = document.getElementById('cal'), y = view.getFullYear(), m = view.getMonth();
+    document.getElementById('mlab').textContent = y + '年 ' + (m + 1) + '月';
+    document.getElementById('pm').disabled = y === today.getFullYear() && m === today.getMonth();
+    document.getElementById('nm').disabled = (y * 12 + m) - (today.getFullYear() * 12 + today.getMonth()) >= 2;
+    c.innerHTML = wd.map(function(x){ return '<div class="w">' + x + '</div>'; }).join('');
+    for (var i = 0; i < new Date(y, m, 1).getDay(); i++) c.insertAdjacentHTML('beforeend', '<div></div>');
+    for (var dd = 1; dd <= new Date(y, m + 1, 0).getDate(); dd++) {
+      var d = new Date(y, m, dd), b = document.createElement('button');
+      b.textContent = dd;
+      if (d <= today) b.disabled = true;
+      else if (closed(d)) { b.disabled = true; b.className = 'cl'; }
+      else if (seed(d) < 2) b.className = 'few';
+      if (st.d && +d === +st.d) b.classList.add('on');
+      (function(d, b){ b.onclick = function(){ st.d = d; st.t = null; c.querySelectorAll('button').forEach(function(x){ x.classList.remove('on'); }); b.classList.add('on'); slots(); upd(); }; })(d, b);
+      c.appendChild(b);
+    }
+  }
+  document.getElementById('pm').onclick = function(){ view.setMonth(view.getMonth() - 1); cal(); };
+  document.getElementById('nm').onclick = function(){ view.setMonth(view.getMonth() + 1); cal(); };
+  var TS = ['17:30','18:00','18:30','19:00','19:30','20:00','20:30','21:00'];
+  function slots(){
+    var el = document.getElementById('slots'); el.innerHTML = '';
+    TS.forEach(function(t, i){
+      var b = document.createElement('button'), k = st.d ? (seed(st.d) + i * 3) % 7 : -1;
+      b.innerHTML = t + '<small>' + (!st.d ? '—' : k === 0 ? '満席' : k < 3 ? '残りわずか' : '空きあり') + '</small>';
+      if (!st.d || k === 0) b.disabled = true;
+      b.onclick = function(){ st.t = t; el.querySelectorAll('button').forEach(function(x){ x.classList.remove('on'); }); b.classList.add('on'); upd(); };
+      el.appendChild(b);
+    });
+  }
+  document.getElementById('up').onclick = function(){ if (st.p < 8) { st.p++; upd(); } };
+  document.getElementById('dn').onclick = function(){ if (st.p > 1) { st.p--; upd(); } };
+  document.querySelectorAll('#seat button').forEach(function(b){ b.onclick = function(){ st.s = b.textContent; document.querySelectorAll('#seat button').forEach(function(x){ x.classList.toggle('on', x === b); }); upd(); }; });
+  document.querySelectorAll('#crs input').forEach(function(r){ r.onchange = function(){ st.c = +r.value; st.cn = r.parentNode.textContent.trim(); upd(); }; });
+  document.querySelectorAll('[data-course]').forEach(function(a){ a.addEventListener('click', function(){ var r = document.querySelectorAll('#crs input')[+a.dataset.course]; r.checked = true; r.onchange(); }); });
+  function upd(){
+    document.getElementById('ppl').textContent = st.p;
+    document.getElementById('sD').textContent = st.d ? (st.d.getMonth() + 1) + '月' + st.d.getDate() + '日（' + wd[st.d.getDay()] + '）' : '—';
+    document.getElementById('sT').textContent = st.t || '—';
+    document.getElementById('sP').textContent = st.p + '名';
+    document.getElementById('sS').textContent = st.s;
+    document.getElementById('sC').textContent = st.cn;
+    var tb = document.getElementById('sTot'); tb.textContent = st.c ? '¥' + (st.c * st.p).toLocaleString() : '当日のご注文'; tb.classList.toggle('tx', !st.c);
+    var ok = st.d && st.t && document.getElementById('nmI').value.trim() && document.getElementById('telI').value.trim();
+    document.getElementById('go').disabled = !ok;
+    document.getElementById('hint').textContent = !st.d || !st.t ? '日付と時間を選んでください' : ok ? '' : 'お名前と電話番号を入力してください';
+  }
+  ['nmI','telI'].forEach(function(id){ document.getElementById(id).addEventListener('input', upd); });
+  document.getElementById('go').onclick = function(){
+    document.getElementById('sumIn').style.display = 'none';
+    document.getElementById('ok').style.display = 'block';
+    document.getElementById('no').textContent = 'No. AK-' + (Math.random() * 9000 + 1000 | 0) + '-DEMO';
+  };
+  cal(); slots(); upd();
+
+  /* ヘッダー */
+  var hd = document.getElementById('hd'), ly = 0;
+  addEventListener('scroll', function(){ var y = scrollY; hd.classList.toggle('sc', y > 40); hd.classList.toggle('hide', y > 500 && y > ly); ly = y; }, { passive: true });
+
+  /* 動き */
+  if (!FX.on) return;
+  FX.init();
+  var h1 = document.getElementById('h1'), ch = FX.split(h1);
+  gsap.set(ch, { yPercent: 110, opacity: 0 });
+  var ld = document.getElementById('ld');
+  gsap.timeline()
+    .to('#ld b', { opacity: 1, duration: .6, delay: .3 })
+    .to(ld, { opacity: 0, duration: .7, delay: .5, onComplete: function(){ ld.style.display = 'none'; } })
+    .to(ch, { yPercent: 0, opacity: 1, duration: 1.2, stagger: .06, ease: 'expo.out' }, '-=.3')
+    .from('.hero .left > *', { opacity: 0, y: 30, duration: .9, stagger: .12, ease: 'power3.out' }, '-=.8')
+    .from('header', { opacity: 0, y: -20, duration: .8 }, '<');
+  ld.onclick = function(){ gsap.globalTimeline.getChildren().forEach(function(t){ t.progress(1); }); };
+  gsap.to('.hero .bgk', { yPercent: -30, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+  gsap.to('#h1', { yPercent: 20, opacity: .2, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+  gsap.from('.kd .art svg', { scale: .8, opacity: 0, duration: 1.4, ease: 'expo.out', stagger: .2, scrollTrigger: { trigger: '#kodawari', start: 'top 70%' } });
+  gsap.from('footer .big', { yPercent: 60, opacity: 0, duration: 1.4, ease: 'expo.out', scrollTrigger: { trigger: 'footer', start: 'top 90%' } });
+})();
 </script>
 </body>
 </html>
