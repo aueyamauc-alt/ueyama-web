@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>上山 有佑生｜予約・申込につながるWebサイト制作</title>
 <meta name="description" content="飲食店・サロン・教室・宿泊施設・整骨院向けに、スマホで見やすく、そのまま予約や申込ができるWebサイトを制作します。">
+<meta name="robots" content="noindex">
+
 <meta name="theme-color" content="#0f0e0c">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f0e0c'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='36' font-style='italic' fill='%23ff6a3d' text-anchor='middle'%3EU%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -268,6 +270,64 @@ section{position:relative;padding:clamp(96px,14vw,180px) var(--gut)}
 .mag{display:inline-grid;place-items:center;width:clamp(150px,16vw,200px);aspect-ratio:1;border-radius:50%;background:var(--accent);color:var(--ink);font-weight:700;font-size:15px;text-align:center;line-height:1.5;transition:background .3s}
 .mag:hover{background:var(--paper)}
 .foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:100px;padding-top:24px;border-top:1px solid var(--line);font-family:var(--ui);font-size:12px;color:var(--mute)}
+.foot nav{gap:18px;font-size:12px;flex-wrap:wrap}
+.foot nav a:not(.cta){display:inline}
+
+/* industries */
+.ind{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.ind a{position:relative;display:flex;flex-direction:column;justify-content:space-between;min-height:220px;padding:26px 22px;border-radius:18px;border:1px solid var(--line);background:var(--ink2);overflow:hidden;isolation:isolate;transition:color .4s,border-color .4s}
+.ind a::before{content:"";position:absolute;inset:0;background:var(--accent);clip-path:circle(0% at 100% 100%);transition:clip-path .7s cubic-bezier(.7,0,.2,1);z-index:-1}
+.ind a:hover::before{clip-path:circle(150% at 100% 100%)}
+.ind a:hover{color:var(--ink);border-color:var(--accent)}
+.ind small{font-family:var(--en);font-style:italic;font-size:18px;color:var(--mute);transition:color .4s}
+.ind a:hover small,.ind a:hover span{color:var(--ink)}
+.ind b{font-family:var(--serif);font-size:21px;line-height:1.45}
+.ind span{font-size:12px;color:#bdb5a7;transition:color .4s}
+@media (max-width:1000px){.ind{grid-template-columns:1fr 1fr}.ind a{min-height:170px}}
+@media (max-width:480px){.ind{grid-template-columns:1fr}}
+
+/* faq */
+.faq{max-width:980px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;padding:26px 0;font-size:clamp(16px,1.6vw,19px);font-weight:700}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"Q";font-family:var(--en);font-size:30px;line-height:1;color:var(--accent)}
+.faq summary::after{content:"";width:14px;height:14px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translate(-3px,-3px);transition:transform .4s}
+.faq details[open] summary::after{transform:rotate(225deg)}
+.faq .a{padding:0 0 28px 44px;color:#bdb5a7;font-size:14px;max-width:44em}
+
+/* contact form */
+.cf{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(32px,6vw,90px);margin-top:72px;align-items:start}
+.cf .side p{color:#bdb5a7;font-size:14px;margin-bottom:22px}
+.cf .side ul{list-style:none;padding:0;margin:0 0 26px;font-size:14px}
+.cf .side li{padding:12px 0;border-bottom:1px solid var(--line);display:flex;gap:12px}
+.cf .side li::before{content:"✓";color:var(--accent);font-weight:700}
+form.f{display:grid;grid-template-columns:1fr 1fr;gap:20px 18px;padding:clamp(24px,4vw,44px);border-radius:24px;background:var(--paper);color:var(--ink)}
+.f label{display:flex;flex-direction:column;gap:8px;font-size:13px;font-weight:700}
+.f .full{grid-column:1/-1}
+.f em{font-style:normal;font-size:10px;padding:2px 8px;border-radius:999px;background:var(--accent);color:var(--ink);margin-left:8px;vertical-align:1px}
+.f em.o{background:#ddd5c6;color:#5d574d}
+.f input,.f select,.f textarea{font:inherit;font-weight:400;font-size:16px;color:var(--ink);background:#fff;border:1px solid #d8cfbf;border-radius:12px;padding:13px 14px;width:100%;transition:border-color .3s,box-shadow .3s}
+.f input:focus,.f select:focus,.f textarea:focus{outline:0;border-color:var(--accent);box-shadow:0 0 0 4px rgba(255,106,61,.18)}
+.f textarea{min-height:140px;resize:vertical}
+.f fieldset{border:0;padding:0;margin:0;grid-column:1/-1}
+.f legend{font-size:13px;font-weight:700;margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{flex-direction:row;font-weight:500}
+.chips input{position:absolute;opacity:0;width:1px;height:1px}
+.chips span{display:inline-block;padding:9px 16px;border-radius:999px;border:1px solid #d8cfbf;background:#fff;font-size:13px;cursor:pointer;transition:background .3s,color .3s,border-color .3s}
+.chips input:checked+span{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chips input:focus-visible+span{box-shadow:0 0 0 3px var(--accent)}
+.f .agree{flex-direction:row;align-items:center;gap:10px;font-weight:500}
+.f .agree input{width:20px;height:20px;accent-color:var(--accent)}
+.f .agree a{text-decoration:underline}
+.f button{grid-column:1/-1;justify-self:start;border:0;cursor:pointer;font:inherit;background:var(--ink);color:var(--paper)}
+.f button[disabled]{opacity:.5;cursor:wait}
+.f .msg{grid-column:1/-1;font-size:14px;font-weight:700;min-height:1em}
+.f .msg.ok{color:#1d7a4f}.f .msg.ng{color:#c23b18}
+.hp{position:absolute;left:-9999px}
+@media (max-width:900px){.cf{grid-template-columns:1fr}}
+@media (max-width:560px){form.f{grid-template-columns:1fr}}
 
 /* anim initial states (only when JS animation active) */
 .js-anim [data-up]{opacity:0;transform:translateY(40px)}
@@ -499,6 +559,7 @@ section{position:relative;padding:clamp(96px,14vw,180px) var(--gut)}
   </div>
 </section>
 
+
 <div class="end" id="contact">
   <div class="big split">Let’s build<br>your <i>next</i> site.</div>
   <div class="row">
@@ -506,6 +567,7 @@ section{position:relative;padding:clamp(96px,14vw,180px) var(--gut)}
     <div><p>ご相談は、ご覧いただいたサービス上のメッセージからお気軽にどうぞ。お店の名前を教えていただければ、デモを作ってお返事します。</p></div>
     <a class="mag" href="#works">制作例を<br>もう一度見る ↑</a>
   </div>
+  
   <div class="foot"><span>© 上山 有佑生</span><span>掲載の制作例はすべて架空の店舗・ブランドを題材にしたデモです。</span></div>
 </div>
 </main>
@@ -540,6 +602,28 @@ section{position:relative;padding:clamp(96px,14vw,180px) var(--gut)}
     var v = parseFloat(ba.getAttribute('aria-valuenow'));
     if (e.key === 'ArrowLeft') { setX(v - 5); e.preventDefault(); }
     if (e.key === 'ArrowRight') { setX(v + 5); e.preventDefault(); }
+  });
+
+  /* デモの「制作者のページへ」をどちらに戻すかを覚える（demos/back.js） */
+  try { sessionStorage.setItem('uw-src', document.getElementById('cform') ? 'index' : 'works'); } catch (e) {}
+
+  /* contact form (index only) */
+  var cf = document.getElementById('cform');
+  if (cf) cf.addEventListener('submit', function(e){
+    e.preventDefault();
+    var msg = document.getElementById('cmsg'), btn = cf.querySelector('button');
+    var data = {};
+    new FormData(cf).forEach(function(v, k){ data[k] = data[k] ? data[k] + '、' + v : v; });
+    if (data._honey) return;
+    btn.disabled = true; msg.className = 'msg'; msg.textContent = '送信しています…';
+    fetch(cf.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
+      method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data)
+    }).then(function(r){ return r.json(); }).then(function(j){
+      if (String(j.success) !== 'true') throw 0;
+      cf.reset(); msg.className = 'msg ok'; msg.textContent = '送信しました。原則24時間以内にメールでお返事します。';
+    }).catch(function(){
+      msg.className = 'msg ng'; msg.textContent = '送信できませんでした。お手数ですが a.ueyama.uc@gmail.com へ直接メールでお送りください。';
+    }).then(function(){ btn.disabled = false; });
   });
 
   if (!hasG || reduce) return;
@@ -651,6 +735,11 @@ section{position:relative;padding:clamp(96px,14vw,180px) var(--gut)}
   gsap.utils.toArray('[data-up]').forEach(function(el, i){
     gsap.to(el, { opacity: 1, y: 0, duration: 1, delay: (i % 3) * .1, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 88%' } });
   });
+  if (document.querySelector('.ind')) {
+    gsap.from('.ind a', { opacity: 0, y: 50, duration: 1, stagger: .08, ease: 'power3.out', scrollTrigger: { trigger: '.ind', start: 'top 85%' } });
+    gsap.from('.faq details', { opacity: 0, y: 24, duration: .8, stagger: .06, ease: 'power3.out', scrollTrigger: { trigger: '.faq', start: 'top 85%' } });
+    gsap.from('form.f', { opacity: 0, y: 60, duration: 1.1, ease: 'power3.out', scrollTrigger: { trigger: '.cf', start: 'top 85%' } });
+  }
   gsap.from('.svc>div', { opacity: 0, y: 50, duration: 1, stagger: .1, ease: 'power3.out', scrollTrigger: { trigger: '.svc', start: 'top 85%' } });
   gsap.from('.pts li', { opacity: 0, y: 30, duration: .8, stagger: .1, ease: 'power3.out', scrollTrigger: { trigger: '.pts', start: 'top 85%' } });
   gsap.from('.ba', { clipPath: 'inset(8% 8% 8% 8% round 40px)', duration: 1.4, ease: 'expo.out', scrollTrigger: { trigger: '.ba', start: 'top 85%' } });
