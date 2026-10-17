@@ -209,6 +209,7 @@ section{position:relative;padding:clamp(96px,14vw,180px) var(--gut)}
 .hz .count{position:absolute;right:var(--gut);bottom:30px;z-index:5;font-family:var(--ui);font-size:12px;letter-spacing:.2em;display:flex;align-items:center;gap:14px;color:inherit;mix-blend-mode:difference;color:#fff}
 .hz .count .bar{width:120px;height:1px;background:rgba(255,255,255,.3);position:relative}
 .hz .count .bar i{position:absolute;inset:0;background:#fff;transform-origin:left;transform:scaleX(.2)}
+.wmore{padding:48px var(--gut) 0;display:flex;justify-content:center}
 .wnote{padding:28px var(--gut) 0;font-size:12px;color:var(--mute)}
 @media (max-width:900px){
   .panel{width:100%;min-height:0;grid-template-columns:1fr;padding:90px var(--gut) 80px}
@@ -375,7 +376,7 @@ form.f{display:grid;grid-template-columns:1fr 1fr;gap:20px 18px;padding:clamp(24
 <header id="hd">
   <div class="in"></div>
   <a class="logo" href="#top"><i>U.</i>上山 有佑生<small>WEB DESIGN</small></a>
-  <nav><a href="#works">制作例</a><a href="#ba">改善例</a><a href="#price">料金</a><a href="#flow">流れ</a><a href="#faq">よくある質問</a><a class="cta" href="#contact">無料で相談</a></nav>
+  <nav><a href="examples.html">制作例</a><a href="#ba">改善例</a><a href="#price">料金</a><a href="#flow">流れ</a><a href="#faq">よくある質問</a><a class="cta" href="#contact">無料で相談</a></nav>
 </header>
 
 <main id="top">
@@ -420,7 +421,7 @@ form.f{display:grid;grid-template-columns:1fr 1fr;gap:20px 18px;padding:clamp(24
 
 <section id="works">
   <div class="sh">
-    <div><div class="lab">WORKS <b>— 制作例</b></div><h2 class="split">6つの業種で、<br>作り分けたデモ。<span class="en">Six demos, six moods.</span></h2></div>
+    <div><div class="lab">WORKS <b>— 制作例</b></div><h2 class="split">業種ごとに、<br>作り分けたデモ。<span class="en">Selected works.</span></h2></div>
     <p>業種ごとに、お客様が知りたいことと、予約までの動きは違います。色・書体・導線をそれぞれに合わせて設計しました。画面をクリックすると実際に操作できます。</p>
   </div>
 </section>
@@ -456,21 +457,7 @@ form.f{display:grid;grid-template-columns:1fr 1fr;gap:20px 18px;padding:clamp(24
         <a href="demos/salon.html" aria-label="hair salon Lueurのデモを見る"></a>
       </div>
     </article>
-    <article class="panel p3">
-      <div class="no">03</div>
-      <div class="info">
-        <span class="cat">教室・スクール</span>
-        <h3>こどもプログラミング教室 ツクル<small>Playful, for parents &amp; kids</small></h3>
-        <p class="desc">保護者が知りたい「対象学年・時間割・料金」をすぐ見える位置に。ブロックを並べてロボットを動かす体験ゲームつき。学年を選ぶとおすすめコースと体験できる曜日が出ます。</p>
-        <ul><li>無料体験の申込</li><li>コース・時間割</li><li>保護者の声</li></ul>
-        <a class="btn" href="demos/school.html"><span>サイトを見る →</span></a>
-      </div>
-      <div class="stage" data-view>
-        <div class="lap"><div class="scr"><div class="view" style="background-image:url(assets/shots/school-pc.jpg)"></div></div><div class="base"></div></div>
-        <div class="ph"><div class="view" style="background-image:url(assets/shots/school-sp.jpg)"></div></div>
-        <a href="demos/school.html" aria-label="ツクルのデモを見る"></a>
-      </div>
-    </article>
+
     <article class="panel p4">
       <div class="no">04</div>
       <div class="info">
@@ -486,40 +473,13 @@ form.f{display:grid;grid-template-columns:1fr 1fr;gap:20px 18px;padding:clamp(24
         <a href="demos/stay.html" aria-label="町家の宿 澄のデモを見る"></a>
       </div>
     </article>
-    <article class="panel p5">
-      <div class="no">05</div>
-      <div class="info">
-        <span class="cat">整骨院・治療院</span>
-        <h3>みどり通り整骨院（2院）<small>Two clinics, one site</small></h3>
-        <p class="desc">2院の住所・電話・営業時間をGoogleマップの表記とそろえて掲載。痛む場所をタップすると原因とおすすめメニューを表示。院ごとの休診日・受付時間に合わせて空き枠が変わる予約つき。</p>
-        <ul><li>2院の店舗情報</li><li>院を選んで予約</li><li>症状別の案内</li></ul>
-        <a class="btn" href="demos/seikotsu.html"><span>サイトを見る →</span></a>
-      </div>
-      <div class="stage" data-view>
-        <div class="lap"><div class="scr"><div class="view" style="background-image:url(assets/shots/seikotsu-pc.jpg)"></div></div><div class="base"></div></div>
-        <div class="ph"><div class="view" style="background-image:url(assets/shots/seikotsu-sp.jpg)"></div></div>
-        <a href="demos/seikotsu.html" aria-label="みどり通り整骨院のデモを見る"></a>
-      </div>
-    </article>
-    <article class="panel p6">
-      <div class="no">06</div>
-      <div class="info">
-        <span class="cat">通販・D2C（記事LP）</span>
-        <h3>ねこ用フード mofuka<small>Article LP for a pet food brand</small></h3>
-        <p class="desc">広告から来た人に読ませて買ってもらう、スマホ向けの記事LP。「うちの子、当てはまる？」のチェック、粒の大きさを切り替えて比べる図、定期便の条件をボタンのすぐ上に置いた申込欄。追従ボタンは本文に重ならないよう、申込欄では隠れます。</p>
-        <ul><li>悩みチェック</li><li>定期便の表示</li><li>追従購入ボタン</li></ul>
-        <a class="btn" href="demos/catfood.html"><span>LPを見る →</span></a>
-      </div>
-      <div class="stage" data-view>
-        <div class="lap"><div class="scr"><div class="view" style="background-image:url(assets/shots/catfood-pc.jpg)"></div></div><div class="base"></div></div>
-        <div class="ph"><div class="view" style="background-image:url(assets/shots/catfood-sp.jpg)"></div></div>
-        <a href="demos/catfood.html" aria-label="mofukaの記事LPデモを見る"></a>
-      </div>
-    </article>
+
+
   </div>
-  <div class="count"><span id="wc">01</span><span class="bar"><i id="wbar"></i></span><span>06</span></div>
+  <div class="count"><span id="wc">01</span><span class="bar"><i id="wbar"></i></span><span id="wt">06</span></div>
 </div>
-<p class="wnote">※ 上の6つはすべて、架空の店舗・ブランドを題材に制作したデモサイトです。実在の店舗・取引先ではありません。</p>
+<div class="wmore"><a class="btn" href="examples.html">制作例を一覧で見る（全6件） <span class="ar">→</span></a></div>
+<p class="wnote">※ 掲載の制作例はすべて、架空の店舗・ブランドを題材に制作したデモサイトです。実在の店舗・取引先ではありません。</p>
 
 <section id="ba">
   <div class="sh">
@@ -848,6 +808,7 @@ form.f{display:grid;grid-template-columns:1fr 1fr;gap:20px 18px;padding:clamp(24
   /* works: horizontal on desktop */
   var mm = gsap.matchMedia();
   var hz = document.getElementById('hz'), track = hz.querySelector('.track'), panels = hz.querySelectorAll('.panel');
+  document.getElementById('wt').textContent = '0' + panels.length;
   mm.add('(min-width: 901px)', function(){
     var tw = gsap.to(track, { x: function(){ return -(track.scrollWidth - innerWidth); }, ease: 'none',
       scrollTrigger: { trigger: hz, pin: true, scrub: .6, start: 'top top', end: function(){ return '+=' + (track.scrollWidth - innerWidth); },

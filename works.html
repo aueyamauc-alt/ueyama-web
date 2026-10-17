@@ -185,6 +185,7 @@ section{position:relative;padding:clamp(96px,14vw,180px) var(--gut)}
 .hz .count{position:absolute;right:var(--gut);bottom:30px;z-index:5;font-family:var(--ui);font-size:12px;letter-spacing:.2em;display:flex;align-items:center;gap:14px;color:inherit;mix-blend-mode:difference;color:#fff}
 .hz .count .bar{width:120px;height:1px;background:rgba(255,255,255,.3);position:relative}
 .hz .count .bar i{position:absolute;inset:0;background:#fff;transform-origin:left;transform:scaleX(.2)}
+.wmore{padding:48px var(--gut) 0;display:flex;justify-content:center}
 .wnote{padding:28px var(--gut) 0;font-size:12px;color:var(--mute)}
 @media (max-width:900px){
   .panel{width:100%;min-height:0;grid-template-columns:1fr;padding:90px var(--gut) 80px}
@@ -493,9 +494,10 @@ form.f{display:grid;grid-template-columns:1fr 1fr;gap:20px 18px;padding:clamp(24
       </div>
     </article>
   </div>
-  <div class="count"><span id="wc">01</span><span class="bar"><i id="wbar"></i></span><span>06</span></div>
+  <div class="count"><span id="wc">01</span><span class="bar"><i id="wbar"></i></span><span id="wt">06</span></div>
 </div>
-<p class="wnote">※ 上の6つはすべて、架空の店舗・ブランドを題材に制作したデモサイトです。実在の店舗・取引先ではありません。</p>
+
+<p class="wnote">※ 掲載の制作例はすべて、架空の店舗・ブランドを題材に制作したデモサイトです。実在の店舗・取引先ではありません。</p>
 
 <section id="ba">
   <div class="sh">
@@ -763,6 +765,7 @@ form.f{display:grid;grid-template-columns:1fr 1fr;gap:20px 18px;padding:clamp(24
   /* works: horizontal on desktop */
   var mm = gsap.matchMedia();
   var hz = document.getElementById('hz'), track = hz.querySelector('.track'), panels = hz.querySelectorAll('.panel');
+  document.getElementById('wt').textContent = '0' + panels.length;
   mm.add('(min-width: 901px)', function(){
     var tw = gsap.to(track, { x: function(){ return -(track.scrollWidth - innerWidth); }, ease: 'none',
       scrollTrigger: { trigger: hz, pin: true, scrub: .6, start: 'top top', end: function(){ return '+=' + (track.scrollWidth - innerWidth); },
