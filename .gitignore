@@ -1,6 +1,7 @@
-# 公開するのは index.html・works.html（連絡先なし版）・demos/ だけ（営業リスト・店別提案・素材は非公開）
+# 公開するのは index.html・works.html（連絡先なし版）・demos/・assets/ だけ（営業リスト・店別提案・素材は非公開）
 /*
 !/index.html
 !/works.html
 !/demos/
+!/assets/
 !/.gitignore

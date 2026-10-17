@@ -4,135 +4,707 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>上山 有佑生｜予約・申込につながるWebサイト制作</title>
-<meta name="description" content="飲食店・サロン・教室・宿泊施設向けに、予約や申込につながるWebサイトを制作します。">
+<meta name="description" content="飲食店・サロン・教室・宿泊施設・整骨院向けに、スマホで見やすく、そのまま予約や申込ができるWebサイトを制作します。">
+<meta name="theme-color" content="#0f0e0c">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f0e0c'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='36' font-style='italic' fill='%23ff6a3d' text-anchor='middle'%3EU%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=Shippori+Mincho+B1:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#fafaf7;--ink:#15171a;--mute:#646a73;--accent:#0b5cff;--line:#e4e4dd;--panel:#fff}
-*{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.9;font-size:16px}
-a{color:inherit}
-header{display:flex;justify-content:space-between;align-items:center;padding:18px 28px;position:sticky;top:0;background:rgba(250,250,247,.94);backdrop-filter:blur(6px);z-index:5;border-bottom:1px solid var(--line)}
-.brand{font-weight:900;letter-spacing:.04em}
-nav a{margin-left:22px;text-decoration:none;font-size:14px;color:var(--mute)}
-nav a.cta{background:var(--ink);color:#fff;padding:9px 18px;border-radius:6px}
-.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
-.hero{padding:96px 0 80px}
-.hero h1{font-size:clamp(32px,6vw,60px);font-weight:900;line-height:1.35;letter-spacing:-.01em}
-.hero h1 em{font-style:normal;color:var(--accent)}
-.hero p{max-width:600px;color:var(--mute);margin:24px 0 34px;font-size:17px}
-.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:15px 30px;border-radius:6px;font-weight:700}
-.btn.ghost{background:none;color:var(--ink);border:1px solid var(--ink);margin-left:10px}
-section{padding:80px 0;border-top:1px solid var(--line)}
-.label{font-size:12px;font-weight:700;letter-spacing:.2em;color:var(--accent)}
-h2{font-size:30px;font-weight:900;margin:6px 0 36px}
-.can{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
-.can div{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:26px}
-.can b{display:block;font-size:17px;margin-bottom:6px}
-.can p{font-size:14px;color:var(--mute)}
-.works{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:24px}
-.work{display:block;text-decoration:none;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:transform .15s,box-shadow .15s}
-.work:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.08)}
-.thumb{height:170px;display:grid;place-items:center;font-weight:900;font-size:26px;letter-spacing:.1em}
-.t1{background:radial-gradient(ellipse at 50% 120%,#d9843b,transparent 65%),#16110d;color:#f1e8dc}
-.t2{background:linear-gradient(160deg,#eee6da,#b9c4b3);color:#3a3632;font-weight:500}
-.t3{background:radial-gradient(circle at 15% 25%,#ffc93c 0 34px,transparent 35px),radial-gradient(circle at 85% 70%,#ff7a8a 0 28px,transparent 29px),#fffaf0;color:#2f6fed}
-.t4{background:linear-gradient(to top,rgba(20,32,30,.7),transparent),linear-gradient(170deg,#c9b98f,#3f4f46);color:#fff}
-.t5{background:radial-gradient(circle at 80% 20%,#fff9,transparent 40%),linear-gradient(150deg,#bfe3d2,#2f8f6b);color:#1f2d27}
-.work .b{padding:22px}
-.work small{color:var(--accent);font-weight:700;font-size:12px}
-.work h3{font-size:18px;margin:2px 0 6px}
-.work p{font-size:14px;color:var(--mute)}
-.note{font-size:13px;color:var(--mute);margin-top:20px}
-.price{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
-.plan{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:30px}
-.plan.main{border:2px solid var(--accent)}
-.plan h3{font-size:17px}
-.plan .yen{font-size:36px;font-weight:900;margin:6px 0 2px}
-.plan .yen small{font-size:14px;font-weight:500;color:var(--mute)}
-.plan ul{padding-left:1.2em;font-size:14px;color:var(--mute);margin-top:14px}
-.flow{counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
-.flow div{counter-increment:s;font-size:14px;color:var(--mute)}
-.flow div::before{content:counter(s);display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--ink);color:#fff;font-weight:700;margin-bottom:12px}
-.flow b{display:block;color:var(--ink);font-size:16px}
-.contact{background:var(--ink);color:#fff;border-radius:14px;padding:56px 32px;text-align:center}
-.contact h2{margin-bottom:12px}
-.contact p{color:#b9bec6;margin-bottom:28px}
-.contact .mail{display:block;margin-top:18px;font-size:14px;color:#b9bec6}
-footer{text-align:center;font-size:12px;color:var(--mute);padding:36px}
-@media(max-width:640px){nav a:not(.cta){display:none}.hero{padding:64px 0 56px}.btn.ghost{margin:12px 0 0}}
+:root{
+  --ink:#0f0e0c; --ink2:#181614; --ink3:#232019;
+  --paper:#f3eee5; --paper2:#e8e1d4;
+  --mute:#9b9384; --line:rgba(243,238,229,.12);
+  --accent:#ff6a3d; --accent2:#ffb38f;
+  --serif:"Shippori Mincho B1",serif;
+  --sans:"Zen Kaku Gothic New",system-ui,sans-serif;
+  --en:"Instrument Serif",Georgia,serif;
+  --ui:"Inter",system-ui,sans-serif;
+  --gut:clamp(16px,4vw,56px);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{margin:0;background:var(--ink);color:var(--paper);font-family:var(--sans);line-height:1.8;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+h1,h2,h3{margin:0;font-weight:700;word-break:auto-phrase}
+p{margin:0}
+::selection{background:var(--accent);color:var(--ink)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* grain */
+body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;opacity:.06;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain 1s steps(4) infinite}
+@keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(-3%,2%)}50%{transform:translate(2%,-3%)}75%{transform:translate(-2%,-1%)}100%{transform:translate(0,0)}}
+
+/* loader */
+#loader{position:fixed;inset:0;z-index:200;background:var(--ink);display:none;flex-direction:column;justify-content:space-between;padding:var(--gut);cursor:pointer}
+.js-anim #loader{display:flex}
+#loader .lw{font-family:var(--en);font-size:clamp(56px,13vw,200px);line-height:1.05;padding-bottom:.08em;letter-spacing:-.02em;display:flex;overflow:hidden}
+#loader .lw span{display:inline-block}
+#loader .lw i{color:var(--accent)}
+#loader .lb{display:flex;justify-content:space-between;align-items:flex-end;font-family:var(--ui);font-size:12px;letter-spacing:.2em;color:var(--mute)}
+#loader .num{font-family:var(--en);font-size:clamp(64px,10vw,140px);line-height:.8;color:var(--paper);letter-spacing:-.03em}
+#loader .bar{position:absolute;left:0;bottom:0;height:3px;width:100%;background:var(--accent);transform-origin:left;transform:scaleX(0)}
+
+/* progress + cursor */
+#prog{position:fixed;left:0;top:0;height:2px;width:100%;background:var(--accent);transform-origin:left;transform:scaleX(0);z-index:120}
+#cur,#cur2{position:fixed;left:0;top:0;pointer-events:none;z-index:150;border-radius:50%;display:none}
+body:not(.moved) #cur,body:not(.moved) #cur2{opacity:0!important}
+@media (pointer:fine){.js-anim #cur,.js-anim #cur2{display:block}}
+#cur{width:8px;height:8px;margin:-4px 0 0 -4px;background:var(--accent)}
+#cur2{width:44px;height:44px;margin:-22px 0 0 -22px;border:1px solid rgba(243,238,229,.4);display:none;align-items:center;justify-content:center;font-family:var(--ui);font-size:10px;letter-spacing:.15em;color:var(--ink);transition:width .35s,height .35s,margin .35s,background .35s,border-color .35s}
+#cur2 b{opacity:0;transition:opacity .2s;font-weight:600}
+#cur2.on{width:72px;height:72px;margin:-36px 0 0 -36px;background:rgba(243,238,229,.08);border-color:rgba(243,238,229,.6)}
+#cur2.view{width:96px;height:96px;margin:-48px 0 0 -48px;background:var(--accent);border-color:var(--accent)}
+#cur2.view b{opacity:1}
+
+/* header */
+header{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:18px var(--gut);transition:transform .5s cubic-bezier(.7,0,.2,1),padding .4s}
+header .in{position:absolute;inset:8px calc(var(--gut) - 14px);border-radius:999px;background:rgba(24,22,20,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);opacity:0;transition:opacity .4s;z-index:-1}
+header.pill .in{opacity:1}
+header.hide{transform:translateY(-110%)}
+.logo{display:flex;align-items:baseline;gap:10px;font-weight:700;letter-spacing:.06em}
+.logo i{font-family:var(--en);font-weight:400;font-size:26px;color:var(--accent);letter-spacing:0}
+.logo small{font-family:var(--ui);font-size:10px;letter-spacing:.24em;color:var(--mute);font-weight:500}
+nav{display:flex;gap:28px;align-items:center;font-family:var(--ui);font-size:13px;letter-spacing:.06em}
+nav a{position:relative;padding:4px 0}
+nav a:not(.cta)::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .4s}
+nav a:not(.cta):hover::after{transform:scaleX(1);transform-origin:left}
+nav .cta{padding:9px 18px;border-radius:999px;background:var(--accent);color:var(--ink);font-weight:600}
+@media (max-width:760px){nav a:not(.cta){display:none} .logo small{display:none}}
+
+/* hero */
+.hero{position:relative;min-height:100svh;padding:clamp(120px,16vh,170px) var(--gut) 72px;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:40px;align-items:center;overflow:hidden}
+.hero::before{content:"";position:absolute;width:70vw;height:70vw;right:-20vw;top:-25vw;border-radius:50%;background:radial-gradient(circle,rgba(255,106,61,.22),transparent 62%);pointer-events:none}
+.eyebrow{font-family:var(--ui);font-size:11px;letter-spacing:.28em;color:var(--mute);display:flex;align-items:center;gap:12px;margin-bottom:28px}
+.eyebrow::before{content:"";width:28px;height:1px;background:var(--accent)}
+.hero .h1{font-family:var(--serif);font-weight:800;font-size:clamp(40px,6.4vw,96px);line-height:1.12;letter-spacing:.01em}
+.hero .h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}
+.hero .h1 .ln>span{display:inline-block}
+.hero .h1 em{font-style:normal;color:var(--accent)}
+.hero .en{font-family:var(--en);font-style:italic;font-size:clamp(22px,2.4vw,34px);color:var(--paper2);margin-top:18px;line-height:1.3}
+.rot{display:inline-grid;vertical-align:bottom;overflow:hidden;height:1.35em}
+.rot b{grid-area:1/1;font-weight:700;color:var(--accent);transform:translateY(110%);transition:transform .7s cubic-bezier(.7,0,.2,1)}
+.rot b.on{transform:none}
+.rot b.out{transform:translateY(-110%)}
+.hero .lead{margin-top:26px;max-width:30em;color:#cfc8bb;font-size:15px}
+.hero .lead strong{color:var(--paper);font-weight:700}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:12px;padding:16px 26px;border-radius:999px;background:var(--paper);color:var(--ink);font-weight:700;font-size:14px;isolation:isolate}
+.btn::before{content:"";position:absolute;inset:0;background:var(--accent);transform:translateY(101%);transition:transform .5s cubic-bezier(.7,0,.2,1);z-index:-1;border-radius:inherit}
+.btn:hover::before{transform:none}
+.btn .ar{display:inline-block;transition:transform .4s}
+.btn:hover .ar{transform:translateX(4px)}
+.btn.ghost{background:transparent;color:var(--paper);border:1px solid rgba(243,238,229,.35)}
+.btn.ghost:hover{color:var(--ink)}
+
+/* devices */
+.stage{position:relative;aspect-ratio:1/0.82;width:100%;perspective:1400px}
+.lap{position:absolute;left:0;top:6%;width:88%;transform-style:preserve-3d}
+.lap .scr{position:relative;aspect-ratio:16/10;border-radius:12px 12px 0 0;background:#000;padding:2.2% 2.2% 0;box-shadow:0 0 0 1px rgba(255,255,255,.08) inset}
+.lap .base{height:14px;margin:0 -6%;border-radius:0 0 14px 14px;background:linear-gradient(#3a3631,#1d1b18);box-shadow:0 30px 60px -20px rgba(0,0,0,.8)}
+.lap .base::before{content:"";display:block;width:16%;height:5px;margin:0 auto;border-radius:0 0 6px 6px;background:#14120f}
+.view{width:100%;height:100%;background-size:100% auto;background-position:50% 0;background-repeat:no-repeat;border-radius:4px 4px 0 0;animation:pan 16s ease-in-out infinite alternate}
+.ph .view{border-radius:22px;animation-duration:12s}
+@keyframes pan{0%,12%{background-position:50% 0}88%,100%{background-position:50% 100%}}
+.ph{position:absolute;right:0;bottom:2%;width:27%;aspect-ratio:9/19.5;border-radius:30px;background:#000;padding:3.2%;box-shadow:0 0 0 2px #2b2823,0 40px 80px -20px rgba(0,0,0,.9)}
+.ph::before{content:"";position:absolute;top:2.6%;left:50%;width:30%;height:3.2%;transform:translateX(-50%);background:#000;border-radius:999px;z-index:2}
+.tag{position:absolute;display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;background:rgba(24,22,20,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line);font-size:12px;font-weight:700;white-space:nowrap;box-shadow:0 20px 40px -12px rgba(0,0,0,.6)}
+.tag i{width:20px;height:20px;border-radius:50%;background:var(--accent);color:var(--ink);display:grid;place-items:center;font-style:normal;font-size:11px}
+.tag.t1{left:-4%;bottom:16%}.tag.t2{right:22%;top:0}.tag.t3{right:-2%;top:30%}
+.hero .scroll{position:absolute;left:var(--gut);bottom:26px;font-family:var(--ui);font-size:10px;letter-spacing:.3em;color:var(--mute);display:flex;align-items:center;gap:12px}
+.hero .scroll span{width:60px;height:1px;background:var(--line);position:relative;overflow:hidden}
+.hero .scroll span::after{content:"";position:absolute;inset:0;background:var(--paper);animation:sc 2s cubic-bezier(.7,0,.2,1) infinite}
+@keyframes sc{0%{transform:translateX(-100%)}60%,100%{transform:translateX(100%)}}
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;padding-top:110px;gap:56px}
+  .stage{max-width:560px;margin:0 auto}
+  .hero .scroll{display:none}
+}
+
+/* marquee */
+.mq{border-block:1px solid var(--line);padding:22px 0;overflow:hidden;white-space:nowrap}
+.mq .tr{display:inline-flex;gap:48px;font-family:var(--en);font-size:clamp(40px,7vw,104px);line-height:1;will-change:transform}
+.mq .tr span{display:inline-flex;align-items:center;gap:48px}
+.mq .tr span::after{content:"✳";font-size:.45em;color:var(--accent)}
+.mq .o{color:transparent;-webkit-text-stroke:1px rgba(243,238,229,.55)}
+.mq.m2{border-top:0;padding:14px 0}
+.mq.m2 .tr{font-size:clamp(22px,3vw,40px);font-family:var(--ui);font-weight:500;letter-spacing:.04em;color:var(--mute)}
+.mq.m2 .tr span::after{content:"/";font-size:1em;color:var(--line)}
+
+/* section common */
+section{position:relative;padding:clamp(96px,14vw,180px) var(--gut)}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:clamp(40px,6vw,80px);flex-wrap:wrap}
+.lab{font-family:var(--ui);font-size:11px;letter-spacing:.3em;color:var(--accent);margin-bottom:18px;display:flex;gap:10px}
+.lab b{color:var(--mute);font-weight:400}
+.sh h2{font-family:var(--serif);font-size:clamp(32px,4.6vw,64px);line-height:1.25}
+.sh h2 .en{display:block;font-family:var(--en);font-style:italic;font-weight:400;color:var(--mute);font-size:.5em;letter-spacing:0;margin-top:6px}
+.sh p{max-width:26em;color:#bdb5a7;font-size:14px}
+.split .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.14em;margin-bottom:-.14em}
+.split .w>span{display:inline-block}
+
+/* statement */
+.stmt{padding-block:clamp(110px,16vw,220px)}
+.stmt p{font-family:var(--serif);font-weight:700;font-size:clamp(24px,3.6vw,52px);line-height:1.65;max-width:22em}
+.stmt p .c{color:rgba(243,238,229,.16);transition:color .2s}
+.stmt p .c.lit{color:var(--paper)}
+.stmt p .c.ac.lit{color:var(--accent)}
+.stmt .sig{margin-top:40px;font-family:var(--en);font-style:italic;font-size:22px;color:var(--mute)}
+
+/* works */
+#works{padding-bottom:0}
+.hz{position:relative;overflow:hidden;transition:background-color .6s}
+.hz .track{display:flex;gap:0;will-change:transform}
+.panel{flex:none;width:100vw;min-height:100vh;padding:110px var(--gut) 70px;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,5vw,80px);align-items:center;position:relative;background:var(--pbg)}
+.panel .no{font-family:var(--en);font-size:clamp(100px,14vw,220px);line-height:.8;color:transparent;-webkit-text-stroke:1px currentColor;opacity:.35;position:absolute;left:var(--gut);top:90px;pointer-events:none}
+.panel .info{position:relative;z-index:1}
+.panel .cat{display:inline-block;font-size:12px;font-weight:700;padding:6px 14px;border-radius:999px;border:1px solid currentColor;margin-bottom:22px;opacity:.85}
+.panel h3{font-family:var(--serif);font-size:clamp(28px,3.4vw,48px);line-height:1.3;margin-bottom:18px}
+.panel h3 small{display:block;font-family:var(--en);font-style:italic;font-weight:400;font-size:.52em;opacity:.7;margin-top:4px}
+.panel .desc{font-size:14px;opacity:.85;max-width:28em}
+.panel ul{list-style:none;padding:0;margin:24px 0 32px;display:flex;flex-wrap:wrap;gap:8px}
+.panel li{font-size:12px;padding:6px 12px;border-radius:8px;background:rgba(127,127,127,.14)}
+.panel .btn{background:var(--pfg);color:var(--pbg)}
+.panel .btn span{color:var(--pbg);transition:color .3s}
+.panel .btn:hover span{color:#fff}
+.panel .btn::before{background:var(--pac)}
+.panel .stage{max-width:760px;justify-self:center}
+.panel .stage a{display:block;position:absolute;inset:0;z-index:3}
+.p1{--pbg:#16110d;--pac:#d9843b;--pfg:#f1e8dc;color:#f1e8dc}
+.p2{--pbg:#f6f2ec;--pac:#7d8f7a;--pfg:#3a3632;color:#3a3632}
+.p3{--pbg:#fffaf0;--pac:#2f6fed;--pfg:#2b2a33;color:#2b2a33}
+.p4{--pbg:#f4f1ea;--pac:#2f5d58;--pfg:#22302e;color:#22302e}
+.p5{--pbg:#f4f8f5;--pac:#2f8f6b;--pfg:#1f2d27;color:#1f2d27}
+.hz .count{position:absolute;right:var(--gut);bottom:30px;z-index:5;font-family:var(--ui);font-size:12px;letter-spacing:.2em;display:flex;align-items:center;gap:14px;color:inherit;mix-blend-mode:difference;color:#fff}
+.hz .count .bar{width:120px;height:1px;background:rgba(255,255,255,.3);position:relative}
+.hz .count .bar i{position:absolute;inset:0;background:#fff;transform-origin:left;transform:scaleX(.2)}
+.wnote{padding:28px var(--gut) 0;font-size:12px;color:var(--mute)}
+@media (max-width:900px){
+  .panel{width:100%;min-height:0;grid-template-columns:1fr;padding:90px var(--gut) 80px}
+  .panel .no{top:60px}
+  .panel .info{padding-top:60px}
+  .hz .track{flex-direction:column}
+  .hz .count{display:none}
+}
+
+/* before after */
+.ba{position:relative;aspect-ratio:16/10;border-radius:18px;overflow:hidden;user-select:none;touch-action:pan-y;cursor:ew-resize;box-shadow:0 40px 100px -30px rgba(0,0,0,.9);border:1px solid var(--line)}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;pointer-events:none}
+.ba .aft{clip-path:inset(0 0 0 var(--x,50%))}
+.ba .hdl{position:absolute;top:0;bottom:0;left:var(--x,50%);width:2px;margin-left:-1px;background:var(--paper)}
+.ba .hdl::after{content:"‹ ›";position:absolute;top:50%;left:50%;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;background:var(--paper);color:var(--ink);display:grid;place-items:center;font-weight:700;font-size:18px;letter-spacing:4px;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.ba .bl{position:absolute;top:18px;padding:6px 14px;border-radius:999px;font-family:var(--ui);font-size:11px;letter-spacing:.2em;font-weight:600}
+.ba .bl.l{left:18px;background:#fff;color:#333}
+.ba .bl.r{right:18px;background:var(--accent);color:var(--ink)}
+.bagrid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(28px,4vw,64px);align-items:center}
+.pts{list-style:none;margin:0;padding:0;counter-reset:p}
+.pts li{counter-increment:p;padding:22px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:auto 1fr;gap:6px 18px}
+.pts li::before{content:"0" counter(p);grid-row:span 2;font-family:var(--en);font-size:32px;line-height:1;color:var(--accent)}
+.pts b{font-size:16px}
+.pts s{color:var(--mute);text-decoration-color:rgba(255,106,61,.7)}
+.pts span{font-size:13px;color:#bdb5a7}
+.banote{margin-top:16px;font-size:12px;color:var(--mute)}
+@media (max-width:900px){.bagrid{grid-template-columns:1fr}}
+
+/* service */
+.svc{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.svc>div{position:relative;padding:40px 28px 44px;border-right:1px solid var(--line);overflow:hidden;isolation:isolate}
+.svc>div:last-child{border-right:0}
+.svc>div::before{content:"";position:absolute;inset:0;background:var(--accent);transform:scaleY(0);transform-origin:bottom;transition:transform .6s cubic-bezier(.7,0,.2,1);z-index:-1}
+.svc>div:hover::before{transform:none}
+.svc>div:hover{color:var(--ink)}
+.svc>div:hover p{color:var(--ink)}
+.svc .ic{width:52px;height:52px;margin-bottom:46px}
+.svc .ic svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:1.4}
+.svc .n{position:absolute;top:30px;right:24px;font-family:var(--en);font-size:18px;opacity:.5}
+.svc b{display:block;font-size:19px;margin-bottom:12px}
+.svc p{font-size:13px;color:#bdb5a7;transition:color .3s}
+@media (max-width:1000px){.svc{grid-template-columns:1fr 1fr}.svc>div:nth-child(2){border-right:0}.svc>div{border-bottom:1px solid var(--line)}}
+@media (max-width:560px){.svc{grid-template-columns:1fr}.svc>div{border-right:0}}
+
+/* price */
+#price{background:var(--paper);color:var(--ink)}
+#price .lab b{color:#8b8374}
+#price .sh p{color:#5d574d}
+#price .sh h2 .en{color:#8b8374}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.plan{position:relative;padding:38px 32px 34px;border-radius:22px;background:#fff;border:1px solid #e1d9ca;transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s}
+.plan:hover{transform:translateY(-8px);box-shadow:0 30px 60px -30px rgba(40,30,20,.35)}
+.plan.main{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.plan .badge{position:absolute;top:-13px;left:32px;background:var(--accent);color:var(--ink);font-size:11px;font-weight:700;padding:5px 12px;border-radius:999px}
+.plan h3{font-size:17px;margin-bottom:22px}
+.plan .yen{font-family:var(--en);font-size:76px;line-height:.9;letter-spacing:-.02em}
+.plan .yen small{font-family:var(--sans);font-size:14px;letter-spacing:0;margin-left:6px;font-weight:700}
+.plan ul{list-style:none;padding:24px 0 0;margin:24px 0 0;border-top:1px solid rgba(127,127,127,.25);font-size:14px}
+.plan li{padding:5px 0 5px 22px;position:relative}
+.plan li::before{content:"";position:absolute;left:0;top:14px;width:10px;height:5px;border-left:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(-45deg)}
+.pnote{margin-top:26px;font-size:12px;color:#6d665b}
+@media (max-width:900px){.plans{grid-template-columns:1fr}}
+
+/* flow */
+.flow{position:relative;max-width:980px}
+.flow .rail{position:absolute;left:31px;top:10px;bottom:10px;width:1px;background:var(--line)}
+.flow .rail i{position:absolute;inset:0;background:var(--accent);transform-origin:top;transform:scaleY(0)}
+.step{position:relative;display:grid;grid-template-columns:64px 1fr;gap:28px;padding:0 0 56px}
+.step:last-child{padding-bottom:0}
+.step .d{width:64px;height:64px;border-radius:50%;border:1px solid var(--line);background:var(--ink);display:grid;place-items:center;font-family:var(--en);font-size:24px;position:relative;z-index:1;transition:background .4s,color .4s,border-color .4s}
+.step.on .d{background:var(--accent);color:var(--ink);border-color:var(--accent)}
+.step b{display:block;font-family:var(--serif);font-size:clamp(22px,2.4vw,30px);margin:10px 0 8px}
+.step p{color:#bdb5a7;font-size:14px;max-width:34em}
+.step .free{display:inline-block;margin-left:10px;font-family:var(--sans);font-size:11px;padding:3px 10px;border-radius:999px;background:rgba(255,106,61,.16);color:var(--accent2);vertical-align:middle}
+
+/* end */
+.end{padding:clamp(110px,16vw,200px) var(--gut) 40px;overflow:hidden}
+.end .big{font-family:var(--en);font-size:clamp(64px,15vw,260px);line-height:.88;letter-spacing:-.03em}
+.end .big i{color:var(--accent)}
+.end .row{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-top:56px}
+.end .row p{max-width:30em;color:#bdb5a7;font-size:15px}
+.end .mail{display:block;margin-top:12px;font-family:var(--ui);font-size:13px;color:var(--mute)}
+.mag{display:inline-grid;place-items:center;width:clamp(150px,16vw,200px);aspect-ratio:1;border-radius:50%;background:var(--accent);color:var(--ink);font-weight:700;font-size:15px;text-align:center;line-height:1.5;transition:background .3s}
+.mag:hover{background:var(--paper)}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:100px;padding-top:24px;border-top:1px solid var(--line);font-family:var(--ui);font-size:12px;color:var(--mute)}
+
+/* anim initial states (only when JS animation active) */
+.js-anim [data-up]{opacity:0;transform:translateY(40px)}
+
+@media (prefers-reduced-motion:reduce){
+  .view{animation:none}
+  body::after{animation:none}
+}
 </style>
 </head>
 <body>
-<header>
-  <div class="brand">上山 有佑生 <span style="font-weight:400;color:var(--mute);font-size:13px">Web制作</span></div>
-  <nav><a href="#works">制作例</a><a href="#price">料金</a><a href="#flow">流れ</a><a class="cta" href="#contact">相談する</a></nav>
+
+<div id="loader" aria-hidden="true">
+  <div class="lw"><span>U</span><span>e</span><span>y</span><span>a</span><span>m</span><span>a</span><span><i>.</i></span></div>
+  <div class="lb"><span>WEB DESIGN &amp; DEVELOPMENT<br>PORTFOLIO 2026</span><span class="num">0</span></div>
+  <div class="bar"></div>
+</div>
+<div id="prog"></div>
+<div id="cur"></div><div id="cur2"><b>VIEW</b></div>
+
+<header id="hd">
+  <div class="in"></div>
+  <a class="logo" href="#top"><i>U.</i>上山 有佑生<small>WEB DESIGN</small></a>
+  <nav><a href="#works">制作例</a><a href="#ba">改善例</a><a href="#price">料金</a><a href="#flow">流れ</a><a class="cta" href="#contact">相談する</a></nav>
 </header>
 
-<div class="wrap">
-  <div class="hero">
-    <h1>見た目だけで終わらない、<br><em>予約と申込につながる</em><br>Webサイトを作ります。</h1>
-    <p>飲食店・サロン・教室・宿泊施設向けに、スマホで見やすく、そのまま予約や申込ができるサイトを制作します。ご相談の前に、あなたのお店向けのデモを無料でお作りします。</p>
-    <a class="btn" href="#contact">無料でデモを依頼する</a><a class="btn ghost" href="#works">制作例を見る</a>
+<main id="top">
+<div class="hero">
+  <div>
+    <div class="eyebrow">WEB DESIGN &amp; DEVELOPMENT — OSAKA / REMOTE</div>
+    <h1 class="vh">見た目だけで終わらない、予約と申込につながるWebサイトを作ります。</h1>
+    <div class="h1" aria-hidden="true">
+      <span class="ln"><span>見た目だけで、</span></span>
+      <span class="ln"><span>終わらせない<em>。</em></span></span>
+    </div>
+    <p class="en">Websites that look good — <i>and get booked.</i></p>
+    <p class="lead"><span class="rot" aria-hidden="true"><b class="on">飲食店</b><b>美容室</b><b>教室</b><b>宿</b><b>整骨院</b></span>のサイトを、<strong>予約・申込がそのまま入る形</strong>で作ります。スマホで迷わず、営業時間外も受け付けられる。ご相談の前に、あなたのお店向けのデモを無料でお作りすることもできます。</p>
+    <div class="btns">
+      <a class="btn" href="#works">制作例を見る <span class="ar">→</span></a>
+      <a class="btn ghost" href="#contact">無料でデモを依頼する</a>
+      
+    </div>
   </div>
-
-  <section>
-    <div class="label">SERVICE</div>
-    <h2>できること</h2>
-    <div class="can">
-      <div><b>予約・申込フォーム</b><p>席の予約、施術の予約、体験申込、空室検索。電話に出られない時間も受け付けられます。</p></div>
-      <div><b>スマホ最優先の設計</b><p>お客様の大半はスマホで見ています。片手で読めて、迷わず予約まで進める作りにします。</p></div>
-      <div><b>多言語対応</b><p>日本語・英語などの切り替えに対応します。訪日のお客様にもそのまま案内できます。</p></div>
-      <div><b>公開後の更新代行</b><p>メニューや料金、営業時間の変更はご連絡いただくだけ。こちらで反映します。</p></div>
-    </div>
-  </section>
-
-  <section id="works">
-    <div class="label">WORKS</div>
-    <h2>制作例</h2>
-    <div class="works">
-      <a class="work" href="demos/restaurant.html"><div class="thumb t1">灯 AKARI</div><div class="b"><small>飲食店</small><h3>炭火と土鍋ごはん 灯</h3><p>お品書きと席予約フォームつき。コース予約まで1ページで完結します。</p></div></a>
-      <a class="work" href="demos/salon.html"><div class="thumb t2">Lueur</div><div class="b"><small>美容室・サロン</small><h3>hair salon Lueur</h3><p>メニュー・日にち・時間を選ぶだけのWeb予約。埋まった枠は選べません。</p></div></a>
-      <a class="work" href="demos/school.html"><div class="thumb t3">ツクル</div><div class="b"><small>教室・スクール</small><h3>こどもプログラミング教室 ツクル</h3><p>コース紹介、時間割、無料体験の申込フォームをまとめました。</p></div></a>
-      <a class="work" href="demos/stay.html"><div class="thumb t4">澄 SUMI</div><div class="b"><small>宿泊・民泊</small><h3>町家の宿 澄</h3><p>日本語／英語の切り替えと、宿泊料金がその場で出る空室検索つきです。</p></div></a>
-      <a class="work" href="demos/seikotsu.html"><div class="thumb t5">みどり通り整骨院</div><div class="b"><small>整骨院・治療院</small><h3>みどり通り整骨院（2院）</h3><p>2院の住所・電話・営業時間をGoogleマップ表記に合わせて掲載。院を選んで予約できます。</p></div></a>
-    </div>
-    <p class="note">※ 上の5つはすべて、架空の店舗を題材に制作したデモサイトです。実在の店舗・取引先ではありません。</p>
-  </section>
-
-  <section id="price">
-    <div class="label">PRICE</div>
-    <h2>料金</h2>
-    <div class="price">
-      <div class="plan"><h3>1ページサイト（LP）</h3><div class="yen">10<small>万円〜（税別）</small></div><ul><li>1ページ構成</li><li>予約・問い合わせフォーム</li><li>スマホ対応</li><li>納期の目安：2週間</li></ul></div>
-      <div class="plan main"><h3>店舗サイト</h3><div class="yen">25<small>万円〜（税別）</small></div><ul><li>5ページ前後</li><li>予約・申込機能</li><li>多言語対応（1言語追加）</li><li>納期の目安：3〜4週間</li></ul></div>
-      <div class="plan"><h3>保守・更新代行</h3><div class="yen">1<small>万円／月〜（税別）</small></div><ul><li>メニュー・料金・写真の差し替え</li><li>月3回までの更新</li><li>表示の不具合対応</li><li>サーバー・ドメインの管理</li></ul></div>
-    </div>
-    <p class="note">※ 内容によって金額は変わります。デモをご覧いただいた後に、正式なお見積りをお出しします。</p>
-  </section>
-
-  <section id="flow">
-    <div class="label">FLOW</div>
-    <h2>ご依頼の流れ</h2>
-    <div class="flow">
-      <div><b>ご相談</b>メールでお店の名前と、困っていることを教えてください。</div>
-      <div><b>無料デモ</b>お店向けのデモサイトを作ってお見せします。ここまで費用はかかりません。</div>
-      <div><b>お見積り・ご契約</b>デモを見て気に入っていただけたら、内容と金額を確定します。</div>
-      <div><b>制作・公開</b>写真や文章をいただいて仕上げ、公開します。公開後の更新もお任せください。</div>
-    </div>
-  </section>
-
-  <section id="contact" style="border:0">
-    <div class="contact">
-      <h2>まずはデモをご覧ください</h2>
-      <p>お店の名前を送っていただければ、デモを作ってお返事します。</p>
-      <a class="btn" href="mailto:a.ueyama.uc@gmail.com?subject=%E3%82%B5%E3%82%A4%E3%83%88%E5%88%B6%E4%BD%9C%E3%81%AE%E7%9B%B8%E8%AB%87">メールで相談する</a>
-      <span class="mail">a.ueyama.uc@gmail.com</span>
-    </div>
-  </section>
+  <div class="stage" id="heroStage" aria-hidden="true">
+    <div class="lap" data-depth="12"><div class="scr"><div class="view" style="background-image:url(assets/shots/restaurant-pc.jpg)"></div></div><div class="base"></div></div>
+    <div class="ph" data-depth="28"><div class="view" style="background-image:url(assets/shots/stay-sp.jpg)"></div></div>
+    <div class="tag t1" data-depth="40"><i>✓</i>席の予約フォーム</div>
+    <div class="tag t2" data-depth="20"><i>✓</i>スマホ最適化</div>
+    <div class="tag t3" data-depth="34"><i>✓</i>日本語 / English</div>
+  </div>
+  <div class="scroll">SCROLL<span></span></div>
 </div>
 
-<footer>© 上山 有佑生</footer>
+<div class="mq" aria-hidden="true"><div class="tr" data-mq="1">
+  <span>Reservation</span><span class="o">Mobile first</span><span>Multilingual</span><span class="o">Fast &amp; simple</span><span>Reservation</span><span class="o">Mobile first</span><span>Multilingual</span><span class="o">Fast &amp; simple</span>
+</div></div>
+<div class="mq m2" aria-hidden="true"><div class="tr" data-mq="-1">
+  <span>予約フォーム</span><span>Googleマップ連携</span><span>LINE導線</span><span>多言語切替</span><span>空室・空き枠表示</span><span>更新代行</span><span>予約フォーム</span><span>Googleマップ連携</span><span>LINE導線</span><span>多言語切替</span><span>空室・空き枠表示</span><span>更新代行</span>
+</div></div>
+
+<section class="stmt">
+  <div class="lab">PHILOSOPHY <b>— 考え方</b></div>
+  <p id="stmt">お店のサイトは、飾るための作品ではなく、<span class="ac">もうひとりのスタッフ</span>だと考えています。閉店後も予約を受け付け、道を案内し、メニューを説明する。<span class="ac">そのための設計</span>をします。</p>
+  <div class="sig">— Ayuki Ueyama</div>
+</section>
+
+<section id="works">
+  <div class="sh">
+    <div><div class="lab">WORKS <b>— 制作例</b></div><h2 class="split">5つの業種で、<br>作り分けたデモ。<span class="en">Five demos, five moods.</span></h2></div>
+    <p>業種ごとに、お客様が知りたいことと、予約までの動きは違います。色・書体・導線をそれぞれに合わせて設計しました。画面をクリックすると実際に操作できます。</p>
+  </div>
+</section>
+<div class="hz" id="hz">
+  <div class="track">
+    <article class="panel p1">
+      <div class="no">01</div>
+      <div class="info">
+        <span class="cat">飲食店</span>
+        <h3>炭火と土鍋ごはん 灯<small>Charcoal &amp; clay-pot dining</small></h3>
+        <p class="desc">夜の店の空気感を、黒と炭火の橙で。お品書きを読んだ流れのまま、コースと人数を選んで席を予約できます。</p>
+        <ul><li>席予約フォーム</li><li>お品書き</li><li>明朝体の和の演出</li></ul>
+        <a class="btn" href="demos/restaurant.html"><span>サイトを見る →</span></a>
+      </div>
+      <div class="stage" data-view>
+        <div class="lap"><div class="scr"><div class="view" style="background-image:url(assets/shots/restaurant-pc.jpg)"></div></div><div class="base"></div></div>
+        <div class="ph"><div class="view" style="background-image:url(assets/shots/restaurant-sp.jpg)"></div></div>
+        <a href="demos/restaurant.html" aria-label="炭火と土鍋ごはん 灯のデモを見る"></a>
+      </div>
+    </article>
+    <article class="panel p2">
+      <div class="no">02</div>
+      <div class="info">
+        <span class="cat">美容室・サロン</span>
+        <h3>hair salon Lueur<small>Calm, airy, bookable</small></h3>
+        <p class="desc">余白とくすみグリーンで、落ち着いたサロンの印象に。メニュー・日にち・時間を選ぶだけのWeb予約で、埋まった枠は選べません。</p>
+        <ul><li>Web予約（空き枠表示）</li><li>メニュー・料金</li><li>スタイリスト紹介</li></ul>
+        <a class="btn" href="demos/salon.html"><span>サイトを見る →</span></a>
+      </div>
+      <div class="stage" data-view>
+        <div class="lap"><div class="scr"><div class="view" style="background-image:url(assets/shots/salon-pc.jpg)"></div></div><div class="base"></div></div>
+        <div class="ph"><div class="view" style="background-image:url(assets/shots/salon-sp.jpg)"></div></div>
+        <a href="demos/salon.html" aria-label="hair salon Lueurのデモを見る"></a>
+      </div>
+    </article>
+    <article class="panel p3">
+      <div class="no">03</div>
+      <div class="info">
+        <span class="cat">教室・スクール</span>
+        <h3>こどもプログラミング教室 ツクル<small>Playful, for parents &amp; kids</small></h3>
+        <p class="desc">保護者が知りたい「対象学年・時間割・料金」をすぐ見える位置に。明るい配色で、無料体験の申込まで一直線です。</p>
+        <ul><li>無料体験の申込</li><li>コース・時間割</li><li>保護者の声</li></ul>
+        <a class="btn" href="demos/school.html"><span>サイトを見る →</span></a>
+      </div>
+      <div class="stage" data-view>
+        <div class="lap"><div class="scr"><div class="view" style="background-image:url(assets/shots/school-pc.jpg)"></div></div><div class="base"></div></div>
+        <div class="ph"><div class="view" style="background-image:url(assets/shots/school-sp.jpg)"></div></div>
+        <a href="demos/school.html" aria-label="ツクルのデモを見る"></a>
+      </div>
+    </article>
+    <article class="panel p4">
+      <div class="no">04</div>
+      <div class="info">
+        <span class="cat">宿泊・民泊</span>
+        <h3>町家の宿 澄<small>Quiet stay, bilingual</small></h3>
+        <p class="desc">格子戸をモチーフにした静かなデザイン。日本語／英語の切り替えと、日付と人数で宿泊料金がその場で出る空室検索つきです。</p>
+        <ul><li>日本語 / English</li><li>空室検索・料金計算</li><li>一棟貸しの紹介</li></ul>
+        <a class="btn" href="demos/stay.html"><span>サイトを見る →</span></a>
+      </div>
+      <div class="stage" data-view>
+        <div class="lap"><div class="scr"><div class="view" style="background-image:url(assets/shots/stay-pc.jpg)"></div></div><div class="base"></div></div>
+        <div class="ph"><div class="view" style="background-image:url(assets/shots/stay-sp.jpg)"></div></div>
+        <a href="demos/stay.html" aria-label="町家の宿 澄のデモを見る"></a>
+      </div>
+    </article>
+    <article class="panel p5">
+      <div class="no">05</div>
+      <div class="info">
+        <span class="cat">整骨院・治療院</span>
+        <h3>みどり通り整骨院（2院）<small>Two clinics, one site</small></h3>
+        <p class="desc">2院の住所・電話・営業時間をGoogleマップの表記とそろえて掲載。院を選んでから予約に進めるので、行き先を間違えません。</p>
+        <ul><li>2院の店舗情報</li><li>院を選んで予約</li><li>症状別の案内</li></ul>
+        <a class="btn" href="demos/seikotsu.html"><span>サイトを見る →</span></a>
+      </div>
+      <div class="stage" data-view>
+        <div class="lap"><div class="scr"><div class="view" style="background-image:url(assets/shots/seikotsu-pc.jpg)"></div></div><div class="base"></div></div>
+        <div class="ph"><div class="view" style="background-image:url(assets/shots/seikotsu-sp.jpg)"></div></div>
+        <a href="demos/seikotsu.html" aria-label="みどり通り整骨院のデモを見る"></a>
+      </div>
+    </article>
+  </div>
+  <div class="count"><span id="wc">01</span><span class="bar"><i id="wbar"></i></span><span>05</span></div>
+</div>
+<p class="wnote">※ 上の5つはすべて、架空の店舗を題材に制作したデモサイトです。実在の店舗・取引先ではありません。</p>
+
+<section id="ba">
+  <div class="sh">
+    <div><div class="lab">BEFORE / AFTER <b>— 改善例</b></div><h2 class="split">よくある店のサイトを、<br>こう変えます。<span class="en">Drag to compare.</span></h2></div>
+    <p>中央のつまみを左右に動かすと、改善前と改善後を見比べられます。</p>
+  </div>
+  <div class="bagrid">
+    <div>
+      <div class="ba" id="baBox" role="slider" aria-label="改善前と改善後の比較" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0">
+        <img src="assets/shots/before.jpg" alt="改善前：小さな文字、電話のみの予約、写真のない昔ながらのサイト">
+        <img class="aft" src="assets/shots/after.jpg" alt="改善後：大きな見出しと席の予約ボタンがある、暗い色調のサイト">
+        <span class="bl l">BEFORE</span><span class="bl r">AFTER</span>
+        <div class="hdl"></div>
+      </div>
+      <p class="banote">※ 改善前の画面は、説明のために作った架空の例です。</p>
+    </div>
+    <ol class="pts">
+      <li><b>予約は「電話のみ」→ 画面から24時間</b><span><s>営業中は電話に出られない</s> 閉店後や仕込み中も、席の予約を受け付けます。</span></li>
+      <li><b>最初の画面で、何の店か伝わる</b><span>見出し・写真・予約ボタンを1画面目に。迷わず次の行動に進めます。</span></li>
+      <li><b>スマホで読める文字と配置</b><span>小さな表組みをやめて、片手で読める大きさと順番に組み直します。</span></li>
+      <li><b>古い情報が残らない</b><span><s>2019年のお知らせ</s> 更新しやすい作りと、月額の更新代行で鮮度を保ちます。</span></li>
+    </ol>
+  </div>
+</section>
+
+<section id="service" style="padding-top:0">
+  <div class="sh">
+    <div><div class="lab">SERVICE <b>— できること</b></div><h2 class="split">予約につながる、<br>4つのしくみ。<span class="en">What I build in.</span></h2></div>
+  </div>
+  <div class="svc">
+    <div><span class="n">01</span><div class="ic"><svg viewBox="0 0 52 52"><rect x="7" y="10" width="38" height="34" rx="4"/><path d="M7 20h38M17 6v8M35 6v8M17 30l5 5 10-10"/></svg></div><b>予約・申込フォーム</b><p>席の予約、施術の予約、体験申込、空室検索。電話に出られない時間も受け付けられます。</p></div>
+    <div><span class="n">02</span><div class="ic"><svg viewBox="0 0 52 52"><rect x="15" y="4" width="22" height="44" rx="5"/><path d="M23 41h6"/><path d="M20 14h12M20 20h12M20 26h8"/></svg></div><b>スマホ最優先の設計</b><p>お客様の大半はスマホで見ています。片手で読めて、迷わず予約まで進める作りにします。</p></div>
+    <div><span class="n">03</span><div class="ic"><svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="19"/><path d="M7 26h38M26 7c6 6 8 12 8 19s-2 13-8 19M26 7c-6 6-8 12-8 19s2 13 8 19"/></svg></div><b>多言語対応</b><p>日本語・英語などの切り替えに対応します。訪日のお客様にもそのまま案内できます。</p></div>
+    <div><span class="n">04</span><div class="ic"><svg viewBox="0 0 52 52"><path d="M40 18a15 15 0 1 0 2 12"/><path d="M42 8v11H31"/><path d="M26 18v9l6 4"/></svg></div><b>公開後の更新代行</b><p>メニューや料金、営業時間の変更はご連絡いただくだけ。こちらで反映します。</p></div>
+  </div>
+</section>
+
+<section id="price">
+  <div class="sh">
+    <div><div class="lab">PRICE <b>— 料金</b></div><h2 class="split">わかりやすい、<br>3つのプラン。<span class="en">Simple pricing.</span></h2></div>
+    <p>内容によって金額は変わります。デモをご覧いただいた後に、正式なお見積りをお出しします。</p>
+  </div>
+  <div class="plans">
+    <div class="plan" data-up><h3>1ページサイト（LP）</h3><div class="yen">10<small>万円〜（税別）</small></div><ul><li>1ページ構成</li><li>予約・問い合わせフォーム</li><li>スマホ対応</li><li>納期の目安：2週間</li></ul></div>
+    <div class="plan main" data-up><span class="badge">おすすめ</span><h3>店舗サイト</h3><div class="yen">25<small>万円〜（税別）</small></div><ul><li>5ページ前後</li><li>予約・申込機能</li><li>多言語対応（1言語追加）</li><li>納期の目安：3〜4週間</li></ul></div>
+    <div class="plan" data-up><h3>保守・更新代行</h3><div class="yen">1<small>万円／月〜（税別）</small></div><ul><li>メニュー・料金・写真の差し替え</li><li>月3回までの更新</li><li>表示の不具合対応</li><li>サーバー・ドメインの管理</li></ul></div>
+  </div>
+  <p class="pnote">※ 内容によって金額は変わります。デモをご覧いただいた後に、正式なお見積りをお出しします。</p>
+</section>
+
+<section id="flow">
+  <div class="sh">
+    <div><div class="lab">FLOW <b>— ご依頼の流れ</b></div><h2 class="split">まず、デモを<br>見てから決める。<span class="en">See it before you pay.</span></h2></div>
+  </div>
+  <div class="flow" id="flowBox">
+    <div class="rail"><i id="rail"></i></div>
+    <div class="step"><div class="d">1</div><div><b>ご相談</b><p>メールでお店の名前と、困っていることを教えてください。</p></div></div>
+    <div class="step"><div class="d">2</div><div><b>デモ制作 <span class="free">ここまで費用なし</span></b><p>お店向けのデモサイトを作ってお見せします。ここまで費用はかかりません。</p></div></div>
+    <div class="step"><div class="d">3</div><div><b>お見積り・ご契約</b><p>デモを見て気に入っていただけたら、内容と金額を確定します。</p></div></div>
+    <div class="step"><div class="d">4</div><div><b>制作・公開</b><p>写真や文章をいただいて仕上げ、公開します。公開後の更新もお任せください。</p></div></div>
+  </div>
+</section>
+
+<div class="end" id="contact">
+  <div class="big split">Let’s build<br>your <i>next</i> site.</div>
+  <div class="row">
+    <div><p>お店の名前を送っていただければ、デモを作ってお返事します。</p><span class="mail">a.ueyama.uc@gmail.com</span></div>
+    <a class="mag" href="mailto:a.ueyama.uc@gmail.com?subject=%E3%82%B5%E3%82%A4%E3%83%88%E5%88%B6%E4%BD%9C%E3%81%AE%E7%9B%B8%E8%AB%87">メールで<br>相談する →</a>
+    
+  </div>
+  <div class="foot"><span>© 上山 有佑生</span><span>掲載の制作例はすべて架空の店舗を題材にしたデモです。</span></div>
+</div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasG = window.gsap && window.ScrollTrigger;
+  var doc = document.documentElement;
+
+  /* rotating word (works without GSAP too) */
+  var rw = [].slice.call(document.querySelectorAll('.rot b')), ri = 0;
+  if (!reduce) setInterval(function(){
+    var a = rw[ri]; ri = (ri + 1) % rw.length; var b = rw[ri];
+    a.classList.remove('on'); a.classList.add('out');
+    b.classList.remove('out'); b.classList.add('on');
+    setTimeout(function(){ a.classList.remove('out'); }, 800);
+  }, 2200);
+
+  /* before/after slider */
+  var ba = document.getElementById('baBox');
+  function setX(p){ p = Math.max(0, Math.min(100, p)); ba.style.setProperty('--x', p + '%'); ba.setAttribute('aria-valuenow', Math.round(p)); }
+  function fromEv(e){ var r = ba.getBoundingClientRect(); setX((e.clientX - r.left) / r.width * 100); }
+  var drag = false;
+  ba.addEventListener('pointerdown', function(e){ drag = true; ba.setPointerCapture(e.pointerId); fromEv(e); });
+  ba.addEventListener('pointermove', function(e){ if (drag) fromEv(e); });
+  ba.addEventListener('pointerup', function(){ drag = false; });
+  ba.addEventListener('keydown', function(e){
+    var v = parseFloat(ba.getAttribute('aria-valuenow'));
+    if (e.key === 'ArrowLeft') { setX(v - 5); e.preventDefault(); }
+    if (e.key === 'ArrowRight') { setX(v + 5); e.preventDefault(); }
+  });
+
+  if (!hasG || reduce) return;
+  doc.classList.add('js-anim');
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* smooth scroll */
+  var lenis = null;
+  if (window.Lenis) {
+    lenis = new Lenis({ lerp: .09 });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(function(t){ lenis.raf(t * 1000); });
+    gsap.ticker.lagSmoothing(0);
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click', function(e){
+        var id = a.getAttribute('href'); if (id.length < 2) return;
+        var t = document.querySelector(id); if (!t) return;
+        e.preventDefault(); lenis.scrollTo(t, { offset: id === '#top' ? 0 : -20, duration: 1.4 });
+      });
+    });
+  }
+
+  /* split helpers */
+  function splitWords(el){
+    var html = el.innerHTML.split(/(<br>|<span class="en">.*?<\/span>|<i>.*?<\/i>)/);
+    el.innerHTML = html.map(function(part){
+      if (!part || /^<br>$/.test(part) || /^<span class="en">/.test(part)) return part;
+      if (/^<i>/.test(part)) return '<span class="w"><span>' + part + '</span></span>';
+      return part.split('').map(function(ch){ return ch === ' ' ? ' ' : '<span class="w"><span>' + ch + '</span></span>'; }).join('');
+    }).join('');
+  }
+  document.querySelectorAll('.split').forEach(splitWords);
+
+  /* statement: char-by-char light-up */
+  var st = document.getElementById('stmt');
+  st.innerHTML = st.innerHTML.split(/(<span class="ac">.*?<\/span>)/).map(function(part){
+    var ac = /^<span class="ac">/.test(part);
+    var txt = part.replace(/<[^>]+>/g, '');
+    return txt.split('').map(function(ch){ return '<span class="c' + (ac ? ' ac' : '') + '">' + ch + '</span>'; }).join('');
+  }).join('');
+  var chars = st.querySelectorAll('.c');
+  ScrollTrigger.create({ trigger: st, start: 'top 80%', end: 'bottom 45%', scrub: true,
+    onUpdate: function(s){ var n = Math.round(s.progress * chars.length); for (var i = 0; i < chars.length; i++) chars[i].classList.toggle('lit', i < n); } });
+
+  /* intro */
+  var hero = gsap.timeline({ paused: true });
+  hero.from('.eyebrow', { opacity: 0, x: -20, duration: .8, ease: 'power3.out' })
+      .from('.hero .ln>span', { yPercent: 110, duration: 1.1, stagger: .12, ease: 'expo.out' }, '<.1')
+      .from('.hero .en, .hero .lead, .hero .btns', { opacity: 0, y: 24, duration: .9, stagger: .1, ease: 'power3.out' }, '<.4')
+      .from('#heroStage .lap', { opacity: 0, y: 80, rotateX: 18, duration: 1.4, ease: 'expo.out' }, '<-.3')
+      .from('#heroStage .ph', { opacity: 0, y: 120, duration: 1.3, ease: 'expo.out' }, '<.15')
+      .from('#heroStage .tag', { opacity: 0, scale: .7, duration: .8, stagger: .12, ease: 'back.out(2)' }, '<.4')
+      .from('header', { yPercent: -100, opacity: 0, duration: .8, ease: 'power3.out' }, 0);
+
+  var ld = document.getElementById('loader'), num = ld.querySelector('.num'), done = false;
+  var cnt = { v: 0 };
+  var lt = gsap.timeline({ onComplete: finish });
+  gsap.set('#loader .lw span', { yPercent: 105 });
+  lt.to('#loader .lw span', { yPercent: 0, duration: .9, stagger: .06, ease: 'expo.out' })
+    .to(cnt, { v: 100, duration: 1.3, ease: 'power2.inOut', onUpdate: function(){ num.textContent = Math.round(cnt.v); } }, 0)
+    .to('#loader .bar', { scaleX: 1, duration: 1.3, ease: 'power2.inOut' }, 0)
+    .to('#loader .lw span', { yPercent: -110, duration: .6, stagger: .03, ease: 'power3.in' }, '+=.1')
+    .to(ld, { yPercent: -100, duration: .9, ease: 'expo.inOut' }, '-=.2');
+  function finish(){ if (done) return; done = true; ld.style.display = 'none'; hero.play(); }
+  ld.addEventListener('click', function(){ lt.progress(1); });
+  setTimeout(function(){ if (!done) { lt.progress(1); } }, 5000);
+
+  /* progress bar + header */
+  gsap.to('#prog', { scaleX: 1, ease: 'none', scrollTrigger: { start: 0, end: 'max', scrub: .3 } });
+  var hd = document.getElementById('hd'), lastY = 0;
+  ScrollTrigger.create({ start: 0, end: 'max', onUpdate: function(s){
+    var y = s.scroll();
+    hd.classList.toggle('pill', y > 60);
+    hd.classList.toggle('hide', y > 400 && y > lastY);
+    lastY = y;
+  }});
+
+  /* hero parallax on mouse */
+  var stage = document.getElementById('heroStage');
+  if (matchMedia('(pointer:fine)').matches) {
+    window.addEventListener('mousemove', function(e){
+      var dx = e.clientX / innerWidth - .5, dy = e.clientY / innerHeight - .5;
+      stage.querySelectorAll('[data-depth]').forEach(function(el){
+        var d = +el.dataset.depth;
+        gsap.to(el, { x: -dx * d, y: -dy * d, duration: 1, ease: 'power3.out', overwrite: 'auto' });
+      });
+      gsap.to('#heroStage .lap', { rotateY: dx * 8, rotateX: -dy * 6, duration: 1.2, ease: 'power3.out', overwrite: 'auto' });
+    });
+  }
+  gsap.to('#heroStage', { yPercent: -12, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+
+  /* marquee driven by time + scroll velocity */
+  document.querySelectorAll('[data-mq]').forEach(function(tr){
+    var dir = +tr.dataset.mq, x = 0, boost = 0;
+    gsap.ticker.add(function(){
+      var w = tr.scrollWidth / 2;
+      x -= (1 + boost) * dir * .6; boost *= .92;
+      if (x <= -w) x += w; if (x > 0) x -= w;
+      tr.style.transform = 'translate3d(' + x + 'px,0,0)';
+    });
+    ScrollTrigger.create({ start: 0, end: 'max', onUpdate: function(s){ boost = Math.min(Math.abs(s.getVelocity()) / 120, 14); } });
+  });
+
+  /* split headings reveal */
+  document.querySelectorAll('.split').forEach(function(el){
+    gsap.from(el.querySelectorAll('.w>span'), { yPercent: 110, duration: 1, stagger: .025, ease: 'expo.out',
+      scrollTrigger: { trigger: el, start: 'top 85%' } });
+  });
+  gsap.utils.toArray('[data-up]').forEach(function(el, i){
+    gsap.to(el, { opacity: 1, y: 0, duration: 1, delay: (i % 3) * .1, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 88%' } });
+  });
+  gsap.from('.svc>div', { opacity: 0, y: 50, duration: 1, stagger: .1, ease: 'power3.out', scrollTrigger: { trigger: '.svc', start: 'top 85%' } });
+  gsap.from('.pts li', { opacity: 0, y: 30, duration: .8, stagger: .1, ease: 'power3.out', scrollTrigger: { trigger: '.pts', start: 'top 85%' } });
+  gsap.from('.ba', { clipPath: 'inset(8% 8% 8% 8% round 40px)', duration: 1.4, ease: 'expo.out', scrollTrigger: { trigger: '.ba', start: 'top 85%' } });
+  /* before/after: hint sweep once */
+  ScrollTrigger.create({ trigger: '.ba', start: 'top 60%', once: true, onEnter: function(){
+    var o = { p: 50 };
+    gsap.timeline().to(o, { p: 22, duration: .9, ease: 'power2.inOut', onUpdate: function(){ setX(o.p); } })
+      .to(o, { p: 78, duration: 1.2, ease: 'power2.inOut', onUpdate: function(){ setX(o.p); } })
+      .to(o, { p: 50, duration: .9, ease: 'power2.inOut', onUpdate: function(){ setX(o.p); } });
+  }});
+
+  /* flow rail */
+  gsap.to('#rail', { scaleY: 1, ease: 'none', scrollTrigger: { trigger: '#flowBox', start: 'top 70%', end: 'bottom 60%', scrub: true } });
+  document.querySelectorAll('.step').forEach(function(s){
+    ScrollTrigger.create({ trigger: s, start: 'top 65%', onToggle: function(t){ s.classList.toggle('on', t.isActive || t.progress > 0); }, end: 'max' });
+  });
+
+  /* end */
+  gsap.from('.mag', { scale: 0, rotate: -40, duration: 1.2, ease: 'elastic.out(1,.6)', scrollTrigger: { trigger: '.end .row', start: 'top 90%' } });
+
+  /* works: horizontal on desktop */
+  var mm = gsap.matchMedia();
+  var hz = document.getElementById('hz'), track = hz.querySelector('.track'), panels = hz.querySelectorAll('.panel');
+  mm.add('(min-width: 901px)', function(){
+    var tw = gsap.to(track, { x: function(){ return -(track.scrollWidth - innerWidth); }, ease: 'none',
+      scrollTrigger: { trigger: hz, pin: true, scrub: .6, start: 'top top', end: function(){ return '+=' + (track.scrollWidth - innerWidth); },
+        invalidateOnRefresh: true,
+        onUpdate: function(s){
+          var i = Math.min(panels.length - 1, Math.round(s.progress * (panels.length - 1)));
+          document.getElementById('wc').textContent = '0' + (i + 1);
+          document.getElementById('wbar').style.transform = 'scaleX(' + (.2 + s.progress * .8) + ')';
+        } } });
+    panels.forEach(function(p){
+      gsap.from(p.querySelectorAll('.info>*'), { opacity: 0, y: 40, stagger: .06, duration: .8, ease: 'power3.out',
+        scrollTrigger: { trigger: p, containerAnimation: tw, start: 'left 70%' } });
+      gsap.from(p.querySelector('.stage'), { rotateY: -14, xPercent: 12, opacity: .3, ease: 'none',
+        scrollTrigger: { trigger: p, containerAnimation: tw, start: 'left right', end: 'left 30%', scrub: true } });
+    });
+  });
+  mm.add('(max-width: 900px)', function(){
+    panels.forEach(function(p){
+      gsap.from(p.querySelectorAll('.info>*, .stage'), { opacity: 0, y: 40, stagger: .06, duration: .8, ease: 'power3.out',
+        scrollTrigger: { trigger: p, start: 'top 80%' } });
+    });
+  });
+
+  /* custom cursor */
+  if (matchMedia('(pointer:fine)').matches) {
+    var c1 = document.getElementById('cur'), c2 = document.getElementById('cur2');
+    var x1 = gsap.quickTo(c1, 'x', { duration: .15 }), y1 = gsap.quickTo(c1, 'y', { duration: .15 });
+    var x2 = gsap.quickTo(c2, 'x', { duration: .5, ease: 'power3' }), y2 = gsap.quickTo(c2, 'y', { duration: .5, ease: 'power3' });
+    window.addEventListener('mousemove', function(e){ document.body.classList.add('moved'); x1(e.clientX); y1(e.clientY); x2(e.clientX); y2(e.clientY); });
+    document.querySelectorAll('a,button,.ba').forEach(function(el){
+      el.addEventListener('mouseenter', function(){ c2.classList.add('on'); });
+      el.addEventListener('mouseleave', function(){ c2.classList.remove('on'); });
+    });
+    document.querySelectorAll('[data-view]').forEach(function(el){
+      el.addEventListener('mouseenter', function(){ c2.classList.add('view'); c1.style.opacity = 0; });
+      el.addEventListener('mouseleave', function(){ c2.classList.remove('view'); c1.style.opacity = 1; });
+    });
+    /* magnetic button */
+    document.querySelectorAll('.mag').forEach(function(m){
+      m.addEventListener('mousemove', function(e){ var r = m.getBoundingClientRect();
+        gsap.to(m, { x: (e.clientX - r.left - r.width / 2) * .35, y: (e.clientY - r.top - r.height / 2) * .35, duration: .6, ease: 'power3.out' }); });
+      m.addEventListener('mouseleave', function(){ gsap.to(m, { x: 0, y: 0, duration: .9, ease: 'elastic.out(1,.4)' }); });
+    });
+  }
+
+  window.addEventListener('load', function(){ ScrollTrigger.refresh(); });
+})();
+</script>
 </body>
 </html>
