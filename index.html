@@ -239,9 +239,9 @@ section{position:relative;padding:clamp(96px,14vw,180px) var(--gut)}
 @media (max-width:900px){.bagrid{grid-template-columns:1fr}}
 
 /* service */
-.svc{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
-.svc>div{position:relative;padding:40px 28px 44px;border-right:1px solid var(--line);overflow:hidden;isolation:isolate}
-.svc>div:last-child{border-right:0}
+.svc{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.svc>div{position:relative;padding:40px 28px 44px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;isolation:isolate}
+.svc>div:nth-child(3n){border-right:0}
 .svc>div::before{content:"";position:absolute;inset:0;background:var(--accent);transform:scaleY(0);transform-origin:bottom;transition:transform .6s cubic-bezier(.7,0,.2,1);z-index:-1}
 .svc>div:hover::before{transform:none}
 .svc>div:hover{color:var(--ink)}
@@ -251,8 +251,8 @@ section{position:relative;padding:clamp(96px,14vw,180px) var(--gut)}
 .svc .n{position:absolute;top:30px;right:24px;font-family:var(--en);font-size:18px;opacity:.5}
 .svc b{display:block;font-size:19px;margin-bottom:12px}
 .svc p{font-size:13px;color:#bdb5a7;transition:color .3s}
-@media (max-width:1000px){.svc{grid-template-columns:1fr 1fr}.svc>div:nth-child(2){border-right:0}.svc>div{border-bottom:1px solid var(--line)}}
-@media (max-width:560px){.svc{grid-template-columns:1fr}.svc>div{border-right:0}}
+@media (max-width:1000px){.svc{grid-template-columns:1fr 1fr}.svc>div:nth-child(n){border-right:1px solid var(--line)}.svc>div:nth-child(2n){border-right:0}}
+@media (max-width:560px){.svc{grid-template-columns:1fr}.svc>div:nth-child(n){border-right:0}}
 
 /* price */
 #price{background:var(--paper);color:var(--ink)}
@@ -507,13 +507,15 @@ form.f{display:grid;grid-template-columns:1fr 1fr;gap:20px 18px;padding:clamp(24
 
 <section id="service" style="padding-top:0">
   <div class="sh">
-    <div><div class="lab">SERVICE <b>— できること</b></div><h2 class="split">予約につながる、<br>4つのしくみ。<span class="en">What I build in.</span></h2></div>
+    <div><div class="lab">SERVICE <b>— できること</b></div><h2 class="split">予約・販売・請求まで、<br>6つのしくみ。<span class="en">What I build in.</span></h2></div>
   </div>
   <div class="svc">
     <div><span class="n">01</span><div class="ic"><svg viewBox="0 0 52 52"><rect x="7" y="10" width="38" height="34" rx="4"/><path d="M7 20h38M17 6v8M35 6v8M17 30l5 5 10-10"/></svg></div><b>予約・申込フォーム</b><p>席の予約、施術の予約、体験申込、空室検索。電話に出られない時間も受け付けられます。</p></div>
     <div><span class="n">02</span><div class="ic"><svg viewBox="0 0 52 52"><rect x="15" y="4" width="22" height="44" rx="5"/><path d="M23 41h6"/><path d="M20 14h12M20 20h12M20 26h8"/></svg></div><b>スマホ最優先の設計</b><p>お客様の大半はスマホで見ています。片手で読めて、迷わず予約まで進める作りにします。</p></div>
     <div><span class="n">03</span><div class="ic"><svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="19"/><path d="M7 26h38M26 7c6 6 8 12 8 19s-2 13-8 19M26 7c-6 6-8 12-8 19s2 13 8 19"/></svg></div><b>多言語対応</b><p>日本語・英語などの切り替えに対応します。訪日のお客様にもそのまま案内できます。</p></div>
     <div><span class="n">04</span><div class="ic"><svg viewBox="0 0 52 52"><path d="M40 18a15 15 0 1 0 2 12"/><path d="M42 8v11H31"/><path d="M26 18v9l6 4"/></svg></div><b>公開後の更新代行</b><p>メニューや料金、営業時間の変更はご連絡いただくだけ。こちらで反映します。</p></div>
+    <div><span class="n">05</span><div class="ic"><svg viewBox="0 0 52 52"><path d="M6 16h40v7a4 4 0 0 0 0 8v7H6v-7a4 4 0 0 0 0-8z"/><path d="M33 16v22" stroke-dasharray="3 3"/><path d="M13 24h13M13 30h9"/></svg></div><b>交通チケット販売システム</b><p>船・バスなど交通機関のチケット予約・販売。便ごとの空き状況から、オンライン決済まで対応します。</p></div>
+    <div><span class="n">06</span><div class="ic"><svg viewBox="0 0 52 52"><path d="M12 5h22l8 8v34H12z"/><path d="M34 5v8h8"/><path d="M19 22h16M19 29h16M19 36h9"/></svg></div><b>請求管理システム</b><p>請求書の作成・発行と、入金状況の管理。毎月の請求作業の手間を減らします。</p></div>
   </div>
 </section>
 
